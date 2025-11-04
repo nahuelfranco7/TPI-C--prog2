@@ -1,22 +1,22 @@
 #pragma once
-
+# include<cstring>
 class Raza{
 
 private:
-    int idRaza;
-    char descripcionRaza[20];
-    char descripcionAnimal [20];
-    bool estadoRaza;
-
+    int _idRaza;
+    char _descripcionRaza[20];
+    char _descripcionAnimal[20];
+    bool _estadoRaza;
 public:
-    int getIdraza();
-    *char descripcionRaza();
-    *char descripcionAnimal();
-    bool estadoRaza();
-
-    void setIdraza(int);
-    void descripcionRaza(*char);
-    void descripcionAnimal(*char);
-    void estadoRaza(bool);
+    Raza();
+    int getIdRaza();
+    const char* getDescripcionRaza();
+    const char* getDescirpcionAnimal();
+    bool getEstadoRaza();
+private:
+    void setIdRaza(int id);
+    void setDescripcionRaza(const char* descripcion);
+    void setDescripcionAnimal(const char* descripcion);
+    void setEstadoRaza(bool estado);
 
 };

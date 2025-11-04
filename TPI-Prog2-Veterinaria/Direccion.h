@@ -1,7 +1,5 @@
 #pragma once
 #include <cstring>
-
-class Direccion {
 #pragma once
 #include <cstring> // para strncpy
 
@@ -15,10 +13,10 @@ private:
     int _codPostal;
 
 public:
-    // Constructor por defecto
+
     Direccion();
 
-    // Getters
+    //getters
     const char* getPais();
     const char* getProvincia();
     const char* getCiudad();
@@ -26,7 +24,7 @@ public:
     int getAltura();
     int getCodPostal();
 
-    // Setters
+    //setters
     void setPais(const char* pais);
     void setProvincia(const char* provincia);
     void setCiudad(const char* ciudad);

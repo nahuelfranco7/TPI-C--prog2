@@ -1,14 +1,15 @@
 #pragma once
 #include <string>
+#include "Direccion.h"
 class Persona{
 
-private:
+protected://esto será asignado por la clase hija
     int _id;
-    char _nombre[20];
-    char _apellido[20];
+    char _nombre[30];
+    char _apellido[30];
     int _DNI;
     Direccion _direccion;
-    int telefono;
+    int _telefono;
     char _email[40];
     bool _estado;
 public:

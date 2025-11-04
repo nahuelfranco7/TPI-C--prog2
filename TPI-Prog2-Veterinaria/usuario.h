@@ -1,21 +1,25 @@
 #pragma once
+# include <cstring>
 
 class Usuario{
 private:
-    int idUsuario = 0;
-    char clave[5] = {0};
-    int nivelSeguridad = 0;
+    int _idUsuario = 0;
+    char _clave[6] = {0};// 5 caracteres + '\0'
+    int _nivelSeguridad = 0;
+    bool _estado;
 
 public:
     Usuario();
-    Usuario(int, char, int);
+    Usuario(int id, const char* clave , int nivel, bool estado);
 
     //Getters
-    int getidUsuario();
-    *char getClave();
+    int getIdUsuario();
+    const char* getClave();
     int getNivelSeguridad();
+    bool getEstado();
     //Setters
-    void setidUsuario(int);
-    void setClave(*char);
-    void setNivelSeguridad(int);
+    void setIdUsuario(int id);
+    void setClave(const char* clave);
+    void setNivelSeguridad(int nivel);
+    void setEstado(bool estado);
 };

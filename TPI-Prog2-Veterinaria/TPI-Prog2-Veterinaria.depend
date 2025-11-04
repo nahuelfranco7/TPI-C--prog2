@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1762040187 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
+	<iostream>
+
+1762227031 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"Direccion.h"
+
+1762227181 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\direccion.h
+	<cstring>
+	<cstring>
+
+1762227203 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\raza.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"Raza.h"
+
+1762214067 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\raza.h
+	<cstring>
+
+1762227287 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\usuario.cpp
+	<iostream>
+	"Usuario.h"
+
+1762227304 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
+	<cstring>
+
