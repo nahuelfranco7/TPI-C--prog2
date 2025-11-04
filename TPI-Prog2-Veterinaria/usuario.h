@@ -22,4 +22,5 @@ public:
     void setClave(const char* clave);
     void setNivelSeguridad(int nivel);
     void setEstado(bool estado);
+
 };
