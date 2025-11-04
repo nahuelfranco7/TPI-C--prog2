@@ -34,13 +34,15 @@
 		</Compiler>
 		<Unit filename="Direccion.cpp" />
 		<Unit filename="Direccion.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
 		<Unit filename="Raza.cpp" />
-		<Unit filename="Raza.h" />
-		<Unit filename="Usuario.cpp" />
-		<Unit filename="Usuario.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="raza.h" />
+		<Unit filename="usuario.cpp" />
+		<Unit filename="usuario.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
