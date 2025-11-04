@@ -5,24 +5,9 @@
 
 using namespace std;
 
-/*
+
 //getters
-    int getIdMascota();
-    const char* getNombreMascota();
-    Fecha getFechaNac();
-    int getIdRaza();
-    const char* getSexoAnimal();
-    int getIdClienteDueño();
-    bool getEstadoMascota();
-    //setters
-    void setIdMascota(int id);
-    void setNombreMascota(const char* nombre);
-    void setFechaNac(Fecha fecha);
-    void setIdRaza(int id);
-    void setSexoAnimal(const char* sexo);
-    void setIdCliente(int id);
-    void setEstadoMascota(int id);
-*/
+
 
 int Mascota::getIdMascota(){return _idMascota;}
 const char* Mascota::getNombreMascota(){return _nombreMascota;}

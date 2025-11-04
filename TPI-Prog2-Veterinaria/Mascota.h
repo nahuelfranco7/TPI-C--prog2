@@ -3,15 +3,7 @@
 # include "Fecha.h"
 
 class Mascota{
-/*
-+ idMascota: int
-+ nombreMascota: char[20]
-+ fechaNac: Fecha
-+ idRaza: int
-+ sexoAnimal: char
-+ idClienteDueño: int
-+ estadoMascota: bool
-*/
+
 private:
     int _idMascota;
     char _nombreMascota[20];
