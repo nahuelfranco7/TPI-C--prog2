@@ -85,3 +85,13 @@
 1762265811 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.h
 	<cstring>
 
+1762269849 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascota.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"Mascota.h"
+
+1762269952 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascota.h
+	<cstring>
+	"Fecha.h"
+
