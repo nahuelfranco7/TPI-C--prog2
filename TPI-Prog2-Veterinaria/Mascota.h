@@ -13,14 +13,14 @@ private:
     int _idClienteDueno;
     bool _estadoMascota;
 public:
-    //getters
-    int getIdMascota();
-    const char* getNombreMascota();
-    Fecha getFechaNac();
-    int getIdRaza();
-    char getSexoAnimal();
-    int getIdClienteDueno();
-    bool getEstadoMascota();
+    //getters(todos llevan const al final para que puedan ser llamados luego desde los métodos que utilizan registros constantes)
+    int getIdMascota() const;
+    const char* getNombreMascota() const;
+    Fecha getFechaNac() const;
+    int getIdRaza() const;
+    char getSexoAnimal()const ;
+    int getIdClienteDueno()const;
+    bool getEstadoMascota()const;
     //setters
     void setIdMascota(int id);
     void setNombreMascota(const char* nombre);
@@ -30,3 +30,4 @@ public:
     void setIdClienteDueno(int id);
     void setEstadoMascota(bool estado);
 };
+

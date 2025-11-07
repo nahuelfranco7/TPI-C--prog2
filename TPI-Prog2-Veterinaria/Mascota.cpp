@@ -9,13 +9,13 @@ using namespace std;
 //getters
 
 
-int Mascota::getIdMascota(){return _idMascota;}
-const char* Mascota::getNombreMascota(){return _nombreMascota;}
-Fecha Mascota::getFechaNac(){return _fechaNac;}
-int Mascota::getIdRaza(){return _idRaza;}
-char Mascota::getSexoAnimal(){return _sexoAnimal;}
-int Mascota::getIdClienteDueno(){return _idClienteDueno;}
-bool Mascota::getEstadoMascota(){return _estadoMascota;}
+int Mascota::getIdMascota()const{return _idMascota;}
+const char* Mascota::getNombreMascota()const{return _nombreMascota;}
+Fecha Mascota::getFechaNac()const{return _fechaNac;}
+int Mascota::getIdRaza()const{return _idRaza;}
+char Mascota::getSexoAnimal()const{return _sexoAnimal;}
+int Mascota::getIdClienteDueno()const{return _idClienteDueno;}
+bool Mascota::getEstadoMascota()const{return _estadoMascota;}
 
 void Mascota::setIdMascota(int id){
 _idMascota=id;

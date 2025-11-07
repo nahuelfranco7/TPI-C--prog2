@@ -23,14 +23,17 @@ class MascotaArchivo{
 
     int buscarPorId(int id);
     int contarRegistros();
+    int generarNuevoID();
 
     void cargarCadena(char *palabra, int tam);
+    bool cargarMascota();
     void listarTodos();
     void eliminar(int pos);
     void mostrarMascota(int pos, const Mascota &reg);
 
     bool modificar(int pos);
-    bool cargarMascota(const Mascota &reg);      // 🔹 Faltaba "&" antes del parámetro reg
+    bool cargarMascota(const Mascota &reg);
     bool modificarMascota(int pos, const Mascota &reg);
+    bool leerMascota(int pos, Mascota &reg);//abre el archivo con rb y carga un reg en &reg
 
 };
