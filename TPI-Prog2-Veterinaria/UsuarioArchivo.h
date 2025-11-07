@@ -4,18 +4,17 @@
 
 class UsuarioArchivo{
 private:
-    char _nombreArchivo[30];
-    void cargarCadena(char *palabra, int tam);
+    const char _nombreArchivo[30] = "Usuarios.dat";
 public:
-    //constructor
-    UsuarioArchivo(const char *nombreArchivo = "Usuarios.dat") {
+    //No voy a usar constructor
+   /* UsuarioArchivo(const char *nombreArchivo = "Usuarios.dat") {
         strncpy(_nombreArchivo, nombreArchivo, 29);
         _nombreArchivo[29] = '\0';
-    }
+    }*/
+    const char* getNombreArchivo() const { return _nombreArchivo; }
     //getters
     const char* getNombreArchivo();
-    //setters
-    void setNombreArchivo(const char* nomberArchivo);
+
     //métodos
     bool cargarUsuario(const Usuario &reg);
     bool modificarUsuario(int pos,const Usuario &reg);
@@ -26,5 +25,6 @@ public:
     void listarTodos();
     bool eliminar(int id);
     bool modificar(int id);
+    void cargarCadena(char *palabra, int tam);
 
 };

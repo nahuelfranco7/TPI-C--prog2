@@ -15,7 +15,7 @@ using namespace std;
     bool modificarUsuario(int pos,const Usuario &reg);
     bool leerUsuario(int pos, Usuario &reg);
     void mostrarUsuario(int pos);
-    int buscarPorId(int id);
+    int buscarPorId(int id);//devuelve la posición
     int contarRegistros();
     void listarTodos();
     bool eliminar(int id);
@@ -25,11 +25,7 @@ using namespace std;
 const char* UsuarioArchivo::getNombreArchivo() {
     return _nombreArchivo;
 }
-//setter
-void UsuarioArchivo::setNombreArchivo(const char* nombreArchivo) {
-    strncpy(_nombreArchivo,nombreArchivo,29);
-    _nombreArchivo[29] = '\0';
-}
+
 //cargar cadena------------------------------------------
 void UsuarioArchivo::cargarCadena(char *palabra, int tam){
     int i = 0;
