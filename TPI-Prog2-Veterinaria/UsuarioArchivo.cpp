@@ -10,7 +10,7 @@ using namespace std;
     const char* getNombreArchivo();
     //setters
     void setNombreArchivo(const char nomberArchivo);
-    //m�todos
+    //métodos
     bool cargarUsuario(const Usuario &reg);
     bool modificarUsuario(int pos,const Usuario &reg);
     bool leerUsuario(int pos, Usuario &reg);
@@ -89,12 +89,12 @@ int UsuarioArchivo::buscarPorId(int id) {
     while(fread(&reg,sizeof(Usuario),1,p)){
         if (reg.getIdUsuario()==id){
             fclose(p);
-            return pos;
+            return pos;//si sale por acá lo encontro y devuelve la posición
         }
         pos++;
     }
     fclose(p);
-    return -1;//Si sale por ac� no lo encontr�
+    return -1;//Si sale por acá no lo encontró
 }
 
 int UsuarioArchivo::contarRegistros(){
@@ -127,59 +127,96 @@ bool UsuarioArchivo::eliminar(int id) {
 }
 
 bool UsuarioArchivo::modificar(int id) {
-    int pos = buscarPorId(id);
-    if (pos == -1) {
-        cout << "No se encontr� un usuario con ese ID." << endl;
-        return false;
+    Usuario reg;
+    int pos;
+    char opcion;
+
+
+    while (true) {
+        pos = buscarPorId(id);
+        if (pos== -1) {
+            cout<<"No se encontró un usuario con ese ID."<< endl;
+            cout<<"¿Desea intentar nuevamente? (S/N): ";
+            cin>>opcion;
+
+            if(opcion== 'S' || opcion== 's') {
+                cout<<"Ingrese nuevamente el ID: ";
+                cin>>id;
+
+            }else{
+                cout<<"Operación cancelada."<<endl;
+                return false;
+            }
+        }else{
+            break;// ID encontrado → salimos del bucle
+        }
     }
 
-    Usuario reg;
-    if (!leerUsuario(pos, reg)) {
+    if(!leerUsuario(pos, reg)){//leer usuario me carga en registro el obj traido del archivo binario
         cout << "Error al leer el registro." << endl;
         return false;
     }
 
-    cout << "=== MODIFICAR USUARIO ===" << endl;
-    cout << "ID: " << reg.getIdUsuario() << endl;
+    cout<<"=== MODIFICAR USUARIO ==="<<endl;
+    cout<<"ID: " << reg.getIdUsuario()<<endl;
 
-    // Cambiar clave
+    int opcionMenu;
+    do{
+        cout<<"\n--- MENÚ DE MODIFICACIÓN ---\n";
+        cout<<"1. Cambiar clave\n";
+        cout<<"2. Cambiar nivel de seguridad\n";
+        cout<<"3. Cambiar estado\n";
+        cout<< "4. Guardar cambios y salir\n";
+        cout<< "Seleccione una opción: ";
+        cin>>opcionMenu;
 
-    char nuevaClave[5];
-cout << "Ingrese nueva clave: ";
-cargarCadena(nuevaClave, 5);
-reg.setClave(nuevaClave);
+        switch (opcionMenu){
+            case 1:{
+                char nuevaClave[5];
+                cout << "Ingrese nueva clave: ";
+                cargarCadena(nuevaClave,5);
+                reg.setClave(nuevaClave);
+                break;
+            }
+            case 2:{
+                int nivel;
+                do {
+                    cout<<"Ingrese nuevo nivel de seguridad (1 a 4): ";
+                    cin>>nivel;
 
-    // Cambiar nivel de seguridad (1 a 4)
-    int nivel;
-    do {
-        cout << "Ingrese nuevo nivel de seguridad (1 a 4): ";
-        cin >> nivel;
+                    if(nivel< 1 || nivel>4) {
+                        cout<< "Valor inválido. Debe estar entre 1 y 4."<<endl;
+                                             }else {
+                        reg.setNivelSeguridad(nivel);
+                        break;
+                    }
+                } while(true);
+                break;
+            }
+            case 3: {
+                int estado;
+                do {
+                    cout<<"Ingrese nuevo estado (1=Activo, 0=Inactivo): ";
+                    cin>>estado;
 
-        if (cin.fail() || nivel < 1 || nivel > 4) {
-            cout << "Valor inv�lido. Debe estar entre 1 y 4." << endl;
-            cin.clear();
-            cin.ignore(100, '\n');
-        } else {
-            reg.setNivelSeguridad(nivel);
-            break;
+                    if (estado != 0 && estado != 1) {
+                        cout << "Valor inválido. Debe ser 0 o 1." <<endl;
+
+                    }else{
+                        reg.setEstado(estado);
+                        break;
+                    }
+                }while(true);
+                break;
+            }
+            case 4:
+                cout<< "Guardando cambios..."<<endl;
+                return modificarUsuario(pos,reg);
+            default:
+                cout<<"Opción inválida. Intente nuevamente."<<endl;
+                break;
         }
-    } while (true);
+    } while(true);
 
-    // Cambiar estado (1 o 0)
-    int estado;
-    do {
-        cout << "Ingrese nuevo estado (1=Activo, 0=Inactivo): ";
-        cin >> estado;
-
-        if (cin.fail() || (estado != 0 && estado != 1)) {
-            cout << "Valor inv�lido. Debe ser 0 o 1." << endl;
-            cin.clear();
-            cin.ignore(100, '\n');
-        } else {
-            reg.setEstado(estado);
-            break;
-        }
-    } while (true);
-
-    return modificarUsuario(pos, reg);
+    return true;
 }
