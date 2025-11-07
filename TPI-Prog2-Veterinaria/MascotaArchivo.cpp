@@ -90,20 +90,23 @@ bool MascotaArchivo::cargarMascota() {
 
     cout << "Nombre de la mascota: ";
     cargarCadena(nombre, sizeof(nombre));
-    reg.setNombreMascota(nombre);
+    reg.setNombreMascota(nombre);//validar
 
     cout << "Fecha de nacimiento:\n";
-    fecha.cargar();
+    fecha.cargar();//validar
+
     reg.setFechaNac(fecha);
 
     // id de raza
     cout << "ID de raza: ";
-    cin >> idRaza;
+    cin >> idRaza;//validar
+
     reg.setIdRaza(idRaza);
 
     // sexo
     cout << "Sexo del animal (M/H): ";
-    cin >> sexo;
+    cin >> sexo;//validar
+
     if (sexo != 'M' && sexo != 'H') {
         cout << "Sexo inválido, guardando como 'M' por defecto.\n";
         sexo = 'M';
@@ -112,7 +115,8 @@ bool MascotaArchivo::cargarMascota() {
 
     // id dueño
     cout << "ID del cliente duenio: ";
-    cin >> idDueno;
+    cin >> idDueno;//validar
+
     reg.setIdClienteDueno(idDueno);
 
     reg.setEstadoMascota(true);
@@ -192,4 +196,16 @@ bool MascotaArchivo::modificar(int pos) {
 
     fclose(p);
     return ok;
+}
+
+bool MascotaArchivo::modificarMascota(int pos, const Mascota &reg) {
+    FILE *p = fopen(_nombreArchivo, "rb+"); //lectura y escritura
+    if (p == nullptr) return false;
+
+    fseek(p, pos * sizeof(Mascota), SEEK_SET); //Nos movemos a la posición exacta
+
+    bool escribio = fwrite(&reg, sizeof(Mascota), 1, p); //Sobrescribe el registro
+
+    fclose(p);
+    return escribio;
 }
