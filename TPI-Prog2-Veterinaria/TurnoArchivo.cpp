@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <cstring>
 #include "TurnoArchivo.h"
+#include "Fecha.h"
+
 using namespace std;
 
 /*
@@ -66,7 +68,7 @@ void TurnoArchivo::cargarCadena(char *palabra, int tam){
     fflush(stdin);
 }
 /*----------------------------------------------------*/
-bool TurnoArchivo::cargarTurno(const Mascota &reg) {
+bool TurnoArchivo::cargarTurno(const Turno &reg) {
     FILE *p = fopen(_nombreArchivo, "ab");
     if (p == nullptr) return false;
     bool ok = fwrite(&reg, sizeof(Turno), 1, p);
@@ -83,11 +85,17 @@ bool TurnoArchivo::cargarTurno(){
 
     reg.setIdTurno(generarNuevoID);
 
-    cout<<"
+    cout<<"Ingrese id Mascota:"<<endl;
+    cin>> idMascota;
+    reg.setIdMascota(idMascota);
 
-    /*  int _idTurno;
-    int _idMascota;
-    int _idVet;
-    Fecha _fechaTurno;
-    bool _estadoTurno;*/
+    cout<<"Ingrese id Veterinario: "<<endl;
+    cin>> idVet;
+    reg.setIdVet(idVet);
+
+    cout<<"Ingrese la fecha del turno: "<<endl;
+    fechaTurno.cargar();
+    reg.setFechaTurno(fechaTurno);
 }
+
+
