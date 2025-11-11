@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Clientes.cpp" />
+		<Unit filename="Clientes.h" />
+		<Unit filename="ClientesArchivo.cpp" />
+		<Unit filename="ClientesArchivo.h" />
 		<Unit filename="DetalleFactura.cpp" />
 		<Unit filename="DetalleFactura.h" />
 		<Unit filename="Direccion.cpp" />
@@ -55,6 +59,8 @@
 		<Unit filename="TurnoArchivo.h" />
 		<Unit filename="UsuarioArchivo.cpp" />
 		<Unit filename="UsuarioArchivo.h" />
+		<Unit filename="Veterinario.cpp" />
+		<Unit filename="Veterinario.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="raza.h" />
 		<Unit filename="usuario.cpp" />

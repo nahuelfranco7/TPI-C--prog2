@@ -12,6 +12,7 @@ void setIdCliente();
 int Clientes::getIdCliente(){
 return _idCliente;
 }
+
 void Clientes::setIdCliente(int id){
 _idCliente=id;
 }
