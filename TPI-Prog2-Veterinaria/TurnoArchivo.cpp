@@ -14,7 +14,7 @@ using namespace std;
 
     void cargarCadena(char *palabra, int tam);
     bool cargarTurno();
-    void listarTodos();
+    void listarTodos(); falta este
     void eliminar(int pos);
     void mostrarTurno(int pos, const Turno &reg);
 
@@ -82,6 +82,7 @@ bool TurnoArchivo::cargarTurno(){
     int idMascota;
     int idVet;
     Fecha fechaTurno;
+
     idTurno=generarNuevoId();
     reg.setIdTurno(idTurno);
 
@@ -98,4 +99,53 @@ bool TurnoArchivo::cargarTurno(){
     reg.setFechaTurno(fechaTurno);
 }
 
+void TurnoArchivo::eliminar(int pos){
+    //esto vendria a ser un borrado logico?
 
+}
+
+void TurnoArchivo::mostrarTurno(int pos, const Turno &reg){
+    cout<<"---------------------------------"<<endl;
+    cout<<"POSICION EN EL ARCHIVO: "<<pos;
+    cout<<"ID TURNO: "<<reg.getIdTurno();
+    cout<<"VETERINARIO: "<<reg.getIdVet();
+    cout<<"ID MASCOTA: "<<reg.getIdMascota();
+    cout<<"FECHA DEL TURNO: "<<reg.getFechaTurno();
+} /// terminar
+
+bool TurnoArchivo::modificar(int pos){
+    Turno reg;
+    FILE *p = fopen(_nombreArchivo,"rb+");
+    if (p==nullptr) return false;
+
+    fseek(p,pos*sizeof(Turno),SEEK_SET);
+    fread(&reg,sizeof(Turno),1,p);
+
+    //Muestra el reg que vamos a modificar********* tengo que crear
+    cout << "Registro actual:\n";
+    mostrarTurno(pos, reg);
+
+    cout << "\nIngrese los nuevos datos:\n";
+    cargarTurno();  //Tengo que crear***
+
+    //va de nuevo posición del registro para sobrescribirlo
+    fseek(p, pos * sizeof(Turno), SEEK_SET);
+
+    bool ok = fwrite(&reg, sizeof(Turno), 1, p);//creo una var booleana para devolver si es que carga true o false
+
+    fclose(p);
+    return ok;
+
+}
+
+bool TurnoArchivo::modificarTurno(int pos, const Turno &reg) {
+    FILE *p = fopen(_nombreArchivo, "rb+"); //lectura y escritura
+    if (p == nullptr) return false;
+
+    fseek(p, pos * sizeof(Turno), SEEK_SET); //Nos movemos a la posición exacta
+
+    bool escribio = fwrite(&reg, sizeof(Turno), 1, p); //Sobrescribe el registro
+
+    fclose(p);
+    return escribio;
+}
