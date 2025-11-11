@@ -1,0 +1,11 @@
+# pragma once
+# include <cstring>
+# include "Persona.h"
+
+class Clientes:Persona{
+private:
+    int _idCliente;
+public:
+    int getIdCliente();
+    void setIdCliente(int id);
+};
