@@ -29,7 +29,7 @@ int MascotaArchivo::buscarPorId(int id){
     Mascota reg;
     int pos=0;
     FILE* p=fopen(_nombreArchivo,"rb");
-    if(p==nullptr)return 1;
+    if(p==nullptr)return -1;
     while(fread(&reg,sizeof(Mascota),1,p)){
         if(reg.getIdMascota()==id){
             fclose(p);
@@ -38,7 +38,6 @@ int MascotaArchivo::buscarPorId(int id){
         pos++;
     }
 return -1;
-
 }
 
 int MascotaArchivo::contarRegistros(){

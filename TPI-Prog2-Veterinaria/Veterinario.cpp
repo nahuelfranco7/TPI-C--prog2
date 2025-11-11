@@ -20,6 +20,6 @@ return _fechaIngresoVet;
 void Veterinario::setMatriculaVet(int matricula){
 _matriculaVet=matricula;
 }
-void Veterinario::getFechaIngreso(Fecha fechaIngreso){
+void Veterinario::setFechaIngresoVet(Fecha fechaIngreso){
 _fechaIngresoVet=fechaIngreso;
 }

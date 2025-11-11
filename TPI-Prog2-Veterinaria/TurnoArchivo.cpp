@@ -53,7 +53,7 @@ int TurnoArchivo::contarRegistros(){
     return cantidadRegistros;
 }
 
-int TurnoArchivo::generarNuevoID() {
+int TurnoArchivo::generarNuevoId() {
     return contarRegistros() + 1;
 }
 //cargar cadena------------------------------------------
@@ -82,8 +82,8 @@ bool TurnoArchivo::cargarTurno(){
     int idMascota;
     int idVet;
     Fecha fechaTurno;
-
-    reg.setIdTurno(generarNuevoID);
+    idTurno=generarNuevoId();
+    reg.setIdTurno(idTurno);
 
     cout<<"Ingrese id Mascota:"<<endl;
     cin>> idMascota;

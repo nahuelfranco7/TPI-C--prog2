@@ -1,5 +1,5 @@
 #pragma once
-#include <c.string>
+#include <cstring>
 #include "Turno.h"
 
 /*
