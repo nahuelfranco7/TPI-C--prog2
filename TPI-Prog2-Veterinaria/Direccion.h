@@ -31,5 +31,10 @@ public:
     void setCalle(const char* calle);
     void setAltura(int altura);
     void setCodPostal(int codPostal);
+    //métodos
+    void cargarCadena(char *palabra, int tam);
+
+    void cargarDireccion();
+    void mostrarDireccion();
 
 };

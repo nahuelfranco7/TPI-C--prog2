@@ -104,19 +104,8 @@ bool ClientesArchivo::cargarClientes(const Clientes &reg){
 
     return escribio;
 }
-
+/*--------------------------------------------------------------------*/
 bool ClientesArchivo::cargarClientes(){
-/*
-- ID: int
-- nombre: char [20]
-- apellido: char [20]
-- DNI: char [15]
-- _direccion: Direccion
-- telefono: char [20]
-- email: char[40]
-- estado: bool
-- idCliente??
-*/
     Clientes reg;
     char nombre[20];
     char apellido[20];
@@ -125,6 +114,8 @@ bool ClientesArchivo::cargarClientes(){
     char telefono[15];
     char email[40];
 
+    reg.setIdCliente(generarNuevoID());
+    cout<< "ID ASIGNADO AUTOMATICAMENTE: "<<reg.getIdCliente()<<endl;
 
     cout<<"INGRESE NOMBRE DE CLIENTE: "<<endl;
     cargarCadena(nombre,20);
