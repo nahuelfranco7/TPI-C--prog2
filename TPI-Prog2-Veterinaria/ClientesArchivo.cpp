@@ -149,3 +149,42 @@ bool ClientesArchivo::cargarClientes(){
         return false;
     }
 }
+
+void ClientesArchivo::listarTodos(){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "ERROR AL ABRIR EL ARCHIVO DE CLIENTES." << endl;
+        return;
+    }
+
+    Clientes reg;
+    int i = 0;
+
+    cout << "=== LISTADO DE CLIENTES ===" << endl;
+
+    while (fread(&reg, sizeof(Clientes), 1, p) == 1) {
+        if (reg.getEstado() == true) {
+            cout << "-----------------------------" << endl;
+            cout << "REGISTRO N°: " << i + 1 << endl;
+            cout << "ID CLIENTE: " << reg.getIdCliente() << endl;
+            cout << "NOMBRE: " << reg.getNombre() << endl;
+            cout << "APELLIDO: " << reg.getApellido() << endl;
+            cout << "DNI: " << reg.getDNI() << endl;
+
+            // mostrar dirección
+            Direccion dir = reg.getDireccion();
+            cout << "PAIS: " << dir.getPais() << endl;
+            cout << "PROVINCIA: " << dir.getProvincia() << endl;
+            cout << "CIUDAD: " << dir.getCiudad() << endl;
+            cout << "CALLE: " << dir.getCalle() << " " << dir.getAltura() << endl;
+            cout << "COD. POSTAL: " << dir.getCodPostal() << endl;
+
+            cout << "TELEFONO: " << reg.getTelefono() << endl;
+            cout << "EMAIL: " << reg.getEmail() << endl;
+        }
+        i++;
+    }
+
+    fclose(p);
+}
+

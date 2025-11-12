@@ -23,20 +23,20 @@ class ClientesArchivo{
     public:
     const char* getNombreArchivo();
 
-    int buscarporId(int id);
-    int contarRegistros();
-    int generarNuevoID();
+    int buscarporId(int id);//ok
+    int contarRegistros();//ok
+    int generarNuevoID();//ok
 
-    void cargarCadena(char *palabra, int tam);
-    bool cargarClientes();
-    void listarTodos();
-    void eliminar(int pos);
-    void mostrarClientes(int pos, const Clientes &reg);
+    void cargarCadena(char *palabra, int tam);//ok nuevo método
+    bool cargarClientes();//ok
+    void listarTodos();//ok
+    void eliminar(int pos);//falta
+    void mostrarClientes(int pos, const Clientes &reg);//falta
 
-    bool modificar(int pos);
+    bool modificar(int pos);//falta
     bool cargarClientes(const Clientes &reg);
-    bool modificarClientes(int pos, const Clientes &reg);
-    bool leerClientes(int pos, Clientes &reg);//abre el archivo con rb y carga un reg en &reg
+    bool modificarClientes(int pos, const Clientes &reg);//falta
+    bool leerClientes(int pos, Clientes &reg);//abre el archivo con rb y carga un reg en &reg //falta
 
 
 };
