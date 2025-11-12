@@ -1,5 +1,6 @@
 #pragma once
 # include <cstring>
+# include "Mascota.h"
 # include "DetalleFactura.h"
 
 class DetalleFacturaArchivo{

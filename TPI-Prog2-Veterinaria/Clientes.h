@@ -2,7 +2,7 @@
 # include <cstring>
 # include "Persona.h"
 
-class Clientes:Persona{
+class Clientes: public Persona{
 private:
     int _idCliente;
 public:

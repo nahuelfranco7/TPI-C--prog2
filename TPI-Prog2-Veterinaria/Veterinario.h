@@ -2,7 +2,7 @@
 #include <cstring>
 #include "Persona.h"
 #include "Fecha.h"
-class Veterinario:Persona{
+class Veterinario: public Persona{
 private:
     int _matriculaVet;
     Fecha _fechaIngresoVet;

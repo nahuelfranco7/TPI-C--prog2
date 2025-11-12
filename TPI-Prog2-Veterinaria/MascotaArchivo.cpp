@@ -41,6 +41,7 @@ return -1;
 }
 
 int MascotaArchivo::contarRegistros(){
+
     FILE* p=fopen(_nombreArchivo,"rb");
     if (p==nullptr) return -1;
     fseek(p,0,SEEK_END);

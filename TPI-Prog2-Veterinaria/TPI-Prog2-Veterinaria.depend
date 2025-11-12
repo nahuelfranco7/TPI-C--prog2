@@ -28,151 +28,173 @@
 1762227304 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
 	<cstring>
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Direccion.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\direccion.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\direccion.h
 	<cstring>
 	<cstring>
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
+1762904502 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
 	<iostream>
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\persona.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\persona.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Persona.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\persona.h
+1762979776 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\persona.h
 	<string>
 	"Direccion.h"
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\raza.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\raza.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Raza.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\raza.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\raza.h
 	<cstring>
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuario.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuario.cpp
 	<iostream>
 	"Usuario.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
+1762904729 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
 	<cstring>
+	"Persona.h"
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\fecha.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\fecha.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Fecha.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\fecha.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\fecha.h
 	<cstring>
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"ProductosYservicios.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.h
 	<cstring>
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascota.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascota.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Mascota.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascota.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascota.h
 	<cstring>
 	"Fecha.h"
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turno.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turno.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Turno.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turno.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turno.h
 	<cstring>
 	"Fecha.h"
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\factura.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\factura.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Factura.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\factura.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\factura.h
 	<cstring>
 	"Fecha.h"
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"DetalleFactura.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.h
 	<cstring>
 
-1762821529 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	<cstdio>
 	"UsuarioArchivo.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.h
 	<cstring>
 	"Usuario.h"
 
-1762823223 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
+1762902300 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"MascotaArchivo.h"
 
-1762821529 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.h
 	<cstring>
 	"Mascota.h"
 
-1762822027 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Clientes.h"
 
-1762822009 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientes.h
+1762903158 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientes.h
 	<cstring>
 	"Persona.h"
 
-1762823613 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
+1762901982 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"DetalleFacturaArchivo.h"
 
-1762823570 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.h
+1762902867 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.h
 	<cstring>
+	"Mascota.h"
 	"DetalleFactura.h"
 
-1762823820 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.cpp
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"TurnoArchivo.h"
 	"Fecha.h"
 
-1762823343 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.h
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.h
 	<cstring>
 	"Turno.h"
+
+1762900577 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"Veterinario.h"
+
+1762903202 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.h
+	<cstring>
+	"Persona.h"
+	"Fecha.h"
+
+1762979836 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
+	<iostream>
+	<cstring>
+	"ClientesArchivo.h"
+
+1762900577 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.h
+	"Clientes.h"
+	<cstring>
 

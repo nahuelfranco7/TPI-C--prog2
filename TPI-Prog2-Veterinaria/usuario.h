@@ -1,7 +1,8 @@
 #pragma once
 # include <cstring>
+#include "Persona.h"
 
-class Usuario{
+class Usuario : public Persona{
 private:
     int _idUsuario = 0;
     char _clave[6] = {0};// 5 caracteres + '\0'
