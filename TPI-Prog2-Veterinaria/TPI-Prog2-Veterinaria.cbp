@@ -50,6 +50,8 @@
 		<Unit filename="Mascota.h" />
 		<Unit filename="MascotaArchivo.cpp" />
 		<Unit filename="MascotaArchivo.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
 		<Unit filename="ProductosYservicios.cpp" />
