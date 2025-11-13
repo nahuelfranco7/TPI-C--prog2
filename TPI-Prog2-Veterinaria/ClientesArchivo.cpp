@@ -12,7 +12,7 @@ using namespace std;
     void cargarCadena(char *palabra, int tam);
     bool cargarClientes(); HASTA ACA LLEGUE XD
     void listarTodos();
-    void eliminar(int pos);
+    bool eliminar(int pos);
     void mostrarClientes(int pos, const Clientes &reg);
 
     bool modificar(int pos);
@@ -127,10 +127,10 @@ bool ClientesArchivo::cargarClientes(){
 
     cout<<"INGRESE DNI: "<<endl;
     cargarCadena(DNI,19);
-    reg.setDNI(DNI); //Creo que podemos poner directamente reg.setdni y ya se carga.
+    reg.setDNI(DNI);
 
     cout<<"INGRESE DIRECCION DEL CLIENTE: "<<endl;
-    /*cin>> ///Aca creo que podríamos poner un cargarDireccion para que pida directamente todos los datos de direccion.*/
+    ///cargar direccion
 
     cout<<"INGRESE EL TELEFONO: "<<endl;
     cargarCadena(telefono,14);
@@ -188,3 +188,31 @@ void ClientesArchivo::listarTodos(){
     fclose(p);
 }
 
+bool ClientesArchivo::eliminar(int pos){
+    FILE *p = fopen(_nombreArchivo,"rb+");
+    if (p==nullptr){
+            cout<<"ERROR AL ABRIR EL ARCHIVO DE CLIENTES"<<endl;
+    }
+
+    Clientes reg;
+
+    fseek(p,pos*sizeof(Clientes),SEEK_SET);
+
+    if (fread(&reg,sizeof(Clientes),1,p)!=1){
+        fclose(p);
+        cout<<"NO SE PUDO LEER EL REGISTRO EN LA POSICION INDICADA"<<endl;
+        return false;
+    }
+    reg.setEstado(false);
+
+    //Volver a posicionarse en la misma posición para sobrescribir
+    fseek(p,pos*sizeof(Clientes),SEEK_SET);
+
+    //Escribe en el registro modificado
+    bool ok = fwrite(&reg,sizeof(Clientes),1,p);
+
+    fclose(p);
+    return ok;
+}
+
+    void mostrarClientes(int pos, const Clientes &reg);

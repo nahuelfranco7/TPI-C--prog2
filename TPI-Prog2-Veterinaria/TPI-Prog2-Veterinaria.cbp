@@ -38,6 +38,8 @@
 		<Unit filename="ClientesArchivo.h" />
 		<Unit filename="DetalleFactura.cpp" />
 		<Unit filename="DetalleFactura.h" />
+		<Unit filename="DetalleFacturaArchivo.cpp" />
+		<Unit filename="DetalleFacturaArchivo.h" />
 		<Unit filename="Direccion.cpp" />
 		<Unit filename="Direccion.h" />
 		<Unit filename="Factura.cpp" />

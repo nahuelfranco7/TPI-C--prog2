@@ -1,5 +1,6 @@
 #pragma once
 #include "Clientes.h"
+#include "Direccion.h"
 #include <cstring>
 
 /*
@@ -30,7 +31,7 @@ class ClientesArchivo{
     void cargarCadena(char *palabra, int tam);//ok nuevo método
     bool cargarClientes();//ok
     void listarTodos();//ok
-    void eliminar(int pos);//falta
+    bool eliminar(int pos);//ok
     void mostrarClientes(int pos, const Clientes &reg);//falta
 
     bool modificar(int pos);//falta
