@@ -4,24 +4,6 @@
 
 using namespace std;
 
-/*
-    int buscarporId(int id);
-    int contarRegistros();
-    int generarNuevoID();
-
-    void cargarCadena(char *palabra, int tam);
-    bool cargarClientes(); HASTA ACA LLEGUE XD
-    void listarTodos();
-    bool eliminar(int pos);
-    void mostrarClientes(int pos, const Clientes &reg);
-
-    bool modificar(int pos);
-    bool cargarClientes(const Clientes &reg);
-    bool modificarClientes(int pos, const Clientes &reg);
-    bool leerClientes(int pos, Clientes &reg);//abre el archivo con rb y carga un reg en &reg
-
-*/
-
 const char* ClientesArchivo::getNombreArchivo(){
 return _nombreArchivo;
 }
@@ -130,7 +112,10 @@ bool ClientesArchivo::cargarClientes(){
     reg.setDNI(DNI);
 
     cout<<"INGRESE DIRECCION DEL CLIENTE: "<<endl;
-    ///cargar direccion
+    Direccion dir;
+    dir.cargarDireccion();
+    reg.setDireccion(dir);
+
 
     cout<<"INGRESE EL TELEFONO: "<<endl;
     cargarCadena(telefono,14);
@@ -215,4 +200,4 @@ bool ClientesArchivo::eliminar(int pos){
     return ok;
 }
 
-    void mostrarClientes(int pos, const Clientes &reg);
+void mostrarClientes(int pos, const Clientes &reg);

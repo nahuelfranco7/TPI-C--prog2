@@ -28,7 +28,7 @@ class MascotaArchivo{
     void cargarCadena(char *palabra, int tam);
     bool cargarMascota();
     void listarTodos();
-    void eliminar(int pos);
+    bool eliminar(int pos);
     void mostrarMascota(int pos, const Mascota &reg);
 
     bool modificar(int pos);
