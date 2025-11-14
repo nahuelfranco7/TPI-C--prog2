@@ -16,7 +16,7 @@ using namespace std;
     void cargarCadena(char *palabra, int tam);
     bool cargarTurno();
     void listarTodos(); falta este
-    void eliminar(int pos);
+    bool eliminar(int pos);
     void mostrarTurno(int pos, const Turno &reg);
 
     bool modificar(int pos);
@@ -98,6 +98,15 @@ bool TurnoArchivo::cargarTurno(){
     cout<<"Ingrese la fecha del turno: "<<endl;
     fechaTurno.cargar();
     reg.setFechaTurno(fechaTurno);
+
+        if (cargarTurno(reg)) {
+        cout << "DETALLE GUARDADO EXITOSAMENTE." << endl;
+        return true;
+    } else {
+        cout << "ERROR AL GUARDAR EL DETALLE." << endl;
+        return false;
+    }
+
 }
 void TurnoArchivo::listarTodos(){
     FILE *p = fopen(_nombreArchivo, "rb");
@@ -113,13 +122,14 @@ void TurnoArchivo::listarTodos(){
 
 
     while (fread(&reg, sizeof(Turno), 1, p) == 1) {
-        if (reg.getEstado() == true) {
+        if (reg.getEstadoTurno() == true) {
             cout << "-----------------------------" << endl;
             cout << "REGISTRO N°: " << i + 1 << endl;
             cout << "ID TURNO: " << reg.getIdTurno() << endl;
             cout << "ID MASCOTA: " << reg.getIdMascota() << endl;
             cout << "ID VETERINARIO: " << reg.getIdVet() << endl;
-            cout << "FECHA DEL TURNO: " << reg.getFechaTurno() << endl;
+            Fecha fe = reg.getFechaTurno();
+            cout << "FECHA DEL TURNO: " << fe.getDia() << "/" << fe.getMes() << "/"  << fe.getAnio() << endl;
         } //aca tambien, faltan datos que tenemos que vincular
         i++;
     }
@@ -127,35 +137,46 @@ void TurnoArchivo::listarTodos(){
     fclose(p);
 }
 
-void TurnoArchivo::eliminar(int pos){
+bool TurnoArchivo::eliminar(int pos){
+     FILE *p=fopen(_nombreArchivo,"rb+");
+    if(p==nullptr){
+        cout<<"ERROR AL ABRIR EL ARCHIVO DE TURNOS."<<endl;
+        return false;
+    }
+
     Turno reg;
 
-    // 1) Leer el registro
-    if (!leerTurno(pos, reg)) {
-        cout << "NO SE PUDO LEER EL REGISTRO." << endl;
+    //Posicionamos en el registro indicado
+    fseek(p,pos*sizeof(Turno),SEEK_SET);
+
+    //Leemos el registro existente
+    if(fread(&reg, sizeof(Turno),1,p)!=1) {
+        fclose(p);
+        cout<<"NO SE PUDO LEER EL REGISTRO EN LA POSICION INDICADA."<<endl;
         return false;
     }
 
-    // 2) Cambiar su estado
+    //Modifica el estado a inactivo
     reg.setEstadoTurno(false);
 
-    // 3) Sobrescribir el registro con el estado actualizado
-    if (!modificarTurno(pos, reg)) {
-        cout << "NO SE PUDO ESCRIBIR EL REGISTRO." << endl;
-        return false;
-    }
+    //Volver a posicionarse en la misma posición para sobrescribir
+    fseek(p,pos*sizeof(Turno),SEEK_SET);
 
-    cout << "TURNO ELIMINADO (ESTADO = FALSE)." << endl;
-    return true;
+    //Escribir el registro modificado
+    bool ok=fwrite(&reg, sizeof(Turno),1,p);
+
+    fclose(p);
+    return ok;
 }
 
-void TurnoArchivo::mostrarTurno(int pos, const Turno &reg){
+void TurnoArchivo::mostrarTurno(int pos, Turno &reg){
     cout<<"---------------------------------"<<endl;
     cout<<"POSICION EN EL ARCHIVO: "<<pos;
     cout<<"ID TURNO: "<<reg.getIdTurno();
     cout<<"VETERINARIO: "<<reg.getIdVet();
     cout<<"ID MASCOTA: "<<reg.getIdMascota();
-    cout<<"FECHA DEL TURNO: "<<reg.getFechaTurno();
+    Fecha fe = reg.getFechaTurno();
+    cout<<"FECHA DEL TURNO: " << fe.getDia() << "/" << fe.getMes() << "/" << fe.getAnio() << endl;
 } /// Traer nombre de la mascota, nombre del cliente y telefono?
 
 bool TurnoArchivo::modificar(int pos){

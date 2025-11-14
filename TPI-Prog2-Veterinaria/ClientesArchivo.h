@@ -32,7 +32,7 @@ class ClientesArchivo{
     bool cargarClientes();//ok
     void listarTodos();//ok
     bool eliminar(int pos);//ok
-    void mostrarClientes(int pos, const Clientes &reg);//ok
+    void mostrarClientes(int pos, Clientes &reg);//ok
 
     bool modificar(int pos);//ok
     bool cargarClientes(const Clientes &reg);

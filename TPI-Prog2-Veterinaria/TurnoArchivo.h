@@ -31,8 +31,8 @@ private:
     void cargarCadena(char *palabra, int tam);
     bool cargarTurno();
     void listarTodos();
-    void eliminar(int pos);
-    void mostrarTurno(int pos, const Turno &reg);
+    bool eliminar(int pos);
+    void mostrarTurno(int pos, Turno &reg);
 
     bool modificar(int pos);
     bool cargarTurno(const Turno &reg);

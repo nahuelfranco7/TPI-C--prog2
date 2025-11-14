@@ -199,7 +199,7 @@ bool ClientesArchivo::eliminar(int pos){
     return ok;
 }
 
-void ClientesArchivo::mostrarClientes(int pos, const Clientes &reg){
+void ClientesArchivo::mostrarClientes(int pos, Clientes &reg){
     cout << "----------------------------------------" << endl;
     cout << "POSICION EN ARCHIVO: " << pos << endl;
     cout << "ID CLIENTE: " << reg.getIdCliente() << endl;
