@@ -30,10 +30,13 @@ public:
     int buscarporID(int id);
     int contarRegistros();
     int generarNuevoID();
+    void cargarCadena(char *palabra, int tam);
 
+    bool cargarProducto();
     bool cargarProducto(const ProductosYservicios &reg);
     bool modificarProducto(int pos, const ProductosYservicios &reg);
-    bool leerProducto (int pos, const ProductosYservicios &reg);
+    bool modificarProducto(int pos);
+    bool leerProducto (int pos, ProductosYservicios &reg);
     int precio (int valor);
     int modificarPrecio(int valor);
 };

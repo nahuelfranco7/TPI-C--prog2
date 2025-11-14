@@ -54,6 +54,8 @@
 		<Unit filename="Menu.h" />
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
+		<Unit filename="ProductosYServiciosArchivo.cpp" />
+		<Unit filename="ProductosYServiciosArchivo.h" />
 		<Unit filename="ProductosYservicios.cpp" />
 		<Unit filename="ProductosYservicios.h" />
 		<Unit filename="Raza.cpp" />

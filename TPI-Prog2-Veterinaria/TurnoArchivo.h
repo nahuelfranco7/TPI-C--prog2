@@ -37,7 +37,7 @@ private:
     bool modificar(int pos);
     bool cargarTurno(const Turno &reg);
     bool modificarTurno(int pos, const Turno &reg);
-    bool leerTurno(int pos, const Turno &reg);
+    bool leerTurno(int pos, Turno &reg);
 
 
 

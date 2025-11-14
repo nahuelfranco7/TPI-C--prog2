@@ -15,7 +15,7 @@ using namespace std;
 
     void cargarCadena(char *palabra, int tam);
     bool cargarTurno();
-    void listarTodos(); falta este
+    void listarTodos();
     bool eliminar(int pos);
     void mostrarTurno(int pos, const Turno &reg);
 
@@ -213,4 +213,16 @@ bool TurnoArchivo::modificarTurno(int pos, const Turno &reg) {
 
     fclose(p);
     return escribio;
+}
+
+bool TurnoArchivo::leerTurno(int pos, Turno &reg){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return false;
+
+    fseek(p, pos * sizeof(Turno), SEEK_SET);
+    bool ok = fread(&reg, sizeof(Turno), 1, p);
+    fclose(p);
+
+    return ok;
+
 }
