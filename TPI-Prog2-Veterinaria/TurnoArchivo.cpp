@@ -3,6 +3,7 @@
 #include <cstring>
 #include "TurnoArchivo.h"
 #include "Fecha.h"
+///#include "Mascota.h"
 
 using namespace std;
 
@@ -32,9 +33,9 @@ int TurnoArchivo::buscarPorId(int id){
     Turno reg;
     int pos = 0;
     FILE* p=fopen(_nombreArchivo,"rb");
-    if (p==nullptr) return 1; //Acá no iria return false?
+    if (p==nullptr) return false;
     while (fread(&reg,sizeof(Turno),1,p)){
-        if (reg.getIdTurno()==id){ //Acá id no esta declarado o soy yo? jaja
+        if (reg.getIdTurno()==id){
             fclose(p);
             return pos;
         }
@@ -98,10 +99,54 @@ bool TurnoArchivo::cargarTurno(){
     fechaTurno.cargar();
     reg.setFechaTurno(fechaTurno);
 }
+void TurnoArchivo::listarTodos(){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "ERROR AL ABRIR EL ARCHIVO DE TURNOS." << endl;
+        return;
+    }
+
+    Turno reg;
+    int i = 0;
+
+    cout << "=== LISTADO DE TURNOS ===" << endl;
+
+
+    while (fread(&reg, sizeof(Turno), 1, p) == 1) {
+        if (reg.getEstado() == true) {
+            cout << "-----------------------------" << endl;
+            cout << "REGISTRO N°: " << i + 1 << endl;
+            cout << "ID TURNO: " << reg.getIdTurno() << endl;
+            cout << "ID MASCOTA: " << reg.getIdMascota() << endl;
+            cout << "ID VETERINARIO: " << reg.getIdVet() << endl;
+            cout << "FECHA DEL TURNO: " << reg.getFechaTurno() << endl;
+        } //aca tambien, faltan datos que tenemos que vincular
+        i++;
+    }
+
+    fclose(p);
+}
 
 void TurnoArchivo::eliminar(int pos){
-    //esto vendria a ser un borrado logico?
+    Turno reg;
 
+    // 1) Leer el registro
+    if (!leerTurno(pos, reg)) {
+        cout << "NO SE PUDO LEER EL REGISTRO." << endl;
+        return false;
+    }
+
+    // 2) Cambiar su estado
+    reg.setEstadoTurno(false);
+
+    // 3) Sobrescribir el registro con el estado actualizado
+    if (!modificarTurno(pos, reg)) {
+        cout << "NO SE PUDO ESCRIBIR EL REGISTRO." << endl;
+        return false;
+    }
+
+    cout << "TURNO ELIMINADO (ESTADO = FALSE)." << endl;
+    return true;
 }
 
 void TurnoArchivo::mostrarTurno(int pos, const Turno &reg){
@@ -111,7 +156,7 @@ void TurnoArchivo::mostrarTurno(int pos, const Turno &reg){
     cout<<"VETERINARIO: "<<reg.getIdVet();
     cout<<"ID MASCOTA: "<<reg.getIdMascota();
     cout<<"FECHA DEL TURNO: "<<reg.getFechaTurno();
-} /// terminar
+} /// Traer nombre de la mascota, nombre del cliente y telefono?
 
 bool TurnoArchivo::modificar(int pos){
     Turno reg;
@@ -121,12 +166,11 @@ bool TurnoArchivo::modificar(int pos){
     fseek(p,pos*sizeof(Turno),SEEK_SET);
     fread(&reg,sizeof(Turno),1,p);
 
-    //Muestra el reg que vamos a modificar********* tengo que crear
     cout << "Registro actual:\n";
     mostrarTurno(pos, reg);
 
     cout << "\nIngrese los nuevos datos:\n";
-    cargarTurno();  //Tengo que crear***
+    cargarTurno();
 
     //va de nuevo posición del registro para sobrescribirlo
     fseek(p, pos * sizeof(Turno), SEEK_SET);

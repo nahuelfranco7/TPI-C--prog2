@@ -13,7 +13,7 @@
 + setNombreArchivo(const *char): void
 + contarRegistros(): int
 + listarTodos(): void
-+ eliminar(int): boolint conta
++ eliminar(int): bool
 + modificat(int): bool
 
 */
@@ -32,12 +32,11 @@ class ClientesArchivo{
     bool cargarClientes();//ok
     void listarTodos();//ok
     bool eliminar(int pos);//ok
-    void mostrarClientes(int pos, const Clientes &reg);//falta
+    void mostrarClientes(int pos, const Clientes &reg);//ok
 
-    bool modificar(int pos);//falta
+    bool modificar(int pos);//ok
     bool cargarClientes(const Clientes &reg);
-    bool modificarClientes(int pos, const Clientes &reg);//falta
-    bool leerClientes(int pos, Clientes &reg);//abre el archivo con rb y carga un reg en &reg //falta
-
+    bool modificarClientes(int pos, const Clientes &reg);//ok
+    bool leerClientes(int pos, Clientes &reg);//ok
 
 };
