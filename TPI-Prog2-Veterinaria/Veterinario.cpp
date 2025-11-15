@@ -10,10 +10,10 @@ using namespace std;
     void setMatriculaVet(int matricula);
     void setFechaIngresoVet(Fecha fechaIngreso);
 */
-int Veterinario::getMatriculaVet(){
+int Veterinario::getMatriculaVet() const{
 return _matriculaVet;
 }
-Fecha Veterinario::getFechaIngreso(){
+Fecha Veterinario::getFechaIngreso()const{
 return _fechaIngresoVet;
 }
 

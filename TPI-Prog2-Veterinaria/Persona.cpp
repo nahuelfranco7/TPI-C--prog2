@@ -6,15 +6,18 @@
 
 using namespace std;
 //getters
-int Persona::getID(){return _id;}
-const char* Persona::getNombre(){return _nombre;}
-const char* Persona::getApellido(){return _apellido;}
-const char* Persona::getDNI(){return _DNI;}
-Direccion Persona::getDireccion(){return _direccion;}
-const char* Persona::getTelefono(){return _telefono;}
-    const char* Persona::getEmail(){return _email;}
-    bool Persona::getEstado(){return _estado;}
+int Persona::getID() const {return _id;}
+const char* Persona::getNombre() const {return _nombre;}
+const char* Persona::getApellido() const {return _apellido;}
+const char* Persona::getDNI()const{return _DNI;}
+Direccion Persona::getDireccion()const{return _direccion;}
+const char* Persona::getTelefono()const{return _telefono;}
+    const char* Persona::getEmail()const{return _email;}
+    bool Persona::getEstado()const {return _estado;}
 //setters
+void Persona::setId(int id) {
+    _id = id;
+}
 void Persona::setNombre(const char* nombre){
 strncpy(_nombre,nombre,29);
 }

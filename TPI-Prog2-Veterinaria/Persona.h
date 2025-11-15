@@ -14,16 +14,17 @@ protected://esto será asignado por la clase hija
     bool _estado;
 public:
    // Getters
-    int getID();
-    const char* getNombre();
-    const char* getApellido();
-    const char* getDNI();
-    Direccion getDireccion();
-    const char* getTelefono();
-    const char* getEmail();
-    bool getEstado();
+    int getID()const;
+    const char* getNombre() const;
+    const char* getApellido() const;
+    const char* getDNI() const;
+    Direccion getDireccion() const;
+    const char* getTelefono() const;
+    const char* getEmail() const;
+    bool getEstado() const;
 
     // Setters
+    void setId(int id);
     void setNombre(const char* nombre);
     void setApellido(const char* apellido);
     void setDNI(const char* dni);

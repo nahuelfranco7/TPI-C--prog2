@@ -7,8 +7,8 @@ private:
     int _matriculaVet;
     Fecha _fechaIngresoVet;
 public:
-    int getMatriculaVet();
-    Fecha getFechaIngreso();
+    int getMatriculaVet() const;
+    Fecha getFechaIngreso() const;
     void setMatriculaVet(int matricula);
     void setFechaIngresoVet(Fecha fechaIngreso);
 };
