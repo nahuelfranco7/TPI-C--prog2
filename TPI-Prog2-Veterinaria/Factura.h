@@ -13,12 +13,12 @@ private:
     bool _estadoFactura;
 public:
     //getters
-    int getIdFactura();
-    int getIdCliente();
-    int getIdUsuario();
-    Fecha getFechaFactura();
-    float getImporteTotalFactura();
-    bool getEstadoFactura();
+    int getIdFactura() const;
+    int getIdCliente() const;
+    int getIdUsuario() const;
+    Fecha getFechaFactura() const;
+    float getImporteTotalFactura() const;
+    bool getEstadoFactura() const;
     //setters
     void setIdFactura(int id);
     void setIdCliente(int id);

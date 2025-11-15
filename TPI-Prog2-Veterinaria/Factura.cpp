@@ -5,12 +5,12 @@
 
 using namespace std;
 
-int Factura::getIdFactura(){return _idFactura;}
-int Factura::getIdCliente(){return _idCliente;}
-int Factura::getIdUsuario(){return _idUsuario;}
-Fecha Factura::getFechaFactura(){return _fechaFactura;}
-float Factura::getImporteTotalFactura(){return _importeTotalFactura;}
-bool Factura::getEstadoFactura(){return _estadoFactura;}
+int Factura::getIdFactura() const { return _idFactura; }
+int Factura::getIdCliente() const { return _idCliente; }
+int Factura::getIdUsuario() const { return _idUsuario; }
+Fecha Factura::getFechaFactura() const { return _fechaFactura; }
+float Factura::getImporteTotalFactura() const { return _importeTotalFactura; }
+bool Factura::getEstadoFactura() const { return _estadoFactura; }
 //setters
 void Factura::setIdFactura(int id){
 _idFactura=id;
