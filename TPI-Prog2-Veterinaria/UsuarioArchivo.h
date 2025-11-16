@@ -26,5 +26,7 @@ public:
     bool eliminar(int id);
     bool modificar(int id);
     void cargarCadena(char *palabra, int tam);
+    // filtrar por id, y acceder al nivel de seguridad
+
 
 };

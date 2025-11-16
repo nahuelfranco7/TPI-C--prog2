@@ -38,8 +38,8 @@
 	<cstring>
 	<cstring>
 
-1763163108 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
-	"Menu.h"
+1763252712 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
+	<iostream>
 
 1763165093 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\persona.cpp
 	<iostream>
@@ -132,7 +132,7 @@
 	<cstdio>
 	"UsuarioArchivo.h"
 
-1763163108 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.h
+1763249887 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.h
 	<cstring>
 	"Usuario.h"
 
@@ -520,7 +520,7 @@
 	"Persona.h"
 	"Fecha.h"
 
-1763163108 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
+1763248732 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -579,4 +579,39 @@
 1763163709 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\veterinarioarchivo.h
 	<cstring>
 	"Veterinario.h"
+
+1763168710 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"FacturaArchivo.h"
+
+1763167211 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.h
+	<cstring>
+	"Factura.h"
+	"Fecha.h"
+
+1763252364 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menurecepcionista.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"MenuRecepcionista.h"
+
+1763251907 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menurecepcionista.h
+	<cstring>
+	"ClientesArchivo.h"
+	"DetalleFactura.h"
+	"DetalleFacturaArchivo.h"
+	"MascotaArchivo.h"
+	"ProductosYServiciosArchivo.h"
+	"TurnoArchivo.h"
+	"UsuarioArchivo.h"
+	"Veterinario.h"
+	"ManagerRecepcionista.h"
+
+1763252774 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.h
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"MenuRecepcionista.h"
 
