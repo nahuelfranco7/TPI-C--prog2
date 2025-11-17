@@ -1,18 +1,10 @@
-# pragma once
-# include <cstring>
-#include "ClientesArchivo.h"
-#include "DetalleFactura.h"
-#include "DetalleFacturaArchivo.h"
-#include "MascotaArchivo.h"
-#include "ProductosYServiciosArchivo.h"
-#include "TurnoArchivo.h"
+#pragma once
+#include "Usuario.h"
 #include "UsuarioArchivo.h"
-#include "Veterinario.h"
-#include "ManagerRecepcionista.h"
 
 class MenuRecepcionista{
-
 public:
-    void mostrar();
 
+    //recibe el usuario que inicio sesion para pasar nivel al manager
+    void mostrar(const Usuario &usuario);
 };

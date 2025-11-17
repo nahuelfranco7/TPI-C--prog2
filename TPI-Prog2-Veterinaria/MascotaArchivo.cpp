@@ -278,6 +278,27 @@ bool MascotaArchivo::modificar(int pos) {
     // 3) Guardar cambios en archivo
     return modificarMascota(pos, reg);
 }
+/*--------------------------------------------------------*/
+void MascotaArchivo::listarTodos() {
+    int cant=contarRegistros();
+    if (cant==-1) {
+        cout << "No se pudo abrir el archivo de mascotas.\n";
+        return;
+    }
+
+    Mascota reg;
+
+    for (int i = 0; i < cant; i++) {
+        if (leerMascota(i, reg)) {
+            if (reg.getEstadoMascota()) {   // solo activas
+                mostrarMascota(i, reg);
+            }
+        }
+    }
+
+    system("pause");
+}
+
 /*------------------------------------------------------------------*/
 
 bool MascotaArchivo::eliminar(int pos) {

@@ -2,21 +2,6 @@
 #include <cstring>
 #include "Turno.h"
 
-/*
-+ cargarTurno(const Turno &reg): bool
-+ modificarTurno(int, const Turno &reg): bool
-+ leerTurno(int, const Turno &reg): bool
-+ mostrarTurno(int, const Turno &reg): void
-+ buscarPorId(int): bool
-+ getNombreArchivo(): const *char
-+ setNombreArchivo(const *char): void
-+ contarRegistros(): int
-+ listarTodos(): void
-+ eliminar(int): bool
-+ modificat(int): bool
-
-*/
-
 class TurnoArchivo{
 
 private:

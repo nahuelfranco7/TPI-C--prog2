@@ -66,6 +66,23 @@ bool UsuarioArchivo::leerUsuario(int pos,Usuario &reg) {
     return leyo;
 }
 
+Usuario UsuarioArchivo::leerRegistro(int pos) {
+    Usuario reg;
+    FILE *p = fopen("usuarios.dat", "rb");
+
+    if (p == nullptr) {
+        cout << "Error abriendo archivo usuarios.dat\n";
+        return reg; // Devuelve algo vacío
+    }
+
+    fseek(p, pos * sizeof(Usuario), SEEK_SET);
+    fread(&reg, sizeof(Usuario), 1, p);
+
+    fclose(p);
+
+    return reg;
+}
+
 void UsuarioArchivo::mostrarUsuario(int pos) {
     Usuario reg;
     if (leerUsuario(pos, reg)) {
@@ -215,4 +232,25 @@ bool UsuarioArchivo::modificar(int id) {
     } while(true);
 
     return true;
+}
+
+bool UsuarioArchivo::validarContrasenaPorPos(int pos, const char* contrasena) {
+    Usuario reg;
+
+    FILE* p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return false;
+
+    // Ir a la posición exacta
+    fseek(p, pos * sizeof(Usuario), SEEK_SET);
+
+    // Leer el registro
+    if (fread(&reg, sizeof(Usuario), 1, p) != 1) {
+        fclose(p);
+        return false;   // Error de lectura
+    }
+
+    fclose(p);
+
+    // Comparar contraseñas
+    return strcmp(reg.getClave(), contrasena) == 0;
 }

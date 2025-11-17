@@ -18,19 +18,19 @@ Usuario::Usuario(int id, const char* clave, int nivel,bool estado){
 
 }
 //getters
-int Usuario::getIdUsuario(){
+int Usuario::getIdUsuario() const{
 return _idUsuario;
 }
 
-const char* Usuario::getClave(){
+const char* Usuario::getClave()const{
 return _clave;
 }
 
-int Usuario::getNivelSeguridad(){
+int Usuario::getNivelSeguridad()const{
 return _nivelSeguridad;
 }
 
-bool Usuario::getEstado(){
+bool Usuario::getEstado()const{
 return _nivelSeguridad;
 }
 //setters

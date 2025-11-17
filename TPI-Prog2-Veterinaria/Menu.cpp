@@ -1,175 +1,81 @@
-/*
-
 #include <iostream>
 #include <cstdlib>
 using namespace std;
 
+#include "Menu.h"
+#include "MenuRecepcionista.h"
+/*#include "MenuVeterinario.h"*/
+/*#include "MenuAdministrativo.h"*/
+/*#include "MenuMaestro.h"*/
 
-// librerias
-#include "Clientes.h"
-#include "ClientesArchivo.h"
-
-#include "Mascota.h"
-#include "MascotaArchivo.h"
-
-
-
-
-
-//  PROTOTIPOS
-
-// Clientes
-void menuClientes();
-void agregarCliente();
-void listarClientes();
-void buscarDNI();
-
-// Mascotas
-void menuMascotas();
-void cargarMascota();
-void listarTodos();       // listar mascotas
-void mostrarMascota();    // buscar/mostrar mascota
-
-// Otros a completar
-void menuVeterinarios();
-void menuTurnos();
-void menuFacturacion();
-void menuProductos();
-
-
-
-//              MENU PRINCIPAL
-
-void menuPrincipal() {
-    int opcion;
+void Menu::mostrar() {
+    UsuarioArchivo archivo;
+    Usuario usuario;   //usuario se carga cuando el login es correcto
+    bool usuarioOk = false;
 
     do {
-        system("cls");
+        cout << "Ingrese ID: ";
+        int id;
+        cin >> id;
 
-        cout << "=====================================\n";
-        cout << "       Veterinaria Prog2       \n";
-        cout << "=====================================\n";
-        cout << "1) Gestion de Clientes\n";
-        cout << "2) Gestion de Mascotas\n";
-        cout << "3) Gestion de Veterinarios\n";
-        cout << "4) Gestion de Turnos\n";
-        cout << "5) Facturacion\n";
+        cout << "Ingrese contrasena: ";
+        char contrasena[20];
+        cin >> contrasena;
 
-        cout << "0) Salir\n";
-        cout << "______________________________________\n";
-        cout << "Opcion: ";
-        cin >> opcion;
+        int pos = archivo.buscarPorId(id);
 
-        switch(opcion) {
-            case 1: menuClientes(); break;
-            case 2: menuMascotas(); break;
-            case 3: menuVeterinarios(); break;
-            case 4: menuTurnos(); break;
-            case 5: menuFacturacion(); break;
+        if (pos >= 0 && archivo.validarContrasenaPorPos(pos, contrasena)) {
 
-            case 0:
-                cout << "Saliendo del sistema...\n";
-                break;
+            //Acá carga el usuario completo desde archivo al objeto local
+            usuario = archivo.leerRegistro(pos);
 
-            default:
-                cout << "Opcion invalida\n";
-                system("pause");
+            usuarioOk = true;
+        }
+        else {
+            cout << "ID o contrasena incorrectos. Intente nuevamente.\n";
         }
 
-    } while(opcion != 0);
-}
+    } while (!usuarioOk);
 
+    // A partir de acá ya está el usuario COMPLETO
 
+    cout<<"=====================================\n";
+    cout<<"       SISTEMA DE VETERINARIA        \n";
+    cout<<"=====================================\n";
+    cout<<"Bienvenido/a " << usuario.getNombre() << " " << usuario.getApellido() << "\n";
+    cout<<"Nivel de acceso: " << usuario.getNivelSeguridad() << "\n";
+    cout<<"-------------------------------------\n";
+    cout<<"Ingresando a su menu correspondiente...\n\n";
 
-
-//              MENU CLIENTES
-
-void menuClientes() {
-    int op;
-
-    do {
-        system("cls");
-
-        cout << "------ GESTION DE CLIENTES ------\n";
-        cout << "1) Agregar cliente\n";
-        cout << "2) Listar clientes\n";
-        cout << "3) Buscar cliente por DNI\n";
-        cout << "0) Volver\n";
-        cout << "---------------------------------\n";
-        cout << "Opcion: ";
-        cin >> op;
-
-        switch(op) {
-            case 1: agregarCliente(); break;
-            case 2: listarClientes(); break;
-            case 3: buscarDNI(); break;
-
-            case 0: break;
-            default: cout << "Opcion invalida\n"; system("pause");
-        }
-    } while(op != 0);
-}
-
-
-
-
-//              MENU MASCOTAS
-
-void menuMascotas() {
-    int op;
-
-    do {
-        system("cls");
-
-        cout << "------ GESTION DE MASCOTAS ------\n";
-        cout << "1) Cargar mascota\n";
-        cout << "2) Listar todas las mascotas\n";
-        cout << "3) Buscar / Mostrar mascota\n";
-        cout << "0) Volver\n";
-        cout << "---------------------------------\n";
-        cout << "Opcion: ";
-        cin >> op;
-
-        switch(op) {
-            case 1: cargarMascota(); break;
-            case 2: listarTodos(); break;
-            case 3: mostrarMascota(); break;
-
-            case 0: break;
-            default: cout << "Opcion invalida\n"; system("pause");
-        }
-
-    } while(op != 0);
-}
-
-
-
-
-//        Menus a Completar
-
-void menuVeterinarios() {
-    system("cls");
-    cout << " Veterinarios";//pendiente
     system("pause");
-}
-
-void menuTurnos() {
     system("cls");
-    cout << " Turnos";//pendiente
-    system("pause");
+
+    int nivel = usuario.getNivelSeguridad();
+
+    switch (nivel) {
+        case 1: {
+        MenuRecepcionista menu;
+        menu.mostrar(usuario);
+        } break;
+
+        case 2: {
+            /*MenuVeterinario menu;
+            menu.mostrar(usuario);*/
+        } break;
+
+        case 3: {
+            /*MenuAdministrativo menu;
+            menu.mostrar(usuario);*/
+        } break;
+
+        case 4: {
+            /*MenuMaestro menu;
+            menu.mostrar(usuario);*/
+        } break;
+
+        default:
+            cout << "ERROR: Nivel de usuario no valido.\n";
+            system("pause");
+            break;
+    }
 }
-
-void menuFacturacion() {
-    system("cls");
-    cout << " Facturacion ";//pendiente
-    system("pause");
-}
-
-
-
-
-*/
-
-
-
-

@@ -19,6 +19,7 @@ public:
     bool cargarUsuario(const Usuario &reg);
     bool modificarUsuario(int pos,const Usuario &reg);
     bool leerUsuario(int pos, Usuario &reg);//va sin const xq cuando copia del archivo al obj, va a modificar el obj para luego leerlo
+    Usuario leerRegistro(int pos);
     void mostrarUsuario(int pos);
     int buscarPorId(int id);
     int contarRegistros();
@@ -26,6 +27,7 @@ public:
     bool eliminar(int id);
     bool modificar(int id);
     void cargarCadena(char *palabra, int tam);
+    bool validarContrasenaPorPos(int pos, const char* contrasena);
     // filtrar por id, y acceder al nivel de seguridad
 
 

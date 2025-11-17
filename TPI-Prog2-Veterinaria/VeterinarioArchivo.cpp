@@ -141,6 +141,26 @@ void VeterinarioArchivo::listarTodos() {
     fclose(p);
 }
 
+int VeterinarioArchivo::buscarPorId(int id) {
+    Veterinario reg;
+    int pos = 0;
+
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return -1;
+
+    while (fread(&reg, sizeof(Veterinario), 1, p)) {
+        if (reg.getID() == id) {
+            fclose(p);
+            return pos;
+        }
+        pos++;
+    }
+
+    fclose(p);
+    return -1; // No encontrado
+}
+
+
 bool VeterinarioArchivo::modificarVet(int pos, const Veterinario &reg) {
     FILE* p=fopen(_nombreArchivo, "rb+");
     if (p==nullptr) return false;

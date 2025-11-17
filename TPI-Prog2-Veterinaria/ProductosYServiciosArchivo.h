@@ -1,25 +1,6 @@
 #pragma once
 #include "ProductosYservicios.h"
 
-/*
-+ getNombreArchivo(): const *char
-+ setNombreArchivo(const *char): void
-
-+ buscarPorId(int): bool
-+ contarRegistros(): int
-
-+ cargarProducto(const Producto &reg): bool
-+ modificarProducto(int, const Producto &reg): bool
-+ leerProducto(int, const Producto &reg): bool
-+ precio(int): int
-+ modificarPrecio(int): int
-+ mostrarProdYSer(int, const Producto &reg): void
-
-+ listarTodos(): void
-+ eliminar(int): bool
-+ modificar(int): bool
-
-*/
 
 class ProductosYServiciosArchivo{
 private:
