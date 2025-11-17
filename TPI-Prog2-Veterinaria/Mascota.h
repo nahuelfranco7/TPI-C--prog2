@@ -29,5 +29,8 @@ public:
     void setSexoAnimal(char sexo);
     void setIdClienteDueno(int id);
     void setEstadoMascota(bool estado);
+    void cargar();
+    void mostrar();
+    void cargarCadena(char *palabra, int tam);
 };
 

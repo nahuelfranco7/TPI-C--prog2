@@ -5,22 +5,7 @@
 # include "UsuarioArchivo.h"
 
 using namespace std;
-/*
-    //getters
-    const char* getNombreArchivo();
-    //setters
-    void setNombreArchivo(const char nomberArchivo);
-    //métodos
-    bool cargarUsuario(const Usuario &reg);
-    bool modificarUsuario(int pos,const Usuario &reg);
-    bool leerUsuario(int pos, Usuario &reg);
-    void mostrarUsuario(int pos);
-    int buscarPorId(int id);//devuelve la posición
-    int contarRegistros();
-    void listarTodos();
-    bool eliminar(int id);
-    bool modificar(int id);
-*/
+
 //getter
 const char* UsuarioArchivo::getNombreArchivo() {
     return _nombreArchivo;

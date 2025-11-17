@@ -3,27 +3,10 @@
 #include <cstring>
 #include "TurnoArchivo.h"
 #include "Fecha.h"
-///#include "Mascota.h"
+#include "Mascota.h"
 
 using namespace std;
 
-/*
-
-    int buscarPorId(int id);
-    int contarRegistros();
-    int generarNuevoId();
-
-    void cargarCadena(char *palabra, int tam);
-    bool cargarTurno();
-    void listarTodos();
-    bool eliminar(int pos);
-    void mostrarTurno(int pos, const Turno &reg);
-
-    bool modificar(int pos);
-    bool cargarTurno(const Turno &reg);
-    bool modificarTurno(int pos, const Turno &reg);
-    bool leerTurno(int pos, const Turno &reg);
-*/
 
 const char* TurnoArchivo::getNombreArchivo(){
     return _nombreArchivo;
@@ -169,7 +152,7 @@ bool TurnoArchivo::eliminar(int pos){
     return ok;
 }
 
-void TurnoArchivo::mostrarTurno(int pos, Turno &reg){
+void TurnoArchivo::mostrarTurno(int pos,const Turno &reg){
     cout<<"---------------------------------"<<endl;
     cout<<"POSICION EN EL ARCHIVO: "<<pos;
     cout<<"ID TURNO: "<<reg.getIdTurno();
@@ -177,7 +160,20 @@ void TurnoArchivo::mostrarTurno(int pos, Turno &reg){
     cout<<"ID MASCOTA: "<<reg.getIdMascota();
     Fecha fe = reg.getFechaTurno();
     cout<<"FECHA DEL TURNO: " << fe.getDia() << "/" << fe.getMes() << "/" << fe.getAnio() << endl;
-} /// Traer nombre de la mascota, nombre del cliente y telefono?
+}
+void TurnoArchivo::mostrarTurno(const Turno &reg) {
+    cout << "---------------------------------\n";
+    cout << "ID TURNO: " << reg.getIdTurno() << endl;
+    cout << "ID MASCOTA: " << reg.getIdMascota() << endl;
+    cout << "ID VETERINARIO: " << reg.getIdVet() << endl;
+
+    Fecha fe = reg.getFechaTurno();
+    cout << "FECHA DEL TURNO: ";
+    cout << fe.getDia() << "/" << fe.getMes() << "/" << fe.getAnio() << endl;
+
+    cout << "ESTADO: " << (reg.getEstadoTurno() ? "ACTIVO" : "INACTIVO") << endl;
+}
+
 
 bool TurnoArchivo::modificar(int pos){
     Turno reg;

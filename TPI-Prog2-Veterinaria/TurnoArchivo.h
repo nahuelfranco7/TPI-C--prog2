@@ -17,7 +17,8 @@ private:
     bool cargarTurno();
     void listarTodos();
     bool eliminar(int pos);
-    void mostrarTurno(int pos, Turno &reg);
+    void mostrarTurno(int pos,const Turno &reg);
+    void mostrarTurno(const Turno &reg);
 
     bool modificar(int pos);
     bool cargarTurno(const Turno &reg);

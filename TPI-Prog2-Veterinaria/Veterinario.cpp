@@ -4,12 +4,7 @@
 #include "Veterinario.h"
 
 using namespace std;
-/*
-    int getMatriculaVet();
-    Fecha getFechaIngreso();
-    void setMatriculaVet(int matricula);
-    void setFechaIngresoVet(Fecha fechaIngreso);
-*/
+
 int Veterinario::getMatriculaVet() const{
 return _matriculaVet;
 }

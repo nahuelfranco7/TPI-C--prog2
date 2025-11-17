@@ -4,9 +4,9 @@ using namespace std;
 
 #include "Menu.h"
 #include "MenuRecepcionista.h"
-/*#include "MenuVeterinario.h"*/
-/*#include "MenuAdministrativo.h"*/
-/*#include "MenuMaestro.h"*/
+#include "MenuVeterinario.h"
+#include "MenuAdministrativo.h"
+#include "MenuMaestro.h"
 
 void Menu::mostrar() {
     UsuarioArchivo archivo;
@@ -59,18 +59,18 @@ void Menu::mostrar() {
         } break;
 
         case 2: {
-            /*MenuVeterinario menu;
-            menu.mostrar(usuario);*/
+            MenuVeterinario menu;
+            menu.mostrar(usuario);
         } break;
 
         case 3: {
-            /*MenuAdministrativo menu;
-            menu.mostrar(usuario);*/
+            MenuAdministrativo menu;
+            menu.mostrar();
         } break;
 
         case 4: {
-            /*MenuMaestro menu;
-            menu.mostrar(usuario);*/
+            MenuMaestro menu;
+            menu.mostrar(usuario);
         } break;
 
         default:

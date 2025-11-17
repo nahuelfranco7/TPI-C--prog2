@@ -6,11 +6,6 @@ class UsuarioArchivo{
 private:
     const char _nombreArchivo[30] = "Usuarios.dat";
 public:
-    //No voy a usar constructor
-   /* UsuarioArchivo(const char *nombreArchivo = "Usuarios.dat") {
-        strncpy(_nombreArchivo, nombreArchivo, 29);
-        _nombreArchivo[29] = '\0';
-    }*/
     const char* getNombreArchivo() const { return _nombreArchivo; }
     //getters
     const char* getNombreArchivo();
@@ -28,7 +23,5 @@ public:
     bool modificar(int id);
     void cargarCadena(char *palabra, int tam);
     bool validarContrasenaPorPos(int pos, const char* contrasena);
-    // filtrar por id, y acceder al nivel de seguridad
-
 
 };

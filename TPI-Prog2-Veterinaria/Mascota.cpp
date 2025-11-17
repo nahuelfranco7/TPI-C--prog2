@@ -39,3 +39,45 @@ _idClienteDueno=id;
 void Mascota::setEstadoMascota(bool estado){
 _estadoMascota=estado;
 }
+
+// --- cargarCadena ---
+void Mascota::cargarCadena(char *palabra, int tam) {
+    int i = 0;
+    fflush(stdin);
+    for (i = 0; i < tam; i++) {
+        palabra[i] = cin.get();
+        if (palabra[i] == '\n') break;
+    }
+    palabra[i] = '\0';
+    fflush(stdin);
+}
+
+void Mascota::cargar() {
+    cout << "Nombre mascota: ";
+    cargarCadena(_nombreMascota, 20);
+
+    cout << "Fecha nacimiento: \n";
+    _fechaNac.cargar();
+
+    cout << "ID raza: ";
+    cin >> _idRaza;
+
+    cout << "Sexo (M/H): ";
+    cin >> _sexoAnimal;
+
+    cout << "ID cliente dueño: ";
+    cin >> _idClienteDueno;
+
+    _estadoMascota = true;
+}
+
+void Mascota::mostrar() {
+    cout << "ID Mascota: " << _idMascota << endl;
+    cout << "Nombre: " << _nombreMascota << endl;
+    cout << "Fecha de nacimiento: ";
+    _fechaNac.mostrar();
+    cout << "ID raza: " << _idRaza << endl;
+    cout << "Sexo: " << _sexoAnimal << endl;
+    cout << "ID Cliente dueño: " << _idClienteDueno << endl;
+    cout << "Estado: " << (_estadoMascota ? "Activo" : "Inactivo") << endl;
+}

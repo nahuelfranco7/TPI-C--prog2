@@ -5,11 +5,11 @@
 
 using namespace std;
 
-int Turno::getIdTurno(){return _idTurno;}
-int Turno::getIdMascota(){return _idMascota;}
-int Turno::getIdVet(){return _idVet;}
-Fecha Turno::getFechaTurno(){return _fechaTurno;}
-bool Turno::getEstadoTurno(){return _estadoTurno;}
+int Turno::getIdTurno()const{return _idTurno;}
+int Turno::getIdMascota()const{return _idMascota;}
+int Turno::getIdVet()const{return _idVet;}
+Fecha Turno::getFechaTurno()const{return _fechaTurno;}
+bool Turno::getEstadoTurno()const{return _estadoTurno;}
 
 //setters
 void Turno::setIdTurno(int id){
@@ -26,4 +26,33 @@ _fechaTurno=fecha;
 }
 void Turno::setEstadoTurno(bool estado){
 _estadoTurno=estado;
+}
+
+
+void Turno::cargar() {
+
+    cout << "Ingrese ID de Mascota: ";
+    cin >> _idMascota;
+
+    cout << "Ingrese ID del Veterinario: ";
+    cin >> _idVet;
+
+    cout << "Ingrese fecha del turno: \n";
+    _fechaTurno.cargar();  // Debe existir en Fecha
+
+    _estadoTurno = true;   // Por defecto al cargar está activo
+}
+
+
+
+void Turno::mostrar(){
+
+    cout << "ID Turno: " << _idTurno << endl;
+    cout << "ID Mascota: " << _idMascota << endl;
+    cout << "ID Veterinario: " << _idVet << endl;
+
+    cout << "Fecha: ";
+    _fechaTurno.mostrar();
+
+    cout << "Estado: " << (_estadoTurno ? "ACTIVO" : "INACTIVO") << endl;
 }

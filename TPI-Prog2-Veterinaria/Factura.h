@@ -26,4 +26,8 @@ public:
     void setFechaFactura(Fecha fecha);
     void setImporteTotalFactura(float importe);
     void setEstadoFactura(bool estado);
+    void cargarCadena(char *palabra, int tam);
+    void cargar();
+    void mostrar();
+
 };

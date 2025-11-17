@@ -1,0 +1,362 @@
+#include <iostream>
+#include <cstring>
+
+#include "ManagerVeterinario.h"
+#include "Clientes.h"
+#include "Mascota.h"
+#include "Turno.h"
+#include "Fecha.h"
+
+using namespace std;
+
+/* ------------------------------------------------------------------
+   helper local: cargarCadena (igual a la que usabas en TurnoArchivo)
+   lee hasta \n o hasta tam-1 y deja '\0'
+   ------------------------------------------------------------------ */
+static void cargarCadena(char *palabra, int tam){
+    int i = 0;
+    fflush(stdin);
+    for (i = 0; i < tam - 1; i++){
+        int c = cin.get();
+        if (c == EOF || c == '\n') break;
+        palabra[i] = (char)c;
+    }
+    palabra[i] = '\0';
+    fflush(stdin);
+}
+
+/* ===========================
+   ABML / Métodos principales
+   =========================== */
+
+void ManagerVeterinario::cargar() {
+    UsuarioArchivo arch;
+    Usuario u;
+
+    int nuevoId = arch.contarRegistros() + 1;
+    u.setIdUsuario(nuevoId);
+
+    cout << "=== ALTA DE VETERINARIO ===\n";
+
+    cout << "Nombre: ";
+
+    char aux[30];
+    cout << "Nombre: ";
+    cargarCadena(aux, 30);
+    u.setNombre(aux);
+
+    cout << "Apellido: ";
+    char aux2[30];
+    cargarCadena(aux2, 30);
+     u.setApellido(aux2);
+
+    cout << "DNI: ";
+    char aux3[15];
+    cargarCadena(aux3, 15);
+    u.setDNI(aux3);
+
+    cout << "Email: ";
+    char aux4[40];
+    cargarCadena(aux4, 40);
+    u.setEmail(aux4);
+
+    cout << "Telefono: ";
+    char aux5[20];
+    cargarCadena(aux5, 20);
+    u.setTelefono(aux5);
+
+    cout << "Clave (max 5 caracteres): ";
+    char aux6[6];
+    cargarCadena(aux6, 6);
+    u.setClave(aux6);
+
+    u.setNivelSeguridad(2); // veterinario
+    u.setEstado(true);
+
+    if (arch.cargarUsuario(u))
+        cout << "Veterinario guardado correctamente.\n";
+    else
+        cout << "ERROR al guardar el veterinario.\n";
+
+    system("pause");
+}
+
+void ManagerVeterinario::modificar() {
+    UsuarioArchivo arch;
+    int id;
+    cout << "ID de veterinario a modificar: ";
+    cin >> id;
+
+    int pos = arch.buscarPorId(id);
+    if (pos < 0) {
+        cout << "Veterinario no encontrado.\n";
+        system("pause");
+        return;
+    }
+
+    Usuario u;
+    if (!arch.leerUsuario(pos, u)) {
+        cout << "Error leyendo el registro.\n";
+        system("pause");
+        return;
+    }
+
+    if (u.getNivelSeguridad() != 2) {
+        cout << "El ID ingresado no corresponde a un veterinario.\n";
+        system("pause");
+        return;
+    }
+
+    cout << "Veterinario actual:\n";
+    arch.mostrarUsuario(pos);
+
+    // solicitar nuevos datos (ejemplo: nombre, apellido, email, telefono, clave)
+    char buf[100];
+    cout << "Ingrese nuevo nombre (ENTER para mantener): ";
+    cin.ignore();
+    cargarCadena(buf, 30);
+    if (strlen(buf) > 0) u.setNombre(buf);
+
+    cout << "Ingrese nuevo apellido (ENTER para mantener): ";
+    cargarCadena(buf, 30);
+    if (strlen(buf) > 0) u.setApellido(buf);
+
+    cout << "Ingrese nuevo DNI (ENTER para mantener): ";
+    cargarCadena(buf, 15);
+    if (strlen(buf) > 0) u.setDNI(buf);
+
+    cout << "Ingrese nuevo email (ENTER para mantener): ";
+    cargarCadena(buf, 40);
+    if (strlen(buf) > 0) u.setEmail(buf);
+
+    cout << "Ingrese nuevo telefono (ENTER para mantener): ";
+    cargarCadena(buf, 20);
+    if (strlen(buf) > 0) u.setTelefono(buf);
+
+    cout << "Ingrese nueva clave (ENTER para mantener): ";
+    char claveBuf[6];
+    cargarCadena(claveBuf, 6);
+    if (strlen(claveBuf) > 0) u.setClave(claveBuf);
+
+    if (arch.modificarUsuario(pos, u))
+        cout << "Veterinario modificado correctamente.\n";
+    else
+        cout << "ERROR al modificar.\n";
+
+    system("pause");
+}
+
+void ManagerVeterinario::eliminar() {
+    UsuarioArchivo arch;
+    int id;
+    cout << "ID de veterinario a dar de baja: ";
+    cin >> id;
+
+    int pos = arch.buscarPorId(id);
+    if (pos < 0) {
+        cout << "Veterinario no encontrado.\n";
+        system("pause");
+        return;
+    }
+
+    Usuario u;
+    arch.leerUsuario(pos, u);
+    if (u.getNivelSeguridad() != 2) {
+        cout << "El ID ingresado no corresponde a un veterinario.\n";
+        system("pause");
+        return;
+    }
+
+    if (arch.eliminar(id))
+        cout << "Veterinario dado de baja (inactivo).\n";
+    else
+        cout << "ERROR al dar de baja.\n";
+
+    system("pause");
+}
+
+void ManagerVeterinario::listar() {
+    UsuarioArchivo arch;
+    int total = arch.contarRegistros();
+    Usuario u;
+    cout << "=== LISTADO DE VETERINARIOS ===\n";
+    for (int i = 0; i < total; i++) {
+        if (!arch.leerUsuario(i, u)) continue;
+        if (u.getNivelSeguridad() == 2) {
+            // mostrar datos relevantes
+            cout << "---------------------------\n";
+            cout << "ID: " << u.getIdUsuario() << "\n";
+            cout << "Nombre: " << u.getNombre() << " " << u.getApellido() << "\n";
+            cout << "DNI: " << u.getDNI() << "\n";
+            cout << "Email: " << u.getEmail() << "\n";
+            cout << "Estado: " << (u.getEstado() ? "Activo" : "Inactivo") << "\n";
+        }
+    }
+    system("pause");
+}
+
+void ManagerVeterinario::reactivar() {
+    UsuarioArchivo arch;
+    int id;
+    cout << "ID de veterinario a reactivar: ";
+    cin >> id;
+
+    int pos = arch.buscarPorId(id);
+    if (pos < 0) {
+        cout << "Veterinario no encontrado.\n";
+        system("pause");
+        return;
+    }
+
+    Usuario u;
+    if (!arch.leerUsuario(pos, u)) { cout << "Error leyendo.\n"; system("pause"); return; }
+    if (u.getNivelSeguridad() != 2) {
+        cout << "El ID ingresado no corresponde a un veterinario.\n";
+        system("pause");
+        return;
+    }
+
+    u.setEstado(true);
+    if (arch.modificarUsuario(pos, u))
+        cout << "Veterinario reactivado.\n";
+    else
+        cout << "ERROR al reactivar.\n";
+
+    system("pause");
+}
+
+/* ===========================================================
+   FUNCIONES DE CONSULTA (ya tenías versiones similares)
+   =========================================================== */
+
+void ManagerVeterinario::verClientePorDNI() {
+    char dni[25];
+    cout << "Ingrese DNI: ";
+    cargarCadena(dni, 25);
+
+    ClientesArchivo archC;
+    Clientes c;
+    int total = archC.contarRegistros();
+    for (int i = 0; i < total; i++) {
+        if (!archC.leerClientes(i, c)) continue;
+        if (strcmp(c.getDNI(), dni) == 0) {
+            archC.mostrarClientes(i, c);
+            system("pause");
+            return;
+        }
+    }
+
+    cout << "Cliente no encontrado.\n";
+    system("pause");
+}
+
+void ManagerVeterinario::listarMascotasDeCliente() {
+    char dni[25];
+    cout << "Ingrese DNI del cliente: ";
+    cargarCadena(dni, 25);
+
+    ClientesArchivo archC;
+    Clientes c;
+    int totalC = archC.contarRegistros();
+    int idCliente = -1;
+    for (int i = 0; i < totalC; i++) {
+        if (!archC.leerClientes(i, c)) continue;
+        if (strcmp(c.getDNI(), dni) == 0) { idCliente = c.getIdCliente(); break; }
+    }
+
+    if (idCliente < 0) {
+        cout << "Cliente no encontrado.\n";
+        system("pause");
+        return;
+    }
+
+    MascotaArchivo archM;
+    Mascota m;
+    int totalM = archM.contarRegistros();
+    bool found = false;
+    cout << "Mascotas del cliente:\n";
+    for (int i = 0; i < totalM; i++) {
+        if (!archM.leerMascota(i, m)) continue;
+        if (m.getIdClienteDueno() == idCliente) {
+            cout << "ID: " << m.getIdMascota() << " - " << m.getNombreMascota()
+                 << " (" << (m.getEstadoMascota() ? "ACTIVO" : "INACTIVO") << ")\n";
+            found = true;
+        }
+    }
+    if (!found) cout << "No tiene mascotas registradas.\n";
+    system("pause");
+}
+
+void ManagerVeterinario::listarTurnoPorID() {
+    int id;
+    cout << "ID Turno: ";
+    cin >> id;
+
+    TurnoArchivo archT;
+    Turno t;
+    int total = archT.contarRegistros();
+    for (int i = 0; i < total; i++) {
+        if (!archT.leerTurno(i, t)) continue;
+        if (t.getIdTurno() == id) {
+            archT.mostrarTurno(t); // ahora existe la versión mostrarTurno(const Turno &)
+            system("pause");
+            return;
+        }
+    }
+    cout << "Turno no encontrado.\n";
+    system("pause");
+}
+
+void ManagerVeterinario::listarTurnosPorFecha() {
+    Fecha f;
+    cout << "Ingrese fecha del turno:\n";
+    f.cargar();
+
+    TurnoArchivo archT;
+    Turno t;
+    int total = archT.contarRegistros();
+    bool found = false;
+    for (int i = 0; i < total; i++) {
+        if (!archT.leerTurno(i, t)) continue;
+        Fecha ft = t.getFechaTurno();
+        if (ft.getDia() == f.getDia() && ft.getMes() == f.getMes() && ft.getAnio() == f.getAnio()) {
+            archT.mostrarTurno(t);
+            found = true;
+        }
+    }
+    if (!found) cout << "No hay turnos en esa fecha.\n";
+    system("pause");
+}
+
+void ManagerVeterinario::listarTurnosPorEstado() {
+    int est;
+    cout << "Estado (0=Pendiente,1=Atendido,2=Cancelado): ";
+    cin >> est;
+
+    TurnoArchivo archT;
+    Turno t;
+    int total = archT.contarRegistros();
+    bool found = false;
+    for (int i = 0; i < total; i++) {
+        if (!archT.leerTurno(i, t)) continue;
+        if (t.getEstadoTurno() == est) {
+            archT.mostrarTurno(t);
+            found = true;
+        }
+    }
+    if (!found) cout << "No hay turnos con ese estado.\n";
+    system("pause");
+}
+
+/* Buscar veterinario por ID (devuelve posicion en archivo usuarios o -1) */
+int ManagerVeterinario::buscarPorID(int id) {
+    UsuarioArchivo arch;
+    int total = arch.contarRegistros();
+    Usuario usuario;
+
+    for (int i = 0; i < total; i++) {
+        if (!arch.leerUsuario(i, usuario)) continue;
+        if (usuario.getIdUsuario() == id && usuario.getNivelSeguridad() == 2) return i;
+    }
+    return -1;
+}

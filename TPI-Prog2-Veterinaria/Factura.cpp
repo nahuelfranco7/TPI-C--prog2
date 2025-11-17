@@ -32,3 +32,41 @@ void Factura::setEstadoFactura(bool estado){
 _estadoFactura=estado;
 }
 
+void cargarCadena(char *palabra, int tam) {
+    int i = 0;
+    fflush(stdin);
+    for (i = 0; i < tam; i++){
+        palabra[i] = cin.get();
+        if (palabra[i] == '\n') break;
+    }
+    palabra[i] = '\0';
+    fflush(stdin);
+}
+
+void Factura::cargar() {
+    cout << "ID Cliente: ";
+    cin >> _idCliente;
+
+    cout << "ID Usuario (vendedor): ";
+    cin >> _idUsuario;
+
+    cout << "Fecha de la factura:\n";
+    _fechaFactura.cargar();
+
+    cout << "Importe total: ";
+    cin >> _importeTotalFactura;
+
+    _estadoFactura = true;
+}
+
+void Factura::mostrar() {
+    cout << "ID Factura: " << _idFactura << endl;
+    cout << "ID Cliente: " << _idCliente << endl;
+    cout << "ID Usuario: " << _idUsuario << endl;
+    cout << "Fecha: ";
+    _fechaFactura.mostrar();
+    cout << "Importe total: " << _importeTotalFactura << endl;
+    cout << "Estado: " << (_estadoFactura ? "Activo" : "Anulada") << endl;
+    cout << "---------------------------\n";
+}
+
