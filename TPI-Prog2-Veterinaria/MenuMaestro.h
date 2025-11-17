@@ -53,6 +53,5 @@ private:
 
     // --- Facturas ---
     void altaFactura();
-    void bajaFactura();
     void listarFacturas();
 };

@@ -97,4 +97,20 @@ void Direccion::cargarCadena(char *palabra, int tam){
 
     }
 
+    void Direccion::mostrarDireccion(){
+    cout << "PAIS: ";
+        getPais();
+        cout << "PROVINCIA: ";
+       getProvincia();
+        cout << "CIUDAD: ";
+        getCiudad();
+        cout << "CALLE: ";
+        getCalle();
+        cout << "ALTURA: ";
+        getAltura();
+        cout << "CODIGO POSTAL: ";
+        getCodPostal();
+
+    }
+
 

@@ -265,7 +265,6 @@ void MenuMaestro::menuTurnos() {
         cout << "2) Modificación\n";
         cout << "3) Baja\n";
         cout << "4) Listado\n";
-        cout << "5) Reactivar\n";
         cout << "0) Volver\nOpción: ";
         cin >> opc;
 
@@ -274,8 +273,7 @@ void MenuMaestro::menuTurnos() {
             case 2: modificarTurno(); break;
             case 3: bajaTurno(); break;
             case 4: listarTurnos(); break;
-            case 5: reactivarTurno(); break;
-        }
+           }
     } while(opc != 0);
 }
 
@@ -299,10 +297,7 @@ void MenuMaestro::listarTurnos() {
     mgr.listarTurnos();
 }
 
-void MenuMaestro::reactivarTurno() {
-    ManagerTurno mgr;
-    mgr.reactivar();
-}
+
 
 /* ============================================================================================
    FACTURAS
@@ -314,15 +309,14 @@ void MenuMaestro::menuFacturas() {
         system("cls");
         cout << "=== GESTION DE FACTURAS ===\n";
         cout << "1) Alta\n";
-        cout << "2) Anular\n";
-        cout << "3) Listado\n";
+        cout << "2) Listado\n";
         cout << "0) Volver\nOpción: ";
         cin >> opc;
 
         switch(opc) {
             case 1: altaFactura(); break;
-            case 2: bajaFactura(); break;
-            case 3: listarFacturas(); break;
+            case 2: listarFacturas(); break;
+
         }
     } while(opc != 0);
 }
@@ -332,14 +326,11 @@ void MenuMaestro::altaFactura() {
     mgr.altaFactura();
 }
 
-void MenuMaestro::bajaFactura() {
-    ManagerFactura mgr;
-    mgr.baja();
-}
+
 
 void MenuMaestro::listarFacturas() {
     ManagerFactura mgr;
-    mgr.listar();
+    mgr.listarFacturas();
 }
 
 /* ============================================================================================
@@ -373,7 +364,7 @@ void MenuMaestro::menuReactivaciones() {
             case 2: reactivarMascota(); break;
             case 3: reactivarVeterinario(); break;
             case 4: reactivarUsuario(); break;
-            case 5: reactivarTurno(); break;
+
         }
     } while(opc != 0);
 }

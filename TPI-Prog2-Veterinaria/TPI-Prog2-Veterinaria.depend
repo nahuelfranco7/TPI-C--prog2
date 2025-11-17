@@ -945,6 +945,16 @@
 	<cstring>
 	"ManagerTurno.h"
 
-1763360940 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.h
+1763367106 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.h
 	"Usuario.h"
+
+1763367271 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.cpp
+	<iostream>
+	"MenuMaestro.h"
+	"ManagerCliente.h"
+	"ManagerMascota.h"
+	"ManagerTurno.h"
+	"ManagerFactura.h"
+	"ManagerVeterinario.h"
+	"ManagerUsuario.h"
 
