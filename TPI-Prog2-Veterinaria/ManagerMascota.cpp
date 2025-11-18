@@ -5,8 +5,8 @@
 using namespace std;
 
 void ManagerMascota::altaMascota() {
-    MascotaArchivo arch;
-    Mascota reg;
+     MascotaArchivo arch;
+     Mascota reg;
 
     cout << "=== ALTA DE MASCOTA ===\n";
     reg.cargar();

@@ -6,8 +6,7 @@ class Clientes : public Persona {
 private:
     int _idCliente;
 
-    //Función local para cargar cadenas
-    void cargarCadena(char* palabra, int tam);
+
 
 public:
     int getIdCliente();
@@ -15,4 +14,6 @@ public:
 
     void cargar();
     void mostrar();
+
+    void cargarCadena(char* palabra, int tam);
 };

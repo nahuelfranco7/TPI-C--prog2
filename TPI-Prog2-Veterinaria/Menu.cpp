@@ -22,7 +22,7 @@ void Menu::mostrar() {
         char contrasena[20];
         cin >> contrasena;
 
-        int pos = archivo.buscarPorId(id);
+        int pos = archivo.buscarPorId(id);//devuelve una posicion
 
         if (pos >= 0 && archivo.validarContrasenaPorPos(pos, contrasena)) {
 
