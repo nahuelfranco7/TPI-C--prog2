@@ -138,15 +138,26 @@ bool UsuarioArchivo::modificar(int id) {
             cin>>opcion;
 
             if(opcion== 'S' || opcion== 's') {
+                // si se cargan letras se buguea
+
                 cout<<"Ingrese nuevamente el ID: ";
                 cin>>id;
+
+
+                    // arreglo para que si por error tome letras no haga un loop
+
+                    while (!(cin >> id)) {
+                    cin.clear();               // Limpiar el error
+                    cin.ignore(1000, '\n');    // Vaciar buffer
+                    cout << "Entrada inválida. Ingrese un número entero: ";
+                    }
 
             }else{
                 cout<<"Operación cancelada."<<endl;
                 return false;
             }
         }else{
-            break;// ID encontrado → salimos del bucle
+            break;// ID encontrado salimos del bucle
         }
     }
 
