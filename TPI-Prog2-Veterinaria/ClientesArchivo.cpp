@@ -12,7 +12,7 @@ int ClientesArchivo::buscarporId(int id){
     Clientes reg;
     int pos = 0;
     FILE *p = fopen (_nombreArchivo,"rb");
-    if (p==nullptr) return false;
+    if (p==nullptr) return -1;
     while (fread(&reg, sizeof(Clientes),1,p)){
         if (reg.getIdCliente()==id){
             fclose(p);
@@ -25,7 +25,7 @@ return -1;
 
 int ClientesArchivo::contarRegistros(){
     FILE *p = fopen(_nombreArchivo,"rb");
-    if (p==nullptr) return false;
+    if (p==nullptr) return -1;
     fseek(p,0,SEEK_END);
     int tamanio=ftell(p);
     fclose(p);

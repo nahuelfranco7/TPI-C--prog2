@@ -5,6 +5,7 @@
 #include "ClientesArchivo.h"
 #include "MascotaArchivo.h"
 #include "TurnoArchivo.h"
+#include "Veterinario.h"
 
 class ManagerVeterinario {
 public:

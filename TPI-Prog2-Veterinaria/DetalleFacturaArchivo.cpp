@@ -5,22 +5,6 @@
 
 using namespace std;
 
-/*
-    int buscarPorId(int id);//devuelve una posición ok
-    int contarRegistros(); //ok
-    int generarNuevoID(); //
-
-    bool cargarDetalle();
-    bool cargarDetalle(const DetalleFactura &reg);
-    bool modificarDetalleArchivo(int pos,const DetalleFactura &reg);
-    bool leerDetalle(int pos, const DetalleFactura &reg);
-    bool eliminar(int pos);
-    bool modificar(int pos);
-
-    void mostrarDetalle(int, const DetalleFactura &reg);
-    void listarTodos();
-
-*/
 
 const char* DetalleFacturaArchivo::getNombreArchivo(){
 return _nombreArchivo;

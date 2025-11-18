@@ -2,6 +2,7 @@
 #include <cstring>
 
 #include "ManagerVeterinario.h"
+#include "VeterinarioArchivo.h"
 #include "Clientes.h"
 #include "Mascota.h"
 #include "Turno.h"
@@ -30,54 +31,91 @@ static void cargarCadena(char *palabra, int tam){
    =========================== */
 
 void ManagerVeterinario::cargar() {
-    UsuarioArchivo arch;
+
+    /// =============================
+    ///  PRIMERA PARTE: Cargar USUARIO
+    /// =============================
+    UsuarioArchivo archU;
     Usuario u;
 
-    int nuevoId = arch.contarRegistros() + 1;
-    u.setIdUsuario(nuevoId);
+    int nuevoIdUsuario = archU.contarRegistros() + 1;
+    u.setIdUsuario(nuevoIdUsuario);
 
     cout << "=== ALTA DE VETERINARIO ===\n";
 
-    cout << "Nombre: ";
+    char aux[40];
 
-    char aux[30];
     cout << "Nombre: ";
     cargarCadena(aux, 30);
     u.setNombre(aux);
 
     cout << "Apellido: ";
-    char aux2[30];
-    cargarCadena(aux2, 30);
-     u.setApellido(aux2);
+    cargarCadena(aux, 30);
+    u.setApellido(aux);
 
     cout << "DNI: ";
-    char aux3[15];
-    cargarCadena(aux3, 15);
-    u.setDNI(aux3);
+    cargarCadena(aux, 15);
+    u.setDNI(aux);
 
     cout << "Email: ";
-    char aux4[40];
-    cargarCadena(aux4, 40);
-    u.setEmail(aux4);
+    cargarCadena(aux, 40);
+    u.setEmail(aux);
 
     cout << "Telefono: ";
-    char aux5[20];
-    cargarCadena(aux5, 20);
-    u.setTelefono(aux5);
+    cargarCadena(aux, 20);
+    u.setTelefono(aux);
 
     cout << "Clave (max 5 caracteres): ";
-    char aux6[6];
-    cargarCadena(aux6, 6);
-    u.setClave(aux6);
+    cargarCadena(aux, 6);
+    u.setClave(aux);
 
     u.setNivelSeguridad(2); // veterinario
     u.setEstado(true);
 
-    if (arch.cargarUsuario(u))
-        cout << "Veterinario guardado correctamente.\n";
-    else
-        cout << "ERROR al guardar el veterinario.\n";
+    bool okUser = archU.cargarUsuario(u);
+    if (!okUser) {
+        cout << "ERROR al guardar Usuario.\n";
+        system("pause");
+        return;
+    }
 
+
+    /// ============================================
+    ///  SEGUNDA PARTE: Cargar REGISTRO VETERINARIO
+    /// ============================================
+    VeterinarioArchivo archV;
+    Veterinario v;
+
+    int nuevoIdVet = archV.contarRegistros() + 1;
+    v.setId(nuevoIdVet);
+
+    /// Copiar datos personales desde Usuario
+    v.setNombre(u.getNombre());
+    v.setApellido(u.getApellido());
+    v.setDNI(u.getDNI());
+    v.setDireccion(u.getDireccion());
+    v.setTelefono(u.getTelefono());
+    v.setEmail(u.getEmail());
+    v.setEstado(u.getEstado());
+
+    /// Datos específicos del veterinario
+    cout << "Matricula profesional: ";
+    int mat;
+    cin >> mat;
+    v.setMatriculaVet(mat);
+
+    Fecha f;
+    cout << "Fecha de ingreso:\n";
+    f.cargar();
+    v.setFechaIngresoVet(f);
+
+
+    if (archV.cargarVet(v))
+        cout << "Veterinario guardado en Veterinarios.dat\n";
+    else
+        cout << "ERROR al guardar veterinario\n";
+
+    cout << "Alta de veterinario completada correctamente.\n";
     system("pause");
 }
 

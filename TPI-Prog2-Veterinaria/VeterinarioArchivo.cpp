@@ -81,6 +81,11 @@ bool VeterinarioArchivo::cargarVet() {
     fechaIngreso.cargar();
     reg.setFechaIngresoVet(fechaIngreso);
 
+    int idUsuario;
+    cout << "ID del usuario asociado: ";
+    cin >> idUsuario;
+    reg.setIdUsuarioAsociado(idUsuario);
+
     reg.setEstado(true);
 
     if(cargarVet(reg)){
@@ -107,7 +112,8 @@ bool VeterinarioArchivo::leerVet(int pos, Veterinario &reg) {
 void VeterinarioArchivo::mostrarVeterinario(int pos, const Veterinario &reg) {
     cout<<"------------------------------\n";
     cout<<"POSICION: "<<pos<<endl;
-    cout<<"ID: "<<reg.getID()<<endl;
+    cout<<"ID VETERINARIO: "<<reg.getID()<<endl;
+    cout<<"ID USUARIO ASOCIADO: "<<reg.getIdUsuarioAsociado()<<endl;
     cout<<"NOMBRE: "<<reg.getNombre()<<endl;
     cout<<"APELLIDO: "<<reg.getApellido()<<endl;
     cout<<"DNI: "<<reg.getDNI()<<endl;
@@ -209,7 +215,8 @@ bool VeterinarioArchivo::modificar(int pos) {
         cout<<"7. Modificar matricula\n";
         cout<<"8. Modificar fecha de ingreso\n";
         cout<<"9. Cambiar estado (activo/inactivo)\n";
-        cout<<"10. Guardar y salir\n";
+        cout<<"10. Modificar ID de usuario asociado\n";
+        cout<<"11. Guardar y salir\n";
         cout<<"Seleccione opcion: ";
         cin>>opcion;
 
@@ -287,7 +294,16 @@ bool VeterinarioArchivo::modificar(int pos) {
             break;
         }
 
-        case 10:
+        case 10: {
+
+            int nuevoIDU;
+            cout << "Nuevo ID de usuario asociado: ";
+            cin >> nuevoIDU;
+            reg.setIdUsuarioAsociado(nuevoIDU);
+            break;
+            }
+
+            case 11:
             cout<<"Guardando cambios...\n";
             break;
 
@@ -296,7 +312,7 @@ bool VeterinarioArchivo::modificar(int pos) {
             break;
         }
 
-    } while(opcion != 10);
+    } while(opcion != 11);
 
     //3) Guardamos cambios
     return modificarVet(pos,reg);

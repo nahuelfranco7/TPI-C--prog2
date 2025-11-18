@@ -1,20 +1,26 @@
 #include <iostream>
-
+#include "Menu.h"
 using namespace std;
 
-int main()
-{
-    cout<<"Ingrese un nombre";
+int main(){
+    Menu menu;
 
-      return 0;
+    int opcion;
+    cout << "1) Cargar usuarios iniciales\n";
+    cout << "2) Ingresar al sistema\n";
+    cin >> opcion;
+
+    system("cls");
+
+    if(opcion == 1){
+        menu.cargarUsuariosIniciales();
+        return 0;  // termina luego de cargar
+    }
+
+    if(opcion == 2){
+        menu.mostrar();   // login normal
+    }
+
+    return 0;
 }
 
-
-//    Activa el Menu
-
-/*#include "Menu.h"*/
-
-/*int main() {
-    menuPrincipal();
-    return 0;
-}*/

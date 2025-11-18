@@ -4,4 +4,5 @@
 class Menu{
 public:
     void mostrar();
+    void cargarUsuariosIniciales();
 };
