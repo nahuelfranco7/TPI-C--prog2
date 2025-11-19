@@ -308,17 +308,17 @@ void ManagerVeterinario::listarMascotasDeCliente() {
     MascotaArchivo archM;
     Mascota m;
     int totalM = archM.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     cout << "Mascotas del cliente:\n";
     for (int i = 0; i < totalM; i++) {
         if (!archM.leerMascota(i, m)) continue;
         if (m.getIdClienteDueno() == idCliente) {
             cout << "ID: " << m.getIdMascota() << " - " << m.getNombreMascota()
                  << " (" << (m.getEstadoMascota() ? "ACTIVO" : "INACTIVO") << ")\n";
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No tiene mascotas registradas.\n";
+    if (!encontro) cout << "No tiene mascotas registradas.\n";
     system("pause");
 }
 
@@ -350,16 +350,16 @@ void ManagerVeterinario::listarTurnosPorFecha() {
     TurnoArchivo archT;
     Turno t;
     int total = archT.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     for (int i = 0; i < total; i++) {
         if (!archT.leerTurno(i, t)) continue;
         Fecha ft = t.getFechaTurno();
         if (ft.getDia() == f.getDia() && ft.getMes() == f.getMes() && ft.getAnio() == f.getAnio()) {
             archT.mostrarTurno(t);
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No hay turnos en esa fecha.\n";
+    if (!encontro) cout << "No hay turnos en esa fecha.\n";
     system("pause");
 }
 

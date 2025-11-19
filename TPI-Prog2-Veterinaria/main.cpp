@@ -13,8 +13,7 @@ int main(){
         cout << "0) Salir\n";
         cout << "------------------------------------\n";
 
-        opcion = menu.cargarEntero("Seleccion", 0);
-
+        cin>>opcion;
         system("cls");
 
         switch(opcion){

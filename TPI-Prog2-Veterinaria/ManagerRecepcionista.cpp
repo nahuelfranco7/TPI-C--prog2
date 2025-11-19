@@ -462,16 +462,16 @@ void ManagerRecepcionista::consultaPorFecha() {
 
     TurnoArchivo archT; Turno t;
     int total = archT.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     for (int i=0;i<total;i++){
         if (!archT.leerTurno(i,t)) continue;
         Fecha f = t.getFechaTurno();
         if (f.getDia() == fecha.getDia() && f.getMes() == fecha.getMes() && f.getAnio() == fecha.getAnio()) {
             cout << "ID Turno: " << t.getIdTurno() << " | Mascota: " << t.getIdMascota() << " | Vet: " << t.getIdVet() << " | Estado: " << (t.getEstadoTurno() ? "ACTIVO" : "INACTIVO") << "\n";
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No se encontraron turnos en esa fecha.\n";
+    if (!encontro) cout << "No se encontraron turnos en esa fecha.\n";
     system("pause");
 }
 
@@ -485,16 +485,16 @@ void ManagerRecepcionista::consultaPorEstado() {
 
     TurnoArchivo archT; Turno t;
     int total = archT.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     for (int i=0;i<total;i++){
         if (!archT.leerTurno(i,t)) continue;
         if (t.getEstadoTurno() == estado) {
             cout << "ID Turno: " << t.getIdTurno() << " | Mascota: " << t.getIdMascota() << " | Vet: " << t.getIdVet() << " | Fecha: ";
             t.getFechaTurno().mostrar(); cout << " | Estado: " << (t.getEstadoTurno() ? "ACTIVO" : "INACTIVO") << "\n";
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No se encontraron turnos con ese estado.\n";
+    if (!encontro) cout << "No se encontraron turnos con ese estado.\n";
     system("pause");
 }
 

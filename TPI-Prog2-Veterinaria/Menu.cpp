@@ -15,8 +15,8 @@ void Menu::mostrar() {
 
     do {
         cout << "Ingrese ID: ";
-        int id=cargarEntero("Ingrese nivel ",4);
-
+        int id;
+        cin>>id;
 
         cout << "Ingrese contrasena: ";
         char contrasena[20];
@@ -117,7 +117,9 @@ void Menu::cargarUsuariosIniciales() {
 
     do {
     cout << "Nivel de seguridad (1=Recep - 2=Vet - 3=Admin - 4=Maestro): ";
-    nivel = cargarEntero("Ingrese nivel ",4);
+
+    cin>>nivel;
+
 
     if(nivel < 1 || nivel > 4){
         cout << "Valor invalido. Debe ser 1, 2, 3 o 4." << endl;
@@ -171,43 +173,24 @@ void Menu::cargarCadena(char *palabra, int tam){
     }
 }
 
-int Menu::cargarEntero(const char *mensaje, int tamMax) {
+int Menu::cargarEntero(const char *mensaje, int ) {
     char buffer[100];
     bool valido = false;
 
     while(!valido) {
-        cout << mensaje << " (max " << tamMax-1 << " caracteres): ";
+        cout << mensaje << ": ";
 
+        cin.getline(buffer, 100);
 
-        int i = 0;
-        for(i = 0; i < tamMax - 1; i++) {
-            buffer[i] = cin.get();
-            if (buffer[i] == '\n') break;
-        }
-        buffer[i] = '\0';
-
-        // Si el usuario supera el límite sin presionar ENTER
-        if(i == tamMax - 1 && buffer[i-1] != '\n') {
-            cout << "Error: excedio el maximo permitido.\n";
-
-            // limpiar el resto del buffer
-            char basura;
-            while((basura = cin.get()) != '\n');
-
-            continue;   // volver a pedir
-        }
-
-        // ----- VALIDACIÓN(ASCII) -----
-
-        //Si la cadena está vacía
-        if(buffer[0] == '\0') {
+        // Cadena vacía
+        if (buffer[0] == '\0') {
             cout << "Error: debe ingresar un numero.\n";
             continue;
         }
 
         valido = true;
 
-        // Valida caracter por caracter
+        // Validar cada caracter
         for(int j = 0; buffer[j] != '\0'; j++) {
             if(buffer[j] < '0' || buffer[j] > '9') {
                 valido = false;
@@ -220,6 +203,5 @@ int Menu::cargarEntero(const char *mensaje, int tamMax) {
         }
     }
 
-    // Convertir a entero de nuevo
     return atoi(buffer);
 }

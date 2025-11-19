@@ -107,18 +107,18 @@ void ManagerCliente::buscarClientePorDNI() {
 
     ClientesArchivo arch;
     Clientes c;
-    bool found = false;
+    bool encontro = false;
     int total = arch.contarRegistros();
 
     for (int i=0; i<total; i++) {
         if (!arch.leerClientes(i, c)) continue;
         if (strcmp(c.getDNI(), dni)==0) {
             arch.mostrarClientes(i, c);
-            found = true;
+            encontro = true;
         }
     }
 
-    if (!found) cout << "No encontrado.\n";
+    if (!encontro) cout << "No encontrado.\n";
 
     system("pause");
 }
