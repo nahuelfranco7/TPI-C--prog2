@@ -12,4 +12,6 @@ public:
     void reactivarCliente();
     void listarClientes();
     void buscarClientePorDNI();
+    void cargarCadena(char *palabra, int tam);
+    int cargarEntero(const char *mensaje, int tamMax);
 };

@@ -230,7 +230,7 @@ bool DetalleFacturaArchivo::eliminar(int pos) {
     //Modifica el estado a inactivo
     reg.setEstado(false);
 
-    //Volver a posicionarse en la misma posición para sobrescribir
+    //Volver a posicionarnos en la misma posición para sobrescribir
     fseek(p,pos*sizeof(DetalleFactura),SEEK_SET);
 
     //Escribir el registro modificado

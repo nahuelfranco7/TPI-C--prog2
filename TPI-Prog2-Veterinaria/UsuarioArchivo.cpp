@@ -57,7 +57,7 @@ Usuario UsuarioArchivo::leerRegistro(int pos) {
 
     if (p == nullptr) {
         cout << "Error abriendo archivo usuarios.dat\n";
-        return reg; // Devuelve algo vacío
+        return reg; // Devuelve la instancia pero vacía
     }
 
     fseek(p, pos * sizeof(Usuario), SEEK_SET);

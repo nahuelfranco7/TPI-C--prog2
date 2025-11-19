@@ -21,7 +21,7 @@ const char* Direccion::getCalle(){return _calle;}
 int Direccion::getAltura(){return _altura;}
 int Direccion::getCodPostal(){return _codPostal;}
 
-// Setters con strncpy para limitar caracteres
+
 void Direccion::setPais(const char* pais){
     strncpy(_pais, pais,39);
 }
@@ -71,7 +71,7 @@ void Direccion::cargarCadena(char *palabra, int tam){
             char basura;
             while((basura=cin.get())!='\n');
 
-            // Borrar la cadena ingresada para que no quede basura
+            // Borramos la cadena ingresada para que no quede basura
             palabra[0]='\0';
         }
         else {

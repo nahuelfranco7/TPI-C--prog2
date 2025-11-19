@@ -9,9 +9,8 @@ const char* FacturaArchivo::getNombreArchivo() {
     return _nombreArchivo;
 }
 
-// =====================================================================
+
 //                          CARGA BÁSICA
-// =====================================================================
 
 bool FacturaArchivo::cargarFactura(const Factura &reg) {
     FILE *p=fopen(_nombreArchivo,"ab");
@@ -68,9 +67,7 @@ bool FacturaArchivo::cargarFactura() {
 }
 
 
-// =====================================================================
 //                              LECTURA
-// =====================================================================
 
 bool FacturaArchivo::leerFactura(int pos,Factura &reg) {
     FILE *p=fopen(_nombreArchivo,"rb");
@@ -84,9 +81,7 @@ bool FacturaArchivo::leerFactura(int pos,Factura &reg) {
 }
 
 
-// =====================================================================
 //                         MOSTRAR FACTURA
-// =====================================================================
 
 void FacturaArchivo::mostrarFactura(int pos, const Factura &reg) {
     cout<<"---------------------------------"<<endl;
@@ -105,10 +100,7 @@ void FacturaArchivo::mostrarFactura(int pos, const Factura &reg) {
     cout<<"---------------------------------"<<endl;
 }
 
-
-// =====================================================================
 //                          BÚSQUEDA
-// =====================================================================
 
 int FacturaArchivo::buscarPorId(int id) {
     Factura reg;
@@ -129,9 +121,7 @@ int FacturaArchivo::buscarPorId(int id) {
 }
 
 
-// =====================================================================
 //                   CONTAR / GENERAR ID
-// =====================================================================
 
 int FacturaArchivo::contarRegistros(){
     FILE *p=fopen(_nombreArchivo,"rb");
@@ -149,10 +139,7 @@ int FacturaArchivo::generarNuevoID() {
     return contarRegistros()+1;
 }
 
-
-// =====================================================================
 //                        LISTAR TODAS
-// =====================================================================
 
 void FacturaArchivo::listarTodos() {
     Factura reg;
@@ -173,9 +160,7 @@ void FacturaArchivo::listarTodos() {
 }
 
 
-// =====================================================================
 //                             ELIMINAR
-// =====================================================================
 
 bool FacturaArchivo::eliminar(int pos){
     Factura reg;
@@ -188,9 +173,7 @@ bool FacturaArchivo::eliminar(int pos){
 }
 
 
-// =====================================================================
 //                            MODIFICAR
-// =====================================================================
 
 bool FacturaArchivo::modificar(int pos){
     Factura reg;
@@ -261,9 +244,8 @@ bool FacturaArchivo::modificarFactura(int pos,const Factura &reg) {
 }
 
 
-// =====================================================================
 //                      FILTROS POR FECHA
-// =====================================================================
+
 
 bool FacturaArchivo::fechaEsMayorIgual(Fecha a, Fecha b) {
     if (a.getAnio() > b.getAnio()) return true;

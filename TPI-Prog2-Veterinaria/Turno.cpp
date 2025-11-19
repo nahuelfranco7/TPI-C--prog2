@@ -38,9 +38,9 @@ void Turno::cargar() {
     cin >> _idVet;
 
     cout << "Ingrese fecha del turno: \n";
-    _fechaTurno.cargar();  // Debe existir en Fecha
+    _fechaTurno.cargar();
 
-    _estadoTurno = true;   // Por defecto al cargar está activo
+    _estadoTurno = true;
 }
 
 

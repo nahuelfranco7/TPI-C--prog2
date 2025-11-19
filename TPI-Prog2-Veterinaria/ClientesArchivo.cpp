@@ -189,10 +189,10 @@ bool ClientesArchivo::eliminar(int pos){
     }
     reg.setEstado(false);
 
-    //Volver a posicionarse en la misma posición para sobrescribir
+    //Volvemos a posicionarse en la misma posición para sobrescribir
     fseek(p,pos*sizeof(Clientes),SEEK_SET);
 
-    //Escribe en el registro modificado
+    //Escribimos en el registro modificado
     bool ok = fwrite(&reg,sizeof(Clientes),1,p);
 
     fclose(p);
@@ -242,13 +242,13 @@ bool ClientesArchivo::leerClientes(int pos, Clientes &reg){
 bool ClientesArchivo::modificar(int pos) {
     Clientes reg;
 
-    // 1) Leer registro existente
+    // 1) Leemos registro existente
     if (!leerClientes(pos, reg)) {
         cout << "NO SE PUDO LEER EL REGISTRO." << endl;
         return false;
     }
 
-    // 2) Mostrar datos actuales
+    // 2) Mostramos datos actuales
     cout << "===== MODIFICAR CLIENTE =====" << endl;
     mostrarClientes(pos, reg);
 
@@ -336,17 +336,17 @@ bool ClientesArchivo::modificar(int pos) {
 
     } while (opcion != 8);
 
-    // 3) Guardar cambios en archivo
+    // 3) Guardaamos cambios en archivo
     return modificarClientes(pos, reg);
 }
 
 bool ClientesArchivo::modificarClientes(int pos, const Clientes &reg) {
-    FILE *p = fopen(_nombreArchivo, "rb+"); //lectura y escritura
+    FILE *p = fopen(_nombreArchivo, "rb+");
     if (p == nullptr) return false;
 
     fseek(p, pos * sizeof(Clientes), SEEK_SET); //Nos movemos a la posición exacta
 
-    bool escribio = fwrite(&reg, sizeof(Clientes), 1, p); //Sobrescribe el registro
+    bool escribio = fwrite(&reg, sizeof(Clientes), 1, p); //Sobrescribimos el registro
 
     fclose(p);
     return escribio;

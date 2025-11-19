@@ -28,7 +28,7 @@
 1762227304 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
 	<cstring>
 
-1763367602 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
+1763518181 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -38,7 +38,7 @@
 	<cstring>
 	<cstring>
 
-1763432181 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
+1763519170 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
 	<iostream>
 	"Menu.h"
 
@@ -137,7 +137,7 @@
 	<cstring>
 	"Usuario.h"
 
-1763345383 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
+1763523057 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -147,7 +147,7 @@
 	<cstring>
 	"Mascota.h"
 
-1763362277 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
+1763517580 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
 	<iostream>
 	<cstring>
 	"Clientes.h"
@@ -156,7 +156,7 @@
 	<cstring>
 	"Persona.h"
 
-1763428742 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
+1763518769 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -190,7 +190,7 @@
 	"Persona.h"
 	"Fecha.h"
 
-1763428920 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
+1763517788 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
 	<iostream>
 	<cstring>
 	"ClientesArchivo.h"
@@ -521,10 +521,10 @@
 	"Persona.h"
 	"Fecha.h"
 
-1763439936 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
+1763510826 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
 	"Usuario.h"
 
-1763431843 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.cpp
+1763513672 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.cpp
 	<iostream>
 	<cstdlib>
 	"Menu.h"
@@ -580,7 +580,7 @@
 	<cstring>
 	"Veterinario.h"
 
-1763168710 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.cpp
+1763522791 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -605,7 +605,7 @@
 	<cstring>
 	<iostream>
 
-1763353869 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.cpp
+1763522869 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -873,7 +873,7 @@
 	"TurnoArchivo.h"
 	"Veterinario.h"
 
-1763429782 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerveterinario.cpp
+1763522787 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerveterinario.cpp
 	<iostream>
 	<cstring>
 	"ManagerVeterinario.h"
@@ -903,7 +903,7 @@
 
 1763364041 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menuadministrativo.h
 
-1763359361 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.h
+1763513552 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.h
 	"ClientesArchivo.h"
 	"MascotaArchivo.h"
 	"Clientes.h"
@@ -931,12 +931,12 @@
 	<cstring>
 	"ManagerFactura.h"
 
-1763363448 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.cpp
+1763519254 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.cpp
 	<iostream>
 	<cstdlib>
 	"ManagerCliente.h"
 
-1763363482 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managermascota.cpp
+1763442229 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managermascota.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>

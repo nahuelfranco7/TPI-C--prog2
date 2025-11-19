@@ -10,10 +10,7 @@
 
 using namespace std;
 
-/* ------------------------------------------------------------------
-   helper local: cargarCadena (igual a la que usabas en TurnoArchivo)
-   lee hasta \n o hasta tam-1 y deja '\0'
-   ------------------------------------------------------------------ */
+
 static void cargarCadena(char *palabra, int tam){
     int i = 0;
     fflush(stdin);
@@ -26,8 +23,7 @@ static void cargarCadena(char *palabra, int tam){
     fflush(stdin);
 }
 
-/* ===========================
-   ABML / Métodos principales
+/*    ABML / Métodos principales
    =========================== */
 
 void ManagerVeterinario::cargar() {
@@ -72,8 +68,8 @@ void ManagerVeterinario::cargar() {
     u.setNivelSeguridad(2); // veterinario
     u.setEstado(true);
 
-    bool okUser = archU.cargarUsuario(u);
-    if (!okUser) {
+    bool okUsuario = archU.cargarUsuario(u);
+    if (!okUsuario) {
         cout << "ERROR al guardar Usuario.\n";
         system("pause");
         return;
@@ -148,10 +144,10 @@ void ManagerVeterinario::modificar() {
     cout << "Veterinario actual:\n";
     arch.mostrarUsuario(pos);
 
-    // solicitar nuevos datos (ejemplo: nombre, apellido, email, telefono, clave)
+    // solicitamos nuevos datos
     char buf[100];
     cout << "Ingrese nuevo nombre (ENTER para mantener): ";
-    cin.ignore();
+
     cargarCadena(buf, 30);
     if (strlen(buf) > 0) u.setNombre(buf);
 
@@ -219,9 +215,9 @@ void ManagerVeterinario::listar() {
     Usuario u;
     cout << "=== LISTADO DE VETERINARIOS ===\n";
     for (int i = 0; i < total; i++) {
-        if (!arch.leerUsuario(i, u)) continue;
+        if (arch.leerUsuario(i, u)) {  //si pudo leer el ab
+
         if (u.getNivelSeguridad() == 2) {
-            // mostrar datos relevantes
             cout << "---------------------------\n";
             cout << "ID: " << u.getIdUsuario() << "\n";
             cout << "Nombre: " << u.getNombre() << " " << u.getApellido() << "\n";
@@ -229,6 +225,8 @@ void ManagerVeterinario::listar() {
             cout << "Email: " << u.getEmail() << "\n";
             cout << "Estado: " << (u.getEstado() ? "Activo" : "Inactivo") << "\n";
         }
+
+    }
     }
     system("pause");
 }
@@ -263,8 +261,7 @@ void ManagerVeterinario::reactivar() {
     system("pause");
 }
 
-/* ===========================================================
-   FUNCIONES DE CONSULTA (ya tenías versiones similares)
+/* FUNCIONES DE CONSULTA
    =========================================================== */
 
 void ManagerVeterinario::verClientePorDNI() {
@@ -336,7 +333,7 @@ void ManagerVeterinario::listarTurnoPorID() {
     for (int i = 0; i < total; i++) {
         if (!archT.leerTurno(i, t)) continue;
         if (t.getIdTurno() == id) {
-            archT.mostrarTurno(t); // ahora existe la versión mostrarTurno(const Turno &)
+            archT.mostrarTurno(t);
             system("pause");
             return;
         }
