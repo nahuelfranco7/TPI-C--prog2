@@ -28,11 +28,6 @@ void ManagerRecepcionista::menuTurnos() {
         cout << "Opcion: ";
         cin >> opc;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            opc = -1;
-        }
 
         switch (opc) {
             case 1:
