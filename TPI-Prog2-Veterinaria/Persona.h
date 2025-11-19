@@ -7,7 +7,7 @@ protected://esto será asignado por la clase hija
     int _id;
     char _nombre[30];
     char _apellido[30];
-    char _DNI[15];
+    int _DNI;
     Direccion _direccion;
     char _telefono[20];
     char _email[40];
@@ -17,7 +17,7 @@ public:
     int getID()const;
     const char* getNombre() const;
     const char* getApellido() const;
-    const char* getDNI() const;
+    int getDNI() const;
     Direccion getDireccion() const;
     const char* getTelefono() const;
     const char* getEmail() const;
@@ -27,7 +27,7 @@ public:
     void setId(int id);
     void setNombre(const char* nombre);
     void setApellido(const char* apellido);
-    void setDNI(const char* dni);
+    void setDNI(int dni);
     void setDireccion(Direccion direccion);
     void setTelefono(const char* telefono);
     void setEmail(const char* email);

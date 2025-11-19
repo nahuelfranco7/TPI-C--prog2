@@ -23,6 +23,23 @@ int ClientesArchivo::buscarporId(int id){
 return -1;
 }
 
+
+int ClientesArchivo::buscarporDNI(int DNI){
+    Clientes reg;
+    int pos = 0;
+    FILE *p = fopen (_nombreArchivo,"rb");
+    if (p==nullptr) return -1;
+    while (fread(&reg, sizeof(Clientes),1,p)){
+        if (reg.getDNI()==DNI){
+            fclose(p);
+        }
+        return pos;
+    pos++;
+    }
+return -1;
+}
+
+
 int ClientesArchivo::contarRegistros(){
     FILE *p = fopen(_nombreArchivo,"rb");
     if (p==nullptr) return -1;
@@ -91,13 +108,25 @@ bool ClientesArchivo::cargarClientes(){
     Clientes reg;
     char nombre[20];
     char apellido[20];
-    char DNI[20];
+    int DNI;
     Direccion direccion;
     char telefono[15];
     char email[40];
 
     reg.setIdCliente(generarNuevoID());
     cout<< "ID ASIGNADO AUTOMATICAMENTE: "<<reg.getIdCliente()<<endl;
+
+bool valido = true;
+
+while(valido){cout<<"DNI: ";
+    cin>>DNI;
+    if(buscarporDNI(DNI)==DNI){
+    reg.setDNI(DNI);
+    valido = false;
+    } else{
+    cout<<"EL CLIENTE YA EXISTE.. "<<endl;
+    }
+}
 
     cout<<"INGRESE NOMBRE DE CLIENTE: "<<endl;
     cargarCadena(nombre,20);
@@ -106,10 +135,6 @@ bool ClientesArchivo::cargarClientes(){
     cout<<"INGRESE APELLIDO DEL CLIENTE: "<<endl;
     cargarCadena(apellido,20);
     reg.setApellido(apellido);
-
-    cout<<"INGRESE DNI: "<<endl;
-    cargarCadena(DNI,19);
-    reg.setDNI(DNI);
 
     cout<<"INGRESE DIRECCION DEL CLIENTE: "<<endl;
     Direccion dir;
@@ -286,9 +311,9 @@ bool ClientesArchivo::modificar(int pos) {
         }
 
         case 3: {
-            char dni[15];
+            int dni;
             cout << "Nuevo DNI:\n";
-            cargarCadena(dni,15);
+            cin >> dni;
             reg.setDNI(dni);
             break;
         }
@@ -351,3 +376,5 @@ bool ClientesArchivo::modificarClientes(int pos, const Clientes &reg) {
     fclose(p);
     return escribio;
 }
+
+

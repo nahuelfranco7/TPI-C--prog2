@@ -35,14 +35,22 @@ void Clientes::setIdCliente(int id) {
 //       CARGAR
 
 void Clientes::cargar() {
+    bool valido = true;
+    int DNI;
+
+/*while(valido){cout<<"DNI: ";
+    cin>>DNI;
+    if(buscarporDNI(DNI)==DNI){
+    reg.setDNI(DNI);
+    valido = false;
+    } else{
+    cout<<"EL CLIENTE YA EXISTE.. "<<endl;
+    }}*/
     cout << "Nombre: ";
     cargarCadena(_nombre, 30);
 
     cout << "Apellido: ";
     cargarCadena(_apellido, 30);
-
-    cout << "DNI: ";
-    cargarCadena(_DNI, 15);
 
     cout << "\n--- DIRECCION ---\n";
     _direccion.cargarDireccion();

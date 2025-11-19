@@ -419,7 +419,7 @@ void ManagerRecepcionista::consultaPorID() {
 
 void ManagerRecepcionista::consultaPorDNI() {
     cout << "Buscar por DNI (Clientes / Veterinarios)\n";
-    char dni[25];
+    int dni;
     cout << "DNI: ";
     cin >> dni;
 
@@ -429,7 +429,7 @@ void ManagerRecepcionista::consultaPorDNI() {
     bool encontrado = false;
     for (int i=0;i<totalC;i++){
         if (!archC.leerClientes(i,c)) continue;
-        if (strcmp(c.getDNI(), dni) == 0) {
+        if (c.getDNI() == 0) {
             archC.mostrarClientes(i, c);
             encontrado = true;
         }
@@ -440,7 +440,7 @@ void ManagerRecepcionista::consultaPorDNI() {
     for (int i=0;i<totalV;i++){
         if (!archV.leerVet(i,v)) continue;
 
-        if (strcmp(v.getDNI(), dni) == 0) {
+        if (v.getDNI() == 0) {
             archV.mostrarVeterinario(i, v);
             encontrado = true;
         }
@@ -531,9 +531,9 @@ void ManagerRecepcionista::menuBusquedas() {
     } while (opcion != 0);
 }
 
-void ManagerRecepcionista::buscarClientePorDNI() {
+bool ManagerRecepcionista::buscarClientePorDNI() {
 
-    char dni[25];
+    int dni;
     cout << "Ingrese DNI del cliente: ";
     cin >> dni;
 
@@ -542,13 +542,13 @@ void ManagerRecepcionista::buscarClientePorDNI() {
     int pos = -1;
     for (int i=0;i<total;i++){
         if (!archC.leerClientes(i,c)) continue;
-        if (strcmp(c.getDNI(), dni) == 0) { pos = i; break; }
+        if (c.getDNI()== 0) { pos = i; break; }
     }
 
     if (pos < 0) {
         cout << "Cliente no encontrado.\n";
         system("pause");
-        return;
+        return false;
     }
 
     archC.mostrarClientes(pos, c);

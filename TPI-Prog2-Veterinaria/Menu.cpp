@@ -101,8 +101,9 @@ void Menu::cargarUsuariosIniciales() {
     u.setApellido(aux);
 
     cout << "DNI: ";
-    cargarCadena(aux,15);
-    u.setDNI(aux);
+    int DNI;
+    cin >> DNI;
+    u.setDNI(DNI);
 
     cout << "Email: ";
     cargarCadena(aux,40);

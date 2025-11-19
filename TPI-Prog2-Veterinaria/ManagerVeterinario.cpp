@@ -40,6 +40,7 @@ void ManagerVeterinario::cargar() {
     cout << "=== ALTA DE VETERINARIO ===\n";
 
     char aux[40];
+    int dni;
 
     cout << "Nombre: ";
     cargarCadena(aux, 30);
@@ -50,8 +51,8 @@ void ManagerVeterinario::cargar() {
     u.setApellido(aux);
 
     cout << "DNI: ";
-    cargarCadena(aux, 15);
-    u.setDNI(aux);
+    cin >> dni;
+    u.setDNI(dni);
 
     cout << "Email: ";
     cargarCadena(aux, 40);
@@ -156,8 +157,8 @@ void ManagerVeterinario::modificar() {
     if (strlen(buf) > 0) u.setApellido(buf);
 
     cout << "Ingrese nuevo DNI (ENTER para mantener): ";
-    cargarCadena(buf, 15);
-    if (strlen(buf) > 0) u.setDNI(buf);
+    int dni;
+    if (dni > 0) u.setDNI(dni);
 
     cout << "Ingrese nuevo email (ENTER para mantener): ";
     cargarCadena(buf, 40);
@@ -265,16 +266,16 @@ void ManagerVeterinario::reactivar() {
    =========================================================== */
 
 void ManagerVeterinario::verClientePorDNI() {
-    char dni[25];
+    int dni;
     cout << "Ingrese DNI: ";
-    cargarCadena(dni, 25);
+    cin >> dni;
 
     ClientesArchivo archC;
     Clientes c;
     int total = archC.contarRegistros();
     for (int i = 0; i < total; i++) {
         if (!archC.leerClientes(i, c)) continue;
-        if (strcmp(c.getDNI(), dni) == 0) {
+        if (c.getDNI() == 0) {
             archC.mostrarClientes(i, c);
             system("pause");
             return;
@@ -286,9 +287,9 @@ void ManagerVeterinario::verClientePorDNI() {
 }
 
 void ManagerVeterinario::listarMascotasDeCliente() {
-    char dni[25];
+    int dni;
     cout << "Ingrese DNI del cliente: ";
-    cargarCadena(dni, 25);
+    cin >> dni;
 
     ClientesArchivo archC;
     Clientes c;
@@ -296,7 +297,7 @@ void ManagerVeterinario::listarMascotasDeCliente() {
     int idCliente = -1;
     for (int i = 0; i < totalC; i++) {
         if (!archC.leerClientes(i, c)) continue;
-        if (strcmp(c.getDNI(), dni) == 0) { idCliente = c.getIdCliente(); break; }
+        if (c.getDNI() == 0) { idCliente = c.getIdCliente(); break; }
     }
 
     if (idCliente < 0) {

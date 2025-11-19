@@ -8,10 +8,16 @@ void ManagerCliente::altaCliente() {
     Clientes reg;
 
     cout << "=== ALTA DE CLIENTE ===\n";
-    reg.cargar();
+    bool valido;
+   valido = buscarClientePorDNI();
 
+   if(valido){
+    reg.cargar();
     reg.setEstado(true);
     reg.setIdCliente( arch.contarRegistros() + 1 );
+
+   } else cout<< "EL CLIENTE YA EXISTE.. " <<endl;
+
 
     if (arch.cargarClientes(reg)) {
         cout << "Cliente guardado correctamente.\n";
@@ -100,8 +106,8 @@ void ManagerCliente::listarClientes() {
     system("pause");
 }
 
-void ManagerCliente::buscarClientePorDNI() {
-    char dni[25];
+bool ManagerCliente::buscarClientePorDNI() {
+    int dni;
     cout << "Ingrese DNI del cliente: ";
     cin >> dni;
 
@@ -112,13 +118,14 @@ void ManagerCliente::buscarClientePorDNI() {
 
     for (int i=0; i<total; i++) {
         if (!arch.leerClientes(i, c)) continue;
-        if (strcmp(c.getDNI(), dni)==0) {
+        if (c.getDNI()==0) {
             arch.mostrarClientes(i, c);
             encontro = true;
+            return encontro;
         }
     }
 
-    if (!encontro) cout << "No encontrado.\n";
+    if (!encontro) return false;
 
     system("pause");
 }

@@ -9,7 +9,7 @@ using namespace std;
 int Persona::getID() const {return _id;}
 const char* Persona::getNombre() const {return _nombre;}
 const char* Persona::getApellido() const {return _apellido;}
-const char* Persona::getDNI()const{return _DNI;}
+int Persona::getDNI()const {return _DNI;}
 Direccion Persona::getDireccion()const{return _direccion;}
 const char* Persona::getTelefono()const{return _telefono;}
     const char* Persona::getEmail()const{return _email;}
@@ -24,8 +24,8 @@ strncpy(_nombre,nombre,29);
 void Persona::setApellido(const char* apellido){
 strncpy(_apellido,apellido,29);
 }
-void Persona::setDNI(const char* dni){
-strncpy(_DNI,dni,14);
+void Persona::setDNI(int dni){
+_DNI = dni;
 }
 void Persona::setDireccion(Direccion direccion){
 _direccion=direccion;
