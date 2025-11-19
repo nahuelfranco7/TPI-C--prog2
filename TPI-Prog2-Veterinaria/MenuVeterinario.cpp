@@ -34,11 +34,7 @@ void MenuVeterinario::mostrar(const Usuario& usuario) {
         cout << "Opcion: ";
         cin >> opc;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            opc = -1;
-        }
+
 
         system("cls");
 
