@@ -60,17 +60,17 @@ void Menu::mostrar() {
 
         case 2: {
             MenuVeterinario menu;
-            menu.mostrar(usuario);
+            //menu.mostrar(usuario);
         } break;
 
         case 3: {
             MenuAdministrativo menu;
-            menu.mostrar();
+          //  menu.mostrar();
         } break;
 
         case 4: {
             MenuMaestro menu;
-            menu.mostrar(usuario);
+         //   menu.mostrar(usuario);
         } break;
 
         default:
