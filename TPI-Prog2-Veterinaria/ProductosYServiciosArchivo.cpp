@@ -3,22 +3,6 @@
 
 using namespace std;
 
-/*
-
-    int buscarporID(int id); ok
-    int contarRegistros(); ok
-    int generarNuevoID(); ok
-    void cargarCadena(char *palabra, int tam); ok pero con la forma vieja, sino hay que reemplazar
-
-    bool cargarProducto(); ok
-    bool cargarProducto(const ProductosYservicios &reg); ok
-    bool modificarProducto(int pos, const ProductosYservicios &reg);ok
-    bool modificar();ok
-    bool leerProducto (int pos, const ProductosYservicios &reg); ok
-    int precio (int valor); estos dos no hacen falta creo, ya con modificar estamos.
-    int modificarPrecio(int valor);
-
-*/
 
 const char* ProductosYServiciosArchivo::getNombrearchivo(){
 return _nombreArchivo;
@@ -82,7 +66,7 @@ bool ProductosYServiciosArchivo::cargarProducto(){
 
 
     cout <<"INGRESE ID DE PRODUCTO: "<< endl;
-    cin >> id; ///validar?
+    cin >> id;
     reg.setIdProducto(id);
 
     cout <<"INGRESE DESCRIPCION DEL PRODUCTO: "<< endl;
@@ -130,12 +114,7 @@ bool ProductosYServiciosArchivo::modificarProducto(int pos) {
         return false;
     }
 
-  /*  // 2) Mostrar datos actuales
-    cout << "===== MODIFICAR PRODUCTO =====" << endl;
-    mostrarProducto(pos, reg);
-    */
-
-    int opcion;
+      int opcion;
 
     do {
         cout << "\n--- MENU PRODUCTOS ---\n";
@@ -183,7 +162,7 @@ bool ProductosYServiciosArchivo::modificarProducto(int pos) {
 
     } while (opcion != 4);
 
-    // 3) Guardar cambios en archivo
+    // 3) Guardamos los cambios en elarchivo
     return modificarProducto(pos, reg);
 }
 

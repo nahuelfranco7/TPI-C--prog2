@@ -13,9 +13,9 @@ using namespace std;
 #include "FacturaArchivo.h"
 #include "DetalleFacturaArchivo.h"
 
-// ---------------------------
+
 // Menus de turnos
-// ---------------------------
+
 void ManagerRecepcionista::menuTurnos() {
     int opc;
 
@@ -28,11 +28,6 @@ void ManagerRecepcionista::menuTurnos() {
         cout << "Opcion: ";
         cin >> opc;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            opc = -1;
-        }
 
         switch (opc) {
             case 1:
@@ -64,17 +59,10 @@ void ManagerRecepcionista::modificarTurno() {
     system("cls");
     cout << "=== MODIFICAR TURNO ===\n\n";
 
-    // 1) Pedir ID
+
     cout << "Ingrese ID de turno a modificar: ";
     cin >> id;
 
-    if (cin.fail()) {
-        cin.clear();
-        cin.ignore(1000, '\n');
-        cout << "ID invalido.\n";
-        system("pause");
-        return;
-    }
 
     int pos = archT.buscarPorId(id);
     if (pos < 0) {
@@ -83,18 +71,18 @@ void ManagerRecepcionista::modificarTurno() {
         return;
     }
 
-    // 2) Leer el turno
+    // 2) Leemos el turno
     if (!archT.leerTurno(pos, turno)) {
         cout << "Error al leer el turno.\n";
         system("pause");
         return;
     }
 
-    // 3) Mostrar datos actuales
+    // 3) Mostramos datos actuales
     cout << "\n--- Datos actuales ---\n";
     archT.mostrarTurno(pos, turno);
 
-    // 4) Modificar datos
+    // 4) Modificamos datos
     int opcion;
     bool salir = false;
 
@@ -108,33 +96,21 @@ void ManagerRecepcionista::modificarTurno() {
         cout << "Opcion: ";
         cin >> opcion;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            opcion = -1;
-        }
+
 
         switch(opcion) {
             case 1: {
                 int idM;
                 cout << "Nuevo ID de mascota: ";
                 cin >> idM;
-                if (!cin.fail() && idM > 0)
                     turno.setIdMascota(idM);
-                else
-                    cout << "Valor invalido.\n";
             } break;
-
             case 2: {
                 int idV;
                 cout << "Nuevo ID de veterinario: ";
                 cin >> idV;
-                if (!cin.fail() && idV > 0)
                     turno.setIdVet(idV);
-                else
-                    cout << "Valor invalido.\n";
             } break;
-
             case 3: {
                 Fecha f;
                 cout << "Nueva fecha:\n";
@@ -146,10 +122,9 @@ void ManagerRecepcionista::modificarTurno() {
                 int e;
                 cout << "Estado (1 activo / 0 inactivo): ";
                 cin >> e;
-                if (!cin.fail() && (e == 0 || e == 1))
+
                     turno.setEstadoTurno(e == 1);
-                else
-                    cout << "Estado invalido.\n";
+
             } break;
 
             case 0:
@@ -184,16 +159,16 @@ void ManagerRecepcionista::cargarTurno() {
     system("cls");
     cout << "=== CARGAR NUEVO TURNO ===\n\n";
 
-    // ------------------------------
-    // 1) Generar ID (autoincremental)
-    // ------------------------------
+
+    //1) Generar ID (autoincremental)
+
     int nuevoID = archT.contarRegistros() + 1;
     turno.setIdTurno(nuevoID);
 
 
-    // ------------------------------
-    // 2) Ingresar ID Mascota (ARTESANAL)
-    // ------------------------------
+
+    // 2) Ingresar ID Mascota
+
     int idMascota;
     bool valido = false;
 
@@ -201,12 +176,7 @@ void ManagerRecepcionista::cargarTurno() {
         cout << "ID Mascota: ";
         cin >> idMascota;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cout << "Error: Debe ingresar un numero entero.\n";
-        }
-        else if (idMascota <= 0) {
+         if (idMascota <= 0) {
             cout << "Error: El ID debe ser positivo.\n";
         }
         else {
@@ -223,22 +193,16 @@ void ManagerRecepcionista::cargarTurno() {
     turno.setIdMascota(idMascota);
 
 
-    // ------------------------------
-    // 3) Ingresar ID Veterinario (ARTESANAL)
-    // ------------------------------
+
+    // 3) Ingresar ID Veterinario
+
     int idVet;
     valido = false;
 
     do {
         cout << "ID Veterinario: ";
         cin >> idVet;
-
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cout << "Error: Debe ingresar un numero entero.\n";
-        }
-        else if (idVet <= 0) {
+ if (idVet <= 0) {
             cout << "Error: El ID debe ser positivo.\n";
         }
         else {
@@ -255,7 +219,7 @@ void ManagerRecepcionista::cargarTurno() {
     turno.setIdVet(idVet);
 
 
-    // ------------------------------
+
     // 4) Cargar fecha
     // ------------------------------
     cout << "\nIngrese fecha del turno:\n";
@@ -264,15 +228,12 @@ void ManagerRecepcionista::cargarTurno() {
     turno.setFechaTurno(f);
 
 
-    // ------------------------------
-    // 5) Estado
-    // ------------------------------
+  // 5) Estado
+
     turno.setEstadoTurno(true);
 
-
-    // ------------------------------
     // 6) Guardar en archivo
-    // ------------------------------
+
     if (archT.cargarTurno(turno)) {
         cout << "\nTurno cargado correctamente.\n";
     }
@@ -285,7 +246,7 @@ void ManagerRecepcionista::cargarTurno() {
 
 /*-------------------------------------------------*/
 void ManagerRecepcionista::menuFacturacion() {
-    // Recepcionista puede ver facturas, no emitir. Administrativo y Maestro tienen mas permisos.
+    // Recepcionista puede ver facturas, no emitir
     if (!(_nivelUsuario == 1 || _nivelUsuario == 3 || _nivelUsuario == 4)) {
         cout << "Acceso denegado a Facturacion.\n";
         system("pause");
@@ -301,7 +262,6 @@ void ManagerRecepcionista::menuFacturacion() {
         cout << "0) Volver\n";
         cout << "Opcion: ";
         cin >> opc;
-        if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); opc = -1; }
 
         switch(opc) {
             case 1: facturacionVerDetalle(); break;
@@ -312,9 +272,7 @@ void ManagerRecepcionista::menuFacturacion() {
     } while(opc != 0);
 }
 
-// ---------------------------
 // Listados
-// ---------------------------
 
 void ManagerRecepcionista::menuListados() {
     int opcion;
@@ -386,7 +344,6 @@ void ManagerRecepcionista::listarTurnos() {
     system("pause");
 }
 
-// ---------------------------
 // Consultas
 // ---------------------------
 void ManagerRecepcionista::menuConsultas() {
@@ -406,13 +363,7 @@ void ManagerRecepcionista::menuConsultas() {
         cout << "Opcion: ";
         cin >> opcion;
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000,'\n');
-            opcion = -1;
-        }
-
-        switch(opcion) {
+            switch(opcion) {
             case 1: consultaPorID();     break;
             case 2: consultaPorDNI();    break;
             case 3: consultaPorFecha();  break;
@@ -431,32 +382,31 @@ void ManagerRecepcionista::consultaPorID() {
     cout << "Consultar por ID en: 1) Cliente 2) Mascota 3) Veterinario 4) Turno\n";
     cout << "Opcion: ";
     cin >> tipo;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); return; }
 
     if (tipo == 1) {
         int id; cout << "ID Cliente: "; cin >> id;
-        if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); cout << "ID invalido\n"; return; }
+
         ClientesArchivo arch; Clientes reg;
         int pos = arch.buscarporId(id);
         if (pos < 0) { cout << "Cliente no encontrado.\n"; return; }
         arch.mostrarClientes(pos, reg);
     } else if (tipo == 2) {
         int id; cout << "ID Mascota: "; cin >> id;
-        if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); cout << "ID invalido\n"; return; }
+
         MascotaArchivo arch; Mascota reg;
         int pos = arch.buscarPorId(id);
         if (pos < 0) { cout << "Mascota no encontrada.\n"; return; }
         arch.mostrarMascota(pos, reg);
     } else if (tipo == 3) {
         int id; cout << "ID Veterinario: "; cin >> id;
-        if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); cout << "ID invalido\n"; return; }
+
         VeterinarioArchivo arch; Veterinario reg;
         int pos = arch.buscarPorId(id);
         if (pos < 0) { cout << "Veterinario no encontrado.\n"; return; }
         arch.mostrarVeterinario(pos, reg);
     } else if (tipo == 4) {
         int id; cout << "ID Turno: "; cin >> id;
-        if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); cout << "ID invalido\n"; return; }
+
         TurnoArchivo arch; Turno reg;
         int pos = arch.buscarPorId(id);
         if (pos < 0) { cout << "Turno no encontrado.\n"; return; }
@@ -469,17 +419,17 @@ void ManagerRecepcionista::consultaPorID() {
 
 void ManagerRecepcionista::consultaPorDNI() {
     cout << "Buscar por DNI (Clientes / Veterinarios)\n";
-    char dni[25];
+    int dni;
     cout << "DNI: ";
     cin >> dni;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); return; }
+
 
     ClientesArchivo archC; Clientes c;
     int totalC = archC.contarRegistros();
     bool encontrado = false;
     for (int i=0;i<totalC;i++){
         if (!archC.leerClientes(i,c)) continue;
-        if (strcmp(c.getDNI(), dni) == 0) {
+        if (c.getDNI() == 0) {
             archC.mostrarClientes(i, c);
             encontrado = true;
         }
@@ -489,8 +439,8 @@ void ManagerRecepcionista::consultaPorDNI() {
     int totalV = archV.contarRegistros();
     for (int i=0;i<totalV;i++){
         if (!archV.leerVet(i,v)) continue;
-        // asumimos que Veterinario hereda getDNI de Persona
-        if (strcmp(v.getDNI(), dni) == 0) {
+
+        if (v.getDNI() == 0) {
             archV.mostrarVeterinario(i, v);
             encontrado = true;
         }
@@ -507,42 +457,43 @@ void ManagerRecepcionista::consultaPorFecha() {
 
     TurnoArchivo archT; Turno t;
     int total = archT.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     for (int i=0;i<total;i++){
         if (!archT.leerTurno(i,t)) continue;
         Fecha f = t.getFechaTurno();
         if (f.getDia() == fecha.getDia() && f.getMes() == fecha.getMes() && f.getAnio() == fecha.getAnio()) {
             cout << "ID Turno: " << t.getIdTurno() << " | Mascota: " << t.getIdMascota() << " | Vet: " << t.getIdVet() << " | Estado: " << (t.getEstadoTurno() ? "ACTIVO" : "INACTIVO") << "\n";
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No se encontraron turnos en esa fecha.\n";
+    if (!encontro) cout << "No se encontraron turnos en esa fecha.\n";
     system("pause");
 }
 
 void ManagerRecepcionista::consultaPorEstado() {
     cout << "Consulta por estado de turnos\n";
     cout << "Ingrese 1 para ACTIVO o 0 para INACTIVO: ";
-    int s; cin >> s;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); return; }
+    int s;
+    cin >> s;
+
     bool estado = (s == 1);
 
     TurnoArchivo archT; Turno t;
     int total = archT.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     for (int i=0;i<total;i++){
         if (!archT.leerTurno(i,t)) continue;
         if (t.getEstadoTurno() == estado) {
             cout << "ID Turno: " << t.getIdTurno() << " | Mascota: " << t.getIdMascota() << " | Vet: " << t.getIdVet() << " | Fecha: ";
             t.getFechaTurno().mostrar(); cout << " | Estado: " << (t.getEstadoTurno() ? "ACTIVO" : "INACTIVO") << "\n";
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No se encontraron turnos con ese estado.\n";
+    if (!encontro) cout << "No se encontraron turnos con ese estado.\n";
     system("pause");
 }
 
-// ---------------------------
+
 // Busquedas rapidas
 // ---------------------------
 void ManagerRecepcionista::menuBusquedas() {
@@ -559,12 +510,6 @@ void ManagerRecepcionista::menuBusquedas() {
         cout << "-------------------------------------\n";
         cout << "Opcion: ";
         cin >> opcion;
-
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            opcion = -1;
-        }
 
         switch(opcion) {
             case 1:
@@ -586,25 +531,24 @@ void ManagerRecepcionista::menuBusquedas() {
     } while (opcion != 0);
 }
 
-void ManagerRecepcionista::buscarClientePorDNI() {
-    // ya la implementaste antes parcialmente; la dejo simple y funcional
-    char dni[25];
+bool ManagerRecepcionista::buscarClientePorDNI() {
+
+    int dni;
     cout << "Ingrese DNI del cliente: ";
     cin >> dni;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); return; }
 
     ClientesArchivo archC; Clientes c;
     int total = archC.contarRegistros();
     int pos = -1;
     for (int i=0;i<total;i++){
         if (!archC.leerClientes(i,c)) continue;
-        if (strcmp(c.getDNI(), dni) == 0) { pos = i; break; }
+        if (c.getDNI()== 0) { pos = i; break; }
     }
 
     if (pos < 0) {
         cout << "Cliente no encontrado.\n";
         system("pause");
-        return;
+        return false;
     }
 
     archC.mostrarClientes(pos, c);
@@ -612,15 +556,15 @@ void ManagerRecepcionista::buscarClientePorDNI() {
     // listar mascotas del cliente
     MascotaArchivo archM; Mascota m;
     int totalM = archM.contarRegistros();
-    bool any = false;
+    bool a = false;
     for (int i=0;i<totalM;i++){
         if (!archM.leerMascota(i,m)) continue;
         if (m.getIdClienteDueno() == c.getIdCliente()) {
             cout << "ID Mascota: " << m.getIdMascota() << " - Nombre: " << m.getNombreMascota() << " - Estado: " << (m.getEstadoMascota() ? "ACTIVO" : "INACTIVO") << "\n";
-            any = true;
+            a = true;
         }
     }
-    if (!any) cout << "El cliente no tiene mascotas registradas.\n";
+    if (!a) cout << "El cliente no tiene mascotas registradas.\n";
     system("pause");
 }
 
@@ -628,23 +572,21 @@ void ManagerRecepcionista::buscarMascotaPorNombre() {
     char nombre[30];
     cout << "Ingrese nombre de la mascota: ";
     cin >> nombre;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); return; }
 
     MascotaArchivo archM; Mascota m;
     int total = archM.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     for (int i=0;i<total;i++){
         if (!archM.leerMascota(i,m)) continue;
         if (strcmp(m.getNombreMascota(), nombre) == 0) {
             cout << "ID Mascota: " << m.getIdMascota() << " - Nombre: " << m.getNombreMascota() << " - ID Dueno: " << m.getIdClienteDueno() << " - Estado: " << (m.getEstadoMascota() ? "ACTIVO" : "INACTIVO") << "\n";
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No se encontraron mascotas con ese nombre.\n";
+    if (!encontro) cout << "No se encontraron mascotas con ese nombre.\n";
     system("pause");
 }
 
-// ---------------------------
 // Facturacion (detalle)
 // ---------------------------
 void ManagerRecepcionista::facturacionVerDetalle() {
@@ -653,12 +595,11 @@ void ManagerRecepcionista::facturacionVerDetalle() {
     int id;
     cout << "Ingrese ID de factura: ";
     cin >> id;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); return; }
 
     int pos = archF.buscarPorId(id);
     if (pos < 0) { cout << "Factura no encontrada.\n"; system("pause"); return; }
 
-    // suponemos que FacturaArchivo tiene un mostrarFactura(pos, reg)
+
     Factura f;
     if (!archF.leerFactura(pos, f)) { cout << "Error leyendo factura.\n"; system("pause"); return; }
     cout << "Factura ID: " << f.getIdFactura() << " | Fecha: "; f.getFechaFactura().mostrar(); cout << " | Importe: " << f.getImporteTotalFactura() << " | Estado: " << (f.getEstadoFactura() ? "ACTIVO":"ANULADA") << "\n";
@@ -667,15 +608,15 @@ void ManagerRecepcionista::facturacionVerDetalle() {
     system("pause");
 }
 
-// ---------------------------
 // Informes
 // ---------------------------
 void ManagerRecepcionista::informeCantidadTurnosMes() {
     cout << "Informe: Cantidad de turnos en el mes elegido\n";
     int mes, anio;
-    cout << "Mes (1-12): "; cin >> mes;
-    cout << "Anio (YYYY): "; cin >> anio;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); cout << "Entrada invalida\n"; return; }
+    cout << "Mes (1-12): ";
+    cin >> mes;
+    cout << "Anio (YYYY): ";
+    cin >> anio;
 
     TurnoArchivo archT; Turno t;
     int total = archT.contarRegistros();
@@ -695,7 +636,6 @@ void ManagerRecepcionista::informeRecaudacionMes() {
     int mes, anio;
     cout << "Mes (1-12): "; cin >> mes;
     cout << "Anio (YYYY): "; cin >> anio;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); cout << "Entrada invalida\n"; return; }
 
     FacturaArchivo archF; Factura f;
     int total = archF.contarRegistros();
@@ -717,25 +657,23 @@ void ManagerRecepcionista::informeRecaudacionPorVeterinario() {
     int mes, anio;
     cout << "Mes (1-12): "; cin >> mes;
     cout << "Anio (YYYY): "; cin >> anio;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); cout << "Entrada invalida\n"; return; }
 
-    // Recorremos facturas y sumamos por idVet (si la factura tiene idVet)
-    FacturaArchivo archF; Factura f;
+    FacturaArchivo archF;
+    Factura f;
     int total = archF.contarRegistros();
-    // como no queremos usar estructuras avanzadas, haremos esto en dos pasos:
-    // 1) obtener la lista de veterinarios activos
+    // 1) obtenemos la lista de veterinarios activos
     VeterinarioArchivo archV; Veterinario v;
     int totalV = archV.contarRegistros();
 
     for (int j=0;j<totalV;j++) {
         if (!archV.leerVet(j,v)) continue;
         int idVet = v.getID();
-        double suma = 0.0;
+        float suma = 0.0;
         for (int i=0;i<total;i++) {
             if (!archF.leerFactura(i,f)) continue;
             Fecha fe = f.getFechaFactura();
             if (fe.getMes() == mes && fe.getAnio() == anio && f.getEstadoFactura() && f.getIdUsuario() == idVet) {
-                // Nota: según tu Factura.h, hay idUsuario; si la factura guarda idVet en otro campo, adaptalo
+
                 suma += f.getImporteTotalFactura();
             }
         }
@@ -749,26 +687,35 @@ void ManagerRecepcionista::informeRecaudacionPorDia() {
     int mes, anio;
     cout << "Mes (1-12): "; cin >> mes;
     cout << "Anio (YYYY): "; cin >> anio;
-    if (cin.fail()) { cin.clear(); cin.ignore(1000,'\n'); cout << "Entrada invalida\n"; return; }
 
-    FacturaArchivo archF; Factura f;
+    FacturaArchivo archF;
+    Factura f;
     int total = archF.contarRegistros();
 
-    // Hacemos un barrido y vamos sumando por dia (mostramos cada dia encontrado)
+    // recorremos y vamos sumando por dia (mostramos cada dia encontrado)
     for (int dia = 1; dia <= 31; dia++) {
-        double sumaDia = 0.0;
-        bool existe = false;
-        for (int i=0;i<total;i++) {
-            if (!archF.leerFactura(i,f)) continue;
+    float sumaDia = 0.0;
+    bool existe = false;
+
+    for (int i = 0; i < total; i++) {
+        if (archF.leerFactura(i, f)) {//si lee
             Fecha fe = f.getFechaFactura();
-            if (fe.getMes() == mes && fe.getAnio() == anio && fe.getDia() == dia && f.getEstadoFactura()) {
+
+            if (fe.getMes() == mes &&
+                fe.getAnio() == anio &&
+                fe.getDia() == dia &&
+                f.getEstadoFactura()) {
+
                 sumaDia += f.getImporteTotalFactura();
                 existe = true;
             }
         }
-        if (existe) {
-            cout << "Dia " << dia << ": " << sumaDia << "\n";
-        }
+        //Si no lee no entraen if
     }
+
+    if (existe) {
+        cout << "Dia " << dia << ": " << sumaDia << "\n";
+    }
+}
     system("pause");
 }

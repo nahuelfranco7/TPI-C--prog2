@@ -8,10 +8,16 @@ void ManagerCliente::altaCliente() {
     Clientes reg;
 
     cout << "=== ALTA DE CLIENTE ===\n";
-    reg.cargar();
+    bool valido;
+   valido = buscarClientePorDNI();
 
+   if(valido){
+    reg.cargar();
     reg.setEstado(true);
     reg.setIdCliente( arch.contarRegistros() + 1 );
+
+   } else cout<< "EL CLIENTE YA EXISTE.. " <<endl;
+
 
     if (arch.cargarClientes(reg)) {
         cout << "Cliente guardado correctamente.\n";
@@ -100,25 +106,114 @@ void ManagerCliente::listarClientes() {
     system("pause");
 }
 
-void ManagerCliente::buscarClientePorDNI() {
-    char dni[25];
+bool ManagerCliente::buscarClientePorDNI() {
+    int dni;
     cout << "Ingrese DNI del cliente: ";
     cin >> dni;
 
     ClientesArchivo arch;
     Clientes c;
-    bool found = false;
+    bool encontro = false;
     int total = arch.contarRegistros();
 
     for (int i=0; i<total; i++) {
         if (!arch.leerClientes(i, c)) continue;
-        if (strcmp(c.getDNI(), dni)==0) {
+        if (c.getDNI()==0) {
             arch.mostrarClientes(i, c);
-            found = true;
+            encontro = true;
+            return encontro;
         }
     }
 
-    if (!found) cout << "No encontrado.\n";
+    if (!encontro) return false;
 
     system("pause");
 }
+
+void ManagerCliente::cargarCadena(char *palabra, int tam){
+    int i;
+    bool valido=false;
+
+    while(!valido){
+        fflush(stdin);
+        i=0;
+
+        cout<<"Ingrese (máximo "<<tam-1<<" caracteres): ";
+
+        for(i=0;i<tam-1;i++){
+            palabra[i]=cin.get();
+            if(palabra[i]=='\n')break;
+        }
+        palabra[i]='\0';
+        fflush(stdin);
+
+        //Si el usuario paso el límite sin presionar enter
+        if(i==tam-1 && palabra[i-1]!='\n'){
+            cout<<"Error: no puede superar los "<<tam-1<<" caracteres.\n";
+
+            //Limpiamos el resto de la cadena y descartamos lo que sobra en el buffer(almacenamiento)
+            char basura;
+            while((basura=cin.get())!='\n');
+
+            // Borramos la cadena ingresada para que no quede basura
+            palabra[0]='\0';
+        }
+        else {
+            valido=true;
+        }
+    }
+}
+
+int cargarEntero(const char *mensaje, int tamMax) {
+    char buffer[100];
+    bool valido = false;
+
+    while(!valido) {
+        cout << mensaje << " (max " << tamMax-1 << " caracteres): ";
+
+        //LECTURA
+        int i = 0;
+        for(i = 0; i < tamMax - 1; i++) {
+            buffer[i] = cin.get();
+            if (buffer[i] == '\n') break;
+        }
+        buffer[i] = '\0';
+
+        // Si el usuario supera el límite sin presionar ENTER
+        if(i == tamMax - 1 && buffer[i-1] != '\n') {
+            cout << "Error: excedio el maximo permitido.\n";
+
+            // limpiar el resto del buffer
+            char basura;
+            while((basura = cin.get()) != '\n');
+
+            continue;   // volver a pedir
+        }
+
+        // ----- VALIDACIÓN (ASCII) -----
+
+        // Cadena vacía
+        if(buffer[0] == '\0') {
+            cout << "Error: debe ingresar un numero.\n";
+            continue;
+        }
+
+        valido = true;
+
+        // Validamps caracter por caracter
+        for(int j = 0; buffer[j] != '\0'; j++) {
+            if(buffer[j] < '0' || buffer[j] > '9') {
+                valido = false;
+                break;
+            }
+        }
+
+        if(!valido) {
+            cout << "Error: debe ingresar solo numeros enteros.\n";
+        }
+    }
+
+    // Convertimos a entero de nuevo
+    return atoi(buffer);
+}
+

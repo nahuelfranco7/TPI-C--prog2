@@ -23,6 +23,23 @@ int ClientesArchivo::buscarporId(int id){
 return -1;
 }
 
+
+int ClientesArchivo::buscarporDNI(int DNI){
+    Clientes reg;
+    int pos = 0;
+    FILE *p = fopen (_nombreArchivo,"rb");
+    if (p==nullptr) return -1;
+    while (fread(&reg, sizeof(Clientes),1,p)){
+        if (reg.getDNI()==DNI){
+            fclose(p);
+        }
+        return pos;
+    pos++;
+    }
+return -1;
+}
+
+
 int ClientesArchivo::contarRegistros(){
     FILE *p = fopen(_nombreArchivo,"rb");
     if (p==nullptr) return -1;
@@ -91,13 +108,25 @@ bool ClientesArchivo::cargarClientes(){
     Clientes reg;
     char nombre[20];
     char apellido[20];
-    char DNI[20];
+    int DNI;
     Direccion direccion;
     char telefono[15];
     char email[40];
 
     reg.setIdCliente(generarNuevoID());
     cout<< "ID ASIGNADO AUTOMATICAMENTE: "<<reg.getIdCliente()<<endl;
+
+bool valido = true;
+
+while(valido){cout<<"DNI: ";
+    cin>>DNI;
+    if(buscarporDNI(DNI)==DNI){
+    reg.setDNI(DNI);
+    valido = false;
+    } else{
+    cout<<"EL CLIENTE YA EXISTE.. "<<endl;
+    }
+}
 
     cout<<"INGRESE NOMBRE DE CLIENTE: "<<endl;
     cargarCadena(nombre,20);
@@ -106,10 +135,6 @@ bool ClientesArchivo::cargarClientes(){
     cout<<"INGRESE APELLIDO DEL CLIENTE: "<<endl;
     cargarCadena(apellido,20);
     reg.setApellido(apellido);
-
-    cout<<"INGRESE DNI: "<<endl;
-    cargarCadena(DNI,19);
-    reg.setDNI(DNI);
 
     cout<<"INGRESE DIRECCION DEL CLIENTE: "<<endl;
     Direccion dir;
@@ -189,10 +214,10 @@ bool ClientesArchivo::eliminar(int pos){
     }
     reg.setEstado(false);
 
-    //Volver a posicionarse en la misma posición para sobrescribir
+    //Volvemos a posicionarse en la misma posición para sobrescribir
     fseek(p,pos*sizeof(Clientes),SEEK_SET);
 
-    //Escribe en el registro modificado
+    //Escribimos en el registro modificado
     bool ok = fwrite(&reg,sizeof(Clientes),1,p);
 
     fclose(p);
@@ -242,13 +267,13 @@ bool ClientesArchivo::leerClientes(int pos, Clientes &reg){
 bool ClientesArchivo::modificar(int pos) {
     Clientes reg;
 
-    // 1) Leer registro existente
+    // 1) Leemos registro existente
     if (!leerClientes(pos, reg)) {
         cout << "NO SE PUDO LEER EL REGISTRO." << endl;
         return false;
     }
 
-    // 2) Mostrar datos actuales
+    // 2) Mostramos datos actuales
     cout << "===== MODIFICAR CLIENTE =====" << endl;
     mostrarClientes(pos, reg);
 
@@ -286,9 +311,9 @@ bool ClientesArchivo::modificar(int pos) {
         }
 
         case 3: {
-            char dni[15];
+            int dni;
             cout << "Nuevo DNI:\n";
-            cargarCadena(dni,15);
+            cin >> dni;
             reg.setDNI(dni);
             break;
         }
@@ -336,18 +361,20 @@ bool ClientesArchivo::modificar(int pos) {
 
     } while (opcion != 8);
 
-    // 3) Guardar cambios en archivo
+    // 3) Guardaamos cambios en archivo
     return modificarClientes(pos, reg);
 }
 
 bool ClientesArchivo::modificarClientes(int pos, const Clientes &reg) {
-    FILE *p = fopen(_nombreArchivo, "rb+"); //lectura y escritura
+    FILE *p = fopen(_nombreArchivo, "rb+");
     if (p == nullptr) return false;
 
     fseek(p, pos * sizeof(Clientes), SEEK_SET); //Nos movemos a la posición exacta
 
-    bool escribio = fwrite(&reg, sizeof(Clientes), 1, p); //Sobrescribe el registro
+    bool escribio = fwrite(&reg, sizeof(Clientes), 1, p); //Sobrescribimos el registro
 
     fclose(p);
     return escribio;
 }
+
+

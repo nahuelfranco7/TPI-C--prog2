@@ -40,14 +40,44 @@ bool VeterinarioArchivo::cargarVet(const Veterinario &reg) {
     return ok;
 }
 
+int VeterinarioArchivo::buscarporDNI(int DNI){
+    Veterinario reg;
+    int pos = 0;
+    FILE *p = fopen (_nombreArchivo,"rb");
+    if (p==nullptr) return -1;
+    while (fread(&reg, sizeof(Veterinario),1,p)){
+        if (reg.getDNI()==DNI){
+            fclose(p);
+        }
+        return pos;
+    pos++;
+    }
+return -1;
+}
+
 bool VeterinarioArchivo::cargarVet() {
     Veterinario reg;
-    char nombre[30],apellido[30],dni[15],telefono[20],email[40];
+    char nombre[30],apellido[30],telefono[20],email[40];
+    int dni;
     Direccion dir;
     Fecha fechaIngreso;
     int matricula;
 
     reg.setId(generarNuevoID());
+
+    bool valido = false;
+
+do {
+    cout<<"DNI: ";
+    cin >> dni;
+    int auxDNI = buscarporDNI(dni);
+    if(auxDNI==dni){
+    reg.setDNI(dni);
+    valido = true;
+    } else{
+    cout<<"EL VETERINARIO YA EXISTE.. "<<endl;
+    }
+} while(!valido);
 
     cout<<"NOMBRE: ";
     cargarCadena(nombre,30);
@@ -56,10 +86,6 @@ bool VeterinarioArchivo::cargarVet() {
     cout<<"APELLIDO: ";
     cargarCadena(apellido,30);
     reg.setApellido(apellido);
-
-    cout<<"DNI: ";
-    cargarCadena(dni,15);
-    reg.setDNI(dni);
 
     cout<<"DIRECCION:\n";
     dir.cargarDireccion();
@@ -239,9 +265,9 @@ bool VeterinarioArchivo::modificar(int pos) {
         }
 
         case 3:{
-            char dni[15];
-            cout<<"Nuevo DNI: ";
-            cargarCadena(dni,15);
+            int dni;
+            cout << "Nuevo DNI: ";
+            cin >> dni;
             reg.setDNI(dni);
             break;
         }

@@ -10,10 +10,7 @@
 
 using namespace std;
 
-/* ------------------------------------------------------------------
-   helper local: cargarCadena (igual a la que usabas en TurnoArchivo)
-   lee hasta \n o hasta tam-1 y deja '\0'
-   ------------------------------------------------------------------ */
+
 static void cargarCadena(char *palabra, int tam){
     int i = 0;
     fflush(stdin);
@@ -26,8 +23,7 @@ static void cargarCadena(char *palabra, int tam){
     fflush(stdin);
 }
 
-/* ===========================
-   ABML / Métodos principales
+/*    ABML / Métodos principales
    =========================== */
 
 void ManagerVeterinario::cargar() {
@@ -44,6 +40,7 @@ void ManagerVeterinario::cargar() {
     cout << "=== ALTA DE VETERINARIO ===\n";
 
     char aux[40];
+    int dni;
 
     cout << "Nombre: ";
     cargarCadena(aux, 30);
@@ -54,8 +51,8 @@ void ManagerVeterinario::cargar() {
     u.setApellido(aux);
 
     cout << "DNI: ";
-    cargarCadena(aux, 15);
-    u.setDNI(aux);
+    cin >> dni;
+    u.setDNI(dni);
 
     cout << "Email: ";
     cargarCadena(aux, 40);
@@ -72,8 +69,8 @@ void ManagerVeterinario::cargar() {
     u.setNivelSeguridad(2); // veterinario
     u.setEstado(true);
 
-    bool okUser = archU.cargarUsuario(u);
-    if (!okUser) {
+    bool okUsuario = archU.cargarUsuario(u);
+    if (!okUsuario) {
         cout << "ERROR al guardar Usuario.\n";
         system("pause");
         return;
@@ -148,10 +145,10 @@ void ManagerVeterinario::modificar() {
     cout << "Veterinario actual:\n";
     arch.mostrarUsuario(pos);
 
-    // solicitar nuevos datos (ejemplo: nombre, apellido, email, telefono, clave)
+    // solicitamos nuevos datos
     char buf[100];
     cout << "Ingrese nuevo nombre (ENTER para mantener): ";
-    cin.ignore();
+
     cargarCadena(buf, 30);
     if (strlen(buf) > 0) u.setNombre(buf);
 
@@ -160,8 +157,8 @@ void ManagerVeterinario::modificar() {
     if (strlen(buf) > 0) u.setApellido(buf);
 
     cout << "Ingrese nuevo DNI (ENTER para mantener): ";
-    cargarCadena(buf, 15);
-    if (strlen(buf) > 0) u.setDNI(buf);
+    int dni;
+    if (dni > 0) u.setDNI(dni);
 
     cout << "Ingrese nuevo email (ENTER para mantener): ";
     cargarCadena(buf, 40);
@@ -219,9 +216,9 @@ void ManagerVeterinario::listar() {
     Usuario u;
     cout << "=== LISTADO DE VETERINARIOS ===\n";
     for (int i = 0; i < total; i++) {
-        if (!arch.leerUsuario(i, u)) continue;
+        if (arch.leerUsuario(i, u)) {  //si pudo leer el ab
+
         if (u.getNivelSeguridad() == 2) {
-            // mostrar datos relevantes
             cout << "---------------------------\n";
             cout << "ID: " << u.getIdUsuario() << "\n";
             cout << "Nombre: " << u.getNombre() << " " << u.getApellido() << "\n";
@@ -229,6 +226,8 @@ void ManagerVeterinario::listar() {
             cout << "Email: " << u.getEmail() << "\n";
             cout << "Estado: " << (u.getEstado() ? "Activo" : "Inactivo") << "\n";
         }
+
+    }
     }
     system("pause");
 }
@@ -263,21 +262,20 @@ void ManagerVeterinario::reactivar() {
     system("pause");
 }
 
-/* ===========================================================
-   FUNCIONES DE CONSULTA (ya tenías versiones similares)
+/* FUNCIONES DE CONSULTA
    =========================================================== */
 
 void ManagerVeterinario::verClientePorDNI() {
-    char dni[25];
+    int dni;
     cout << "Ingrese DNI: ";
-    cargarCadena(dni, 25);
+    cin >> dni;
 
     ClientesArchivo archC;
     Clientes c;
     int total = archC.contarRegistros();
     for (int i = 0; i < total; i++) {
         if (!archC.leerClientes(i, c)) continue;
-        if (strcmp(c.getDNI(), dni) == 0) {
+        if (c.getDNI() == 0) {
             archC.mostrarClientes(i, c);
             system("pause");
             return;
@@ -289,9 +287,9 @@ void ManagerVeterinario::verClientePorDNI() {
 }
 
 void ManagerVeterinario::listarMascotasDeCliente() {
-    char dni[25];
+    int dni;
     cout << "Ingrese DNI del cliente: ";
-    cargarCadena(dni, 25);
+    cin >> dni;
 
     ClientesArchivo archC;
     Clientes c;
@@ -299,7 +297,7 @@ void ManagerVeterinario::listarMascotasDeCliente() {
     int idCliente = -1;
     for (int i = 0; i < totalC; i++) {
         if (!archC.leerClientes(i, c)) continue;
-        if (strcmp(c.getDNI(), dni) == 0) { idCliente = c.getIdCliente(); break; }
+        if (c.getDNI() == 0) { idCliente = c.getIdCliente(); break; }
     }
 
     if (idCliente < 0) {
@@ -311,17 +309,17 @@ void ManagerVeterinario::listarMascotasDeCliente() {
     MascotaArchivo archM;
     Mascota m;
     int totalM = archM.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     cout << "Mascotas del cliente:\n";
     for (int i = 0; i < totalM; i++) {
         if (!archM.leerMascota(i, m)) continue;
         if (m.getIdClienteDueno() == idCliente) {
             cout << "ID: " << m.getIdMascota() << " - " << m.getNombreMascota()
                  << " (" << (m.getEstadoMascota() ? "ACTIVO" : "INACTIVO") << ")\n";
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No tiene mascotas registradas.\n";
+    if (!encontro) cout << "No tiene mascotas registradas.\n";
     system("pause");
 }
 
@@ -336,7 +334,7 @@ void ManagerVeterinario::listarTurnoPorID() {
     for (int i = 0; i < total; i++) {
         if (!archT.leerTurno(i, t)) continue;
         if (t.getIdTurno() == id) {
-            archT.mostrarTurno(t); // ahora existe la versión mostrarTurno(const Turno &)
+            archT.mostrarTurno(t);
             system("pause");
             return;
         }
@@ -353,16 +351,16 @@ void ManagerVeterinario::listarTurnosPorFecha() {
     TurnoArchivo archT;
     Turno t;
     int total = archT.contarRegistros();
-    bool found = false;
+    bool encontro = false;
     for (int i = 0; i < total; i++) {
         if (!archT.leerTurno(i, t)) continue;
         Fecha ft = t.getFechaTurno();
         if (ft.getDia() == f.getDia() && ft.getMes() == f.getMes() && ft.getAnio() == f.getAnio()) {
             archT.mostrarTurno(t);
-            found = true;
+            encontro = true;
         }
     }
-    if (!found) cout << "No hay turnos en esa fecha.\n";
+    if (!encontro) cout << "No hay turnos en esa fecha.\n";
     system("pause");
 }
 

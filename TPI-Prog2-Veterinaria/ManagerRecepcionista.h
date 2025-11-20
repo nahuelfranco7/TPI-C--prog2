@@ -34,7 +34,7 @@ private:
     void consultaPorFecha();
     void consultaPorEstado();
 
-    void buscarClientePorDNI();
+    bool buscarClientePorDNI();
     void buscarMascotaPorNombre();
 
     void facturacionVerDetalle();

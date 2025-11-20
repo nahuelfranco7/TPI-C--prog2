@@ -78,13 +78,13 @@ bool MascotaArchivo::cargarMascota() {
     reg.setNombreMascota(nombre);//validar
 
     cout << "Fecha de nacimiento:\n";
-    fecha.cargar();//validar
+    fecha.cargar();
 
     reg.setFechaNac(fecha);
 
     // id de raza
     cout << "ID de raza: ";
-    cin >> idRaza;//validar
+    cin >> idRaza;
 
     reg.setIdRaza(idRaza);
 
@@ -100,7 +100,7 @@ bool MascotaArchivo::cargarMascota() {
 
     // id dueño
     cout << "ID del cliente duenio: ";
-    cin >> idDueno;//validar
+    cin >> idDueno;
 
     reg.setIdClienteDueno(idDueno);
 
@@ -185,13 +185,13 @@ bool MascotaArchivo::modificarMascota(int pos, const Mascota &reg) {
 bool MascotaArchivo::modificar(int pos) {
     Mascota reg;
 
-    // 1) Leer registro existente
+    // 1) Lee registro existente
     if (!leerMascota(pos, reg)) {
         cout << "NO SE PUDO LEER EL REGISTRO." << endl;
         return false;
     }
 
-    // 2) Mostrar datos actuales
+    // 2) Mostramos los datos actuales
     cout << "===== MODIFICAR MASCOTA =====" << endl;
     mostrarMascota(pos, reg);
 
@@ -275,7 +275,7 @@ bool MascotaArchivo::modificar(int pos) {
 
     } while (opcion != 7);
 
-    // 3) Guardar cambios en archivo
+    // 3) Guardamos los cambios en archivo
     return modificarMascota(pos, reg);
 }
 /*--------------------------------------------------------*/
@@ -304,16 +304,16 @@ void MascotaArchivo::listarTodos() {
 bool MascotaArchivo::eliminar(int pos) {
     Mascota reg;
 
-    // 1) Leer el registro
+    // 1) Leemos primero el registro
     if (!leerMascota(pos, reg)) {
         cout << "NO SE PUDO LEER EL REGISTRO." << endl;
         return false;
     }
 
-    // 2) Cambiar su estado
+    // 2) Cambiar el estado
     reg.setEstadoMascota(false);
 
-    // 3) Sobrescribir el registro con el estado actualizado
+    // 3) Sobrescribimos el registro con el estado actualizado
     if (!modificarMascota(pos, reg)) {
         cout << "NO SE PUDO ESCRIBIR EL REGISTRO." << endl;
         return false;

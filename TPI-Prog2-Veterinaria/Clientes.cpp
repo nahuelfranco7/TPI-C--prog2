@@ -3,9 +3,9 @@
 #include "Clientes.h"
 using namespace std;
 
-// =======================
+
 // FUNCIÓN LOCAL
-// =======================
+
 void Clientes::cargarCadena(char *palabra, int tam) {
     int i = 0;
     fflush(stdin);
@@ -17,9 +17,9 @@ void Clientes::cargarCadena(char *palabra, int tam) {
     fflush(stdin);
 }
 
-// =======================
+
 // GETTERS / SETTERS
-// =======================
+
 int Clientes::getIdCliente() {
     return _idCliente;
 }
@@ -31,18 +31,26 @@ void Clientes::setIdCliente(int id) {
     _id = id;
 }
 
-// =======================
+
 //       CARGAR
-// =======================
+
 void Clientes::cargar() {
+    bool valido = true;
+    int DNI;
+
+/*while(valido){cout<<"DNI: ";
+    cin>>DNI;
+    if(buscarporDNI(DNI)==DNI){
+    reg.setDNI(DNI);
+    valido = false;
+    } else{
+    cout<<"EL CLIENTE YA EXISTE.. "<<endl;
+    }}*/
     cout << "Nombre: ";
     cargarCadena(_nombre, 30);
 
     cout << "Apellido: ";
     cargarCadena(_apellido, 30);
-
-    cout << "DNI: ";
-    cargarCadena(_DNI, 15);
 
     cout << "\n--- DIRECCION ---\n";
     _direccion.cargarDireccion();
@@ -56,9 +64,9 @@ void Clientes::cargar() {
     _estado = true;
 }
 
-// =======================
+
 //       MOSTRAR
-// =======================
+
 void Clientes::mostrar() {
     cout << "ID Cliente: " << _idCliente << endl;
     cout << "Nombre: " << _nombre << endl;

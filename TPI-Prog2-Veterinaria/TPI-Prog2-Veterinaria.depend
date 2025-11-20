@@ -28,7 +28,7 @@
 1762227304 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
 	<cstring>
 
-1763367602 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
+1763518181 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -38,7 +38,7 @@
 	<cstring>
 	<cstring>
 
-1763432181 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
+1763524243 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
 	<iostream>
 	"Menu.h"
 
@@ -97,7 +97,7 @@
 	<cstring>
 	"Fecha.h"
 
-1763364332 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turno.cpp
+1763523608 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\turno.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -126,7 +126,7 @@
 1763163108 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.h
 	<cstring>
 
-1763361047 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.cpp
+1763523608 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -137,7 +137,7 @@
 	<cstring>
 	"Usuario.h"
 
-1763345383 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
+1763523057 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -147,7 +147,7 @@
 	<cstring>
 	"Mascota.h"
 
-1763362277 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
+1763517580 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
 	<iostream>
 	<cstring>
 	"Clientes.h"
@@ -156,7 +156,7 @@
 	<cstring>
 	"Persona.h"
 
-1763428742 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
+1763518769 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -190,7 +190,7 @@
 	"Persona.h"
 	"Fecha.h"
 
-1763428920 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
+1763517788 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
 	<iostream>
 	<cstring>
 	"ClientesArchivo.h"
@@ -200,331 +200,332 @@
 	"Direccion.h"
 	<cstring>
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
+1763556282 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
 	<iostream>
-	<cstdlib>
 	<cstring>
 	"Clientes.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\clientes.h
+1763556230 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\clientes.h
 	<cstring>
 	"Persona.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\persona.h
+1763554577 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\persona.h
 	<string>
 	"Direccion.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\direccion.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\direccion.h
 	<cstring>
 	<cstring>
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"DetalleFactura.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.h
 	<cstring>
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"DetalleFacturaArchivo.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.h
 	<cstring>
 	"Mascota.h"
 	"DetalleFactura.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\mascota.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\mascota.h
 	<cstring>
 	"Fecha.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\fecha.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\fecha.h
 	<cstring>
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Direccion.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\factura.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\factura.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Factura.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\factura.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\factura.h
 	<cstring>
 	"Fecha.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\fecha.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\fecha.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Fecha.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
+	<iostream>
 	"Menu.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\mascota.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\mascota.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Mascota.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"MascotaArchivo.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.h
 	<cstring>
 	"Mascota.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\persona.cpp
+1763554454 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\persona.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Persona.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"ProductosYservicios.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.h
 	<cstring>
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\raza.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\raza.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Raza.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\raza.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\raza.h
 	<cstring>
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\turno.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\turno.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Turno.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\turno.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\turno.h
 	<cstring>
 	"Fecha.h"
 
-1763159556 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"TurnoArchivo.h"
 	"Fecha.h"
+	"Mascota.h"
 
-1763159556 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.h
 	<cstring>
 	"Turno.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\usuario.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\usuario.cpp
 	<iostream>
 	"Usuario.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
 	<cstring>
 	"Persona.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	<cstdio>
 	"UsuarioArchivo.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.h
 	<cstring>
 	"Usuario.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Veterinario.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.h
 	<cstring>
 	"Persona.h"
 	"Fecha.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
+1762915493 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\clientes.cpp
 	<iostream>
+	<cstdlib>
 	<cstring>
 	"Clientes.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\clientes.h
+1763066837 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\clientes.h
 	<cstring>
 	"Persona.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\persona.h
+1763066837 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\persona.h
 	<string>
 	"Direccion.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\direccion.h
+1763066837 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\direccion.h
 	<cstring>
 	<cstring>
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
+1763066837 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
 	<iostream>
 	<cstring>
 	"ClientesArchivo.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.h
+1763066837 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.h
 	"Clientes.h"
 	"Direccion.h"
 	<cstring>
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.cpp
+1763066837 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"DetalleFactura.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.h
+1763066837 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\detallefactura.h
 	<cstring>
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
+1763066837 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"DetalleFacturaArchivo.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.h
+1763066837 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\detallefacturaarchivo.h
 	<cstring>
 	"Mascota.h"
 	"DetalleFactura.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\mascota.h
+1762834705 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\mascota.h
 	<cstring>
 	"Fecha.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\fecha.h
+1762834705 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\fecha.h
 	<cstring>
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
+1763066837 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\direccion.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Direccion.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\factura.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\factura.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Factura.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\factura.h
+1762834705 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\factura.h
 	<cstring>
 	"Fecha.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\fecha.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\fecha.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Fecha.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
+1763066837 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\main.cpp
 	<iostream>
-	"Menu.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\mascota.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\mascota.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Mascota.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
+1763066837 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"MascotaArchivo.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.h
+1762834705 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\mascotaarchivo.h
 	<cstring>
 	"Mascota.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\persona.cpp
+1763066837 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\persona.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Persona.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"ProductosYservicios.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.h
+1762834705 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\productosyservicios.h
 	<cstring>
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\raza.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\raza.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Raza.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\raza.h
+1762834705 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\raza.h
 	<cstring>
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\turno.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\turno.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Turno.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\turno.h
+1762834705 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\turno.h
 	<cstring>
 	"Fecha.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\usuario.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\usuario.cpp
 	<iostream>
 	"Usuario.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
+1763066837 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\usuario.h
 	<cstring>
 	"Persona.h"
 
-1763477790 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	<cstdio>
 	"UsuarioArchivo.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.h
+1762834705 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\usuarioarchivo.h
 	<cstring>
 	"Usuario.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.cpp
+1762834705 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"Veterinario.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.h
+1763066837 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\veterinario.h
 	<cstring>
 	"Persona.h"
 	"Fecha.h"
 
-1763439936 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
+1763510826 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
 	"Usuario.h"
 
-1763431843 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.cpp
+1763525081 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menu.cpp
 	<iostream>
 	<cstdlib>
 	"Menu.h"
@@ -533,37 +534,36 @@
 	"MenuAdministrativo.h"
 	"MenuMaestro.h"
 
-1763139846 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
+	"Usuario.h"
+
+1763554647 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menu.cpp
 	<iostream>
 	<cstdlib>
-	<cstring>
+	"Menu.h"
+	"MenuRecepcionista.h"
+	"MenuVeterinario.h"
+	"MenuAdministrativo.h"
+	"MenuMaestro.h"
 
-1763139846 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menu.cpp
-	<iostream>
-	<cstdlib>
-	"Clientes.h"
-	"ClientesArchivo.h"
-	"Mascota.h"
-	"MascotaArchivo.h"
-
-1763145586 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.h
+1763554454 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.h
 	"Clientes.h"
 	"Direccion.h"
 	<cstring>
 
-1763159440 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\productosyserviciosarchivo.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\productosyserviciosarchivo.cpp
 	<iostream>
 	"ProductosYServiciosArchivo.h"
 
-1763145556 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
+1763555803 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\clientesarchivo.cpp
 	<iostream>
 	<cstring>
 	"ClientesArchivo.h"
 
-1763159440 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\productosyserviciosarchivo.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\productosyserviciosarchivo.h
 	"ProductosYservicios.h"
 
-1763163108 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\productosyserviciosarchivo.cpp
+1763523491 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\productosyserviciosarchivo.cpp
 	<iostream>
 	"ProductosYServiciosArchivo.h"
 
@@ -580,7 +580,7 @@
 	<cstring>
 	"Veterinario.h"
 
-1763168710 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.cpp
+1763522791 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -605,7 +605,7 @@
 	<cstring>
 	<iostream>
 
-1763353869 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.cpp
+1763525214 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -873,7 +873,7 @@
 	"TurnoArchivo.h"
 	"Veterinario.h"
 
-1763429782 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerveterinario.cpp
+1763525285 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managerveterinario.cpp
 	<iostream>
 	<cstring>
 	"ManagerVeterinario.h"
@@ -903,7 +903,7 @@
 
 1763364041 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menuadministrativo.h
 
-1763359361 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.h
+1763513552 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.h
 	"ClientesArchivo.h"
 	"MascotaArchivo.h"
 	"Clientes.h"
@@ -931,12 +931,12 @@
 	<cstring>
 	"ManagerFactura.h"
 
-1763363448 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.cpp
+1763524994 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.cpp
 	<iostream>
 	<cstdlib>
 	"ManagerCliente.h"
 
-1763363482 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managermascota.cpp
+1763442229 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\managermascota.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -951,7 +951,7 @@
 1763367106 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.h
 	"Usuario.h"
 
-1763367271 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.cpp
+1763523290 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\repo original\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.cpp
 	<iostream>
 	"MenuMaestro.h"
 	"ManagerCliente.h"
@@ -961,21 +961,18 @@
 	"ManagerVeterinario.h"
 	"ManagerUsuario.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"FacturaArchivo.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\facturaarchivo.h
 	<cstring>
 	"Factura.h"
 	"Fecha.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\menu.h
-	"Usuario.h"
-
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.cpp
+1763557143 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -987,38 +984,25 @@
 	"FacturaArchivo.h"
 	"DetalleFacturaArchivo.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.h
+1763557143 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerrecepcionista.h
 	<cstring>
 	<iostream>
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\veterinarioarchivo.h
+1763554454 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\veterinarioarchivo.h
 	<cstring>
 	"Veterinario.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.h
-	<cstring>
-	"Turno.h"
-
-1763477790 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\menu.cpp
-	<iostream>
-	<cstdlib>
-	"Menu.h"
-	"MenuRecepcionista.h"
-	"MenuVeterinario.h"
-	"MenuAdministrativo.h"
-	"MenuMaestro.h"
-
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\menurecepcionista.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menurecepcionista.h
 	"Usuario.h"
 	"UsuarioArchivo.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\menuveterinario.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menuveterinario.h
 	<cstring>
 	<iostream>
 	"Usuario.h"
 	"ManagerVeterinario.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\managerveterinario.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerveterinario.h
 	"Usuario.h"
 	"UsuarioArchivo.h"
 	"ClientesArchivo.h"
@@ -1026,35 +1010,111 @@
 	"TurnoArchivo.h"
 	"Veterinario.h"
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\menuadministrativo.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menuadministrativo.h
 
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.h
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.h
 	"Usuario.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\menurecepcionista.cpp
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menurecepcionista.cpp
 	<iostream>
 	<cstdlib>
 	"MenuRecepcionista.h"
 	"ManagerRecepcionista.h"
 
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\productosyserviciosarchivo.cpp
-	<iostream>
-	"ProductosYServiciosArchivo.h"
-
-1763443309 e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\productosyserviciosarchivo.h
-	"ProductosYservicios.h"
-
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\turnoarchivo.cpp
-	<iostream>
-	<cstdlib>
-	<cstring>
-	"TurnoArchivo.h"
-	"Fecha.h"
-	"Mascota.h"
-
-1763443309 source:e:\utn\programacion 2\2025\tpi-c--prog2\tpi-prog2-veterinaria\veterinarioarchivo.cpp
+1763554930 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\veterinarioarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"VeterinarioArchivo.h"
+
+1763557176 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.cpp
+	<iostream>
+	<cstdlib>
+	"ManagerCliente.h"
+
+1763557176 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managercliente.h
+	"ClientesArchivo.h"
+	"MascotaArchivo.h"
+	"Clientes.h"
+	"Mascota.h"
+
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerfactura.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"ManagerFactura.h"
+
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerfactura.h
+	"Factura.h"
+	"FacturaArchivo.h"
+
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managermascota.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"ManagerMascota.h"
+
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managermascota.h
+	"MascotaArchivo.h"
+	"ClientesArchivo.h"
+	"Mascota.h"
+	"Clientes.h"
+
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerturno.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"ManagerTurno.h"
+
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerturno.h
+	"TurnoArchivo.h"
+	"Turno.h"
+	"MascotaArchivo.h"
+	"VeterinarioArchivo.h"
+
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerusuario.cpp
+	<iostream>
+	<cstdlib>
+	<cstring>
+	"ManagerUsuario.h"
+
+1763551318 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerusuario.h
+	"UsuarioArchivo.h"
+	"Usuario.h"
+
+1763555155 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\managerveterinario.cpp
+	<iostream>
+	<cstring>
+	"ManagerVeterinario.h"
+	"VeterinarioArchivo.h"
+	"Clientes.h"
+	"Mascota.h"
+	"Turno.h"
+	"Fecha.h"
+
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menuadministrativo.cpp
+	<iostream>
+	"MenuAdministrativo.h"
+	"ManagerCliente.h"
+	"ManagerMascota.h"
+	"ManagerTurno.h"
+	"ManagerFactura.h"
+
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menumaestro.cpp
+	<iostream>
+	"MenuMaestro.h"
+	"ManagerCliente.h"
+	"ManagerMascota.h"
+	"ManagerTurno.h"
+	"ManagerFactura.h"
+	"ManagerVeterinario.h"
+	"ManagerUsuario.h"
+
+1763551318 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\tpi-c--prog2\tpi-prog2-veterinaria\menuveterinario.cpp
+	<iostream>
+	<cstring>
+	"MenuVeterinario.h"
+	"ClientesArchivo.h"
+	"MascotaArchivo.h"
+	"TurnoArchivo.h"
 

@@ -4,23 +4,38 @@ using namespace std;
 
 int main(){
     Menu menu;
+    int opcion = -1;
 
-    int opcion;
-    cout << "1) Cargar usuarios iniciales\n";
-    cout << "2) Ingresar al sistema\n";
-    cin >> opcion;
+    while(opcion != 0){
+        cout << "========== MENU PRINCIPAL ==========\n";
+        cout << "1) Cargar usuarios iniciales\n";
+        cout << "2) Ingresar al sistema\n";
+        cout << "0) Salir\n";
+        cout << "------------------------------------\n";
 
-    system("cls");
+        cin>>opcion;
+        system("cls");
 
-    if(opcion == 1){
-        menu.cargarUsuariosIniciales();
-        return 0;  // termina luego de cargar
-    }
+        switch(opcion){
+            case 1:
+                menu.cargarUsuariosIniciales();
+                break;
 
-    if(opcion == 2){
-        menu.mostrar();   // login normal
+            case 2:
+                menu.mostrar();
+                break;
+
+            case 0:
+                cout << "Saliendo del programa...\n";
+                break;
+
+            default:
+                cout << "Opcion invalida. Intente nuevamente.\n";
+                break;
+        }
+
+        cout << "\n\n";
     }
 
     return 0;
 }
-
