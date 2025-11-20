@@ -11,6 +11,7 @@ private:
     int _idRaza;
     char _sexoAnimal;
     int _idClienteDueno;
+    int _dniClienteDueno;
     bool _estadoMascota;
 public:
     //getters(todos llevan const al final para que puedan ser llamados luego desde los métodos que utilizan registros constantes)
@@ -20,6 +21,7 @@ public:
     int getIdRaza() const;
     char getSexoAnimal()const ;
     int getIdClienteDueno()const;
+    int getDniClienteDueno()const;
     bool getEstadoMascota()const;
     //setters
     void setIdMascota(int id);
@@ -28,6 +30,7 @@ public:
     void setIdRaza(int id);
     void setSexoAnimal(char sexo);
     void setIdClienteDueno(int id);
+    void setDniClienteDueno(int dni);
     void setEstadoMascota(bool estado);
     void cargar();
     void mostrar();

@@ -8,7 +8,7 @@ void ManagerCliente::altaCliente() {
     Clientes reg;
 
     cout << "=== ALTA DE CLIENTE ===\n";
-    bool valido;
+    bool valido = true;
    valido = buscarClientePorDNI();
 
    if(valido){
@@ -29,11 +29,11 @@ void ManagerCliente::altaCliente() {
 
 void ManagerCliente::modificarCliente() {
     ClientesArchivo arch;
-    int id;
-    cout << "ID de cliente a modificar: ";
-    cin >> id;
+    int dni;
+    cout << "DNI de Cliente a modificar: ";
+    cin >> dni;
 
-    int pos = arch.buscarporId(id);
+    int pos = arch.buscarporDNI(dni);
     if (pos < 0) {
         cout << "Cliente no encontrado.\n";
         return;
@@ -58,11 +58,16 @@ void ManagerCliente::modificarCliente() {
 
 void ManagerCliente::bajaCliente() {
     ClientesArchivo arch;
-    int id;
+   /* int id;
     cout << "ID de cliente a dar de baja: ";
-    cin >> id;
+    cin >> id;*/
 
-    int pos = arch.buscarporId(id);
+    int dni;
+    cout << "DNI de cliente a dar de baja: " <<endl;
+    cin >> dni;
+
+    int pos = arch.buscarporDNI(dni);
+    cout << "Posicion cliente: " <<pos;
     if (pos < 0) {
         cout << "Cliente no encontrado.\n";
         return;
@@ -78,11 +83,11 @@ void ManagerCliente::bajaCliente() {
 
 void ManagerCliente::reactivarCliente() {
     ClientesArchivo arch;
-    int id;
-    cout << "ID de cliente a reactivar: ";
-    cin >> id;
+    int DNI;
+    cout << "DNI del cliente a reactivar: ";
+    cin >> DNI;
 
-    int pos = arch.buscarporId(id);
+    int pos = arch.buscarporDNI(DNI);
     if (pos < 0) {
         cout << "Cliente no encontrado.\n";
         return;
@@ -118,14 +123,12 @@ bool ManagerCliente::buscarClientePorDNI() {
 
     for (int i=0; i<total; i++) {
         if (!arch.leerClientes(i, c)) continue;
-        if (c.getDNI()==0) {
+        if (c.getDNI()==dni) {
             arch.mostrarClientes(i, c);
-            encontro = true;
+            encontro = false;
             return encontro;
         }
-    }
-
-    if (!encontro) return false;
+    } return true;
 
     system("pause");
 }

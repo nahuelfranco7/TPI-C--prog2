@@ -15,6 +15,7 @@ Fecha Mascota::getFechaNac()const{return _fechaNac;}
 int Mascota::getIdRaza()const{return _idRaza;}
 char Mascota::getSexoAnimal()const{return _sexoAnimal;}
 int Mascota::getIdClienteDueno()const{return _idClienteDueno;}
+int Mascota::getDniClienteDueno() const {return _dniClienteDueno;}
 bool Mascota::getEstadoMascota()const{return _estadoMascota;}
 
 void Mascota::setIdMascota(int id){
@@ -34,6 +35,9 @@ _sexoAnimal=sexo;
 }
 void Mascota::setIdClienteDueno(int id){
 _idClienteDueno=id;
+}
+void Mascota::setDniClienteDueno(int dni){
+_dniClienteDueno=dni;
 }
 
 void Mascota::setEstadoMascota(bool estado){
@@ -65,8 +69,13 @@ void Mascota::cargar() {
     cout << "Sexo (M/H): ";
     cin >> _sexoAnimal;
 
+//reemplazo vincular id cliente con vincular con DNI
+/*
     cout << "ID cliente dueño: ";
-    cin >> _idClienteDueno;
+    cin >> _idClienteDueno;*/
+
+    cout << "DNI Cliente dueño: ";
+    cin >> _dniClienteDueno; // VALIDAR QUE EXISTE
 
     _estadoMascota = true;
 }
@@ -78,6 +87,6 @@ void Mascota::mostrar() {
     _fechaNac.mostrar();
     cout << "ID raza: " << _idRaza << endl;
     cout << "Sexo: " << _sexoAnimal << endl;
-    cout << "ID Cliente dueño: " << _idClienteDueno << endl;
+    cout << "DNI cliente dueño: " << _dniClienteDueno << endl;
     cout << "Estado: " << (_estadoMascota ? "Activo" : "Inactivo") << endl;
 }

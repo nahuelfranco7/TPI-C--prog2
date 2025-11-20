@@ -70,6 +70,7 @@ bool MascotaArchivo::cargarMascota() {
     int idRaza;
     char sexo;
     int idDueno;
+    int dniDueno;
 
     reg.setIdMascota(generarNuevoID());
 
@@ -97,6 +98,11 @@ bool MascotaArchivo::cargarMascota() {
         sexo = 'M';
     }
     reg.setSexoAnimal(sexo);
+
+    // dni dueño
+    cout << "DNI del Cliente: "<<endl;
+    cin >> dniDueno;
+    reg.setDniClienteDueno(dniDueno);
 
     // id dueño
     cout << "ID del cliente duenio: ";
@@ -129,6 +135,7 @@ bool MascotaArchivo::cargarMascota() {
     cout<<"ID Raza: "<<reg.getIdRaza()<<endl;
     cout<< "Sexo: "<<reg.getSexoAnimal()<< endl;
     cout<<"ID Cliente Dueño: "<<reg.getIdClienteDueno()<<endl;
+    cout<<"DNI Cliente Dueño: "<<reg.getDniClienteDueno()<<endl;
     cout<<"Estado Mascota: "<<(reg.getEstadoMascota() ? "Activo" : "Inactivo")<<endl;
     cout<<"------------------------------------------"<<endl;
 }
@@ -146,6 +153,7 @@ void MascotaArchivo::mostrarMascota(int pos, const Mascota &reg) {
     cout << "ID RAZA: " << reg.getIdRaza() << endl;
     cout << "SEXO: " << reg.getSexoAnimal() << endl;
     cout << "ID CLIENTE DUEÑO: " << reg.getIdClienteDueno() << endl;
+    cout << "DNI CLIENTE DUEÑO: " << reg.getDniClienteDueno() << endl;
 
     cout << "ESTADO: ";
     if (reg.getEstadoMascota()) {
@@ -204,8 +212,9 @@ bool MascotaArchivo::modificar(int pos) {
         cout << "3. Modificar ID raza\n";
         cout << "4. Modificar sexo\n";
         cout << "5. Modificar ID del dueño\n";
-        cout << "6. Cambiar estado (activo/inactivo)\n";
-        cout << "7. Guardar y salir\n";
+        cout << "6. Modificar DNI del dueño\n";
+        cout << "7. Cambiar estado (activo/inactivo)\n";
+        cout << "8. Guardar y salir\n";
         cout << "Seleccione opcion: ";
         cin >> opcion;
 
@@ -257,14 +266,22 @@ bool MascotaArchivo::modificar(int pos) {
         }
 
         case 6: {
+            int dnidueno;
+            cout << "Nuevo DNI de dueño: ";
+            cin >> dnidueno;
+            reg.setDniClienteDueno(dnidueno);
+
+            break;
+        }
+
+        case 7: {
             bool nuevoEstado;
             cout << "Estado (1 = activo, 0 = inactivo): ";
             cin >> nuevoEstado;
             reg.setEstadoMascota(nuevoEstado);
             break;
         }
-
-        case 7:
+        case 8:
             cout << "Guardando cambios...\n";
             break;
 

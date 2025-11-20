@@ -32,8 +32,8 @@ int ClientesArchivo::buscarporDNI(int DNI){
     while (fread(&reg, sizeof(Clientes),1,p)){
         if (reg.getDNI()==DNI){
             fclose(p);
+            return pos;
         }
-        return pos;
     pos++;
     }
 return -1;
