@@ -119,15 +119,95 @@ void Mascota::cargar(int dni) {
 
 
 
-       /*cout << "Tipo (1-Perro, 2-Gato...): ";
-        cin >> Reino;
+        char Raza[30];
+    int animal, raza;
 
-        cout << "Raza: ";/+
-        cargarCadena(Raza, 30);*/
+// BUCLE PRINCIPAL DE ANIMAL
+do {
+    cout << "Seleccionar animal:\n";
+    cout << "1. Perro\n";
+    cout << "2. Gato\n";
+    cout << "0. Volver\n";
+    cout << "Opción: ";
+    cin >> animal;
+
+    if (animal == 0) return; // vuelve a lo anterior
+
+    switch (animal) {
+
+    case 1:   // PERRO
+        do {
+            cout << "Seleccionaste PERRO\n";
+            cout << "Elegir raza:\n";
+            cout << "1. Pastor\n";
+            cout << "2. Golden\n";
+            cout << "3. Bulldog\n";
+            cout << "0. Volver\n";
+            cout << "Opción: ";
+            cin >> raza;
+
+            if (raza == 0) break; // vuelve al menú de animal
+
+            switch (raza) {
+            case 1: strcpy(Raza, "Pastor");
+                    _idRaza=raza;
+                    break;
+            case 2: strcpy(Raza, "Golden");
+                    _idRaza=raza;
+                    break;
+            case 3: strcpy(Raza, "Bulldog");
+                    _idRaza=raza;
+                    break;
+            default:
+                cout << "Opción inválida.\n";
+                raza = -1; // fuerza repetir
+            }
+
+        } while (raza < 1 || raza > 3);
+
+        if (raza != 0) cout << "Raza seleccionada: " << Raza << endl;
+        break;
 
 
-        cout << "ID raza: ";
-        cin >> _idRaza;
+    case 2:   // GATO
+        do {
+            cout << "Seleccionaste GATO\n";
+            cout << "Elegir raza:\n";
+            cout << "1. Siamés\n";
+            cout << "2. Persa\n";
+            cout << "3. Bengalí\n";
+            cout << "0. Volver\n";
+            cout << "Opción: ";
+            cin >> raza;
+
+            if (raza == 0) break; // vuelve al menú de animal
+
+            switch (raza) {
+            case 1: strcpy(Raza, "Siames");
+                    _idRaza=raza;
+                    break;
+            case 2: strcpy(Raza, "Persa");
+                    _idRaza=raza;
+                    break;
+            case 3: strcpy(Raza, "Bengali");
+                    _idRaza=raza;
+                    break;
+            default:
+                cout << "Opción inválida.\n";
+                raza = -1;
+            }
+
+        } while (raza < 1 || raza > 3);
+
+        if (raza != 0) cout << "Raza seleccionada: " << Raza << endl;
+        break;
+
+
+    default:
+        cout << "Opción inválida.\n";
+    }
+
+} while (animal != 1 && animal != 2);
 
         cout << "Sexo (M/H): ";
         cin >> _sexoAnimal;

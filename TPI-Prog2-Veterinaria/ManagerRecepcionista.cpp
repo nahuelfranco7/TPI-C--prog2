@@ -537,12 +537,20 @@ bool ManagerRecepcionista::buscarClientePorDNI() {
     cout << "Ingrese DNI del cliente: ";
     cin >> dni;
 
-    ClientesArchivo archC; Clientes c;
+    ClientesArchivo archC;
+    Clientes c;
+
     int total = archC.contarRegistros();
     int pos = -1;
-    for (int i=0;i<total;i++){
-        if (!archC.leerClientes(i,c)) continue;
-        if (c.getDNI()== 0) { pos = i; break; }
+
+    for (int i = 0; i < total; i++) {
+        if (!archC.leerClientes(i, c)) continue;
+
+        //si encuentra el dni lo corta acá y pasa a mostrar el cliente
+        if (c.getDNI() == dni) {
+            pos = i;
+            break;
+        }
     }
 
     if (pos < 0) {
@@ -554,18 +562,32 @@ bool ManagerRecepcionista::buscarClientePorDNI() {
     archC.mostrarClientes(pos, c);
 
     // listar mascotas del cliente
-    MascotaArchivo archM; Mascota m;
+    MascotaArchivo archM;
+    Mascota m;
+
     int totalM = archM.contarRegistros();
-    bool a = false;
-    for (int i=0;i<totalM;i++){
-        if (!archM.leerMascota(i,m)) continue;
+    bool tieneMascotas = false;
+
+    for (int i = 0; i < totalM; i++) {
+        if (!archM.leerMascota(i, m)) continue;
+
         if (m.getIdClienteDueno() == c.getIdCliente()) {
-            cout << "ID Mascota: " << m.getIdMascota() << " - Nombre: " << m.getNombreMascota() << " - Estado: " << (m.getEstadoMascota() ? "ACTIVO" : "INACTIVO") << "\n";
-            a = true;
+            cout << "ID Mascota: " << m.getIdMascota()
+                 << " - Nombre: " << m.getNombreMascota()
+                 << " - Estado: " << (m.getEstadoMascota() ? "ACTIVO" : "INACTIVO")
+                 << "\n";
+
+            tieneMascotas = true;
         }
     }
-    if (!a) cout << "El cliente no tiene mascotas registradas.\n";
+
+    if (!tieneMascotas) {
+        cout << "El cliente no tiene mascotas registradas.\n";
+    }
+
     system("pause");
+
+    return true;
 }
 
 void ManagerRecepcionista::buscarMascotaPorNombre() {

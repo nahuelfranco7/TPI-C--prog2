@@ -40,5 +40,6 @@ public:
     void cargar(int dni);
     void mostrar();
     void cargarCadena(char *palabra, int tam);
+    int calcularEdad(int dia, int mes, int anio);
 };
 
