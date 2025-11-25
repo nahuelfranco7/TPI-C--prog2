@@ -48,7 +48,14 @@ void MenuAdministrativo::mostrar() {
                 case 3: mc.bajaCliente(); break;
                 case 4: mc.reactivarCliente(); break;
                 case 5: mc.listarClientes(); break;
-                case 6: mc.buscarClientePorDNI(); break;
+                case 6:
+                    {
+                    int dni;
+                    cout << "INGRESE DNI: " <<endl;
+                    cin >> dni;
+                    mc.buscarClientePorDNI(dni);
+                    break;
+                    }
                 }
             } while (op != 0);
         } break;
@@ -70,7 +77,7 @@ void MenuAdministrativo::mostrar() {
                 switch (op) {
                 case 1: mm.altaMascota(); break;
                 case 2: mm.modificarMascota(); break;
-                case 3: mm.bajaMascota(); break;
+                case 3: //mm.bajaMascota(); break;
                 case 4: mm.reactivarMascota(); break;
                 case 5: mm.listarMascotas(); break;
                 }

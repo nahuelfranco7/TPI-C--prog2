@@ -11,4 +11,5 @@ public:
     void bajaMascota();
     void reactivarMascota();
     void listarMascotas();
+    void listarMascotasporDni(int dniDueno);
 };

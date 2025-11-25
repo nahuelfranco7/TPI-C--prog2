@@ -1,5 +1,6 @@
 #pragma once
 # include <cstring>
+# include <ctime>
 # include "Fecha.h"
 
 class Mascota{
@@ -9,6 +10,7 @@ private:
     char _nombreMascota[20];
     Fecha _fechaNac;
     int _idRaza;
+    int _edad;
     char _sexoAnimal;
     int _idClienteDueno;
     int _dniClienteDueno;
@@ -19,20 +21,23 @@ public:
     const char* getNombreMascota() const;
     Fecha getFechaNac() const;
     int getIdRaza() const;
+    int getEdad() const;
     char getSexoAnimal()const ;
     int getIdClienteDueno()const;
     int getDniClienteDueno()const;
     bool getEstadoMascota()const;
+
     //setters
     void setIdMascota(int id);
     void setNombreMascota(const char* nombre);
     void setFechaNac(Fecha fecha);
     void setIdRaza(int id);
+    void setEdad(int edad) ;
     void setSexoAnimal(char sexo);
     void setIdClienteDueno(int id);
     void setDniClienteDueno(int dni);
     void setEstadoMascota(bool estado);
-    void cargar();
+    void cargar(int dni);
     void mostrar();
     void cargarCadena(char *palabra, int tam);
 };

@@ -23,5 +23,6 @@ public:
     bool modificar(int id);
     void cargarCadena(char *palabra, int tam);
     bool validarContrasenaPorPos(int pos, const char* contrasena);
+    int buscarporDNI(int DNI);
 
 };

@@ -1,7 +1,10 @@
 # include<iostream>
 # include<cstdlib>
 # include<cstring>
+# include <ctime>
+# include "Fecha.h"
 # include "Mascota.h"
+# include "UsuarioArchivo.h"
 
 using namespace std;
 
@@ -13,6 +16,7 @@ int Mascota::getIdMascota()const{return _idMascota;}
 const char* Mascota::getNombreMascota()const{return _nombreMascota;}
 Fecha Mascota::getFechaNac()const{return _fechaNac;}
 int Mascota::getIdRaza()const{return _idRaza;}
+int Mascota::getEdad()const{return _edad;}
 char Mascota::getSexoAnimal()const{return _sexoAnimal;}
 int Mascota::getIdClienteDueno()const{return _idClienteDueno;}
 int Mascota::getDniClienteDueno() const {return _dniClienteDueno;}
@@ -30,6 +34,9 @@ _fechaNac=fecha;
 void Mascota::setIdRaza(int id){
 _idRaza=id;
 }
+void Mascota::setEdad(int edad){
+_edad=edad;
+}
 void Mascota::setSexoAnimal(char sexo){
 _sexoAnimal=sexo;
 }
@@ -44,6 +51,32 @@ void Mascota::setEstadoMascota(bool estado){
 _estadoMascota=estado;
 }
 
+
+int Mascota::calcularEdad(int dia, int mes, int anio) {
+    time_t t = time(nullptr);
+    tm* hoy = localtime(&t);
+
+    int anioActual = hoy->tm_year + 1900;
+    int mesActual  = hoy->tm_mon + 1;
+    int diaActual  = hoy->tm_mday;
+
+    int edad = anioActual - anio;
+
+    // Si todavía no cumplio este año restar 1
+    if (mesActual < mes || (mesActual == mes && diaActual < dia)) {
+        edad--;
+    }
+
+    // Seguridad en caso de fechas futuras dentro del rango permitido
+    if (edad < 0) edad = 0;
+
+    return edad;
+}
+
+
+
+
+
 // --- cargarCadena ---
 void Mascota::cargarCadena(char *palabra, int tam) {
     int i = 0;
@@ -56,28 +89,50 @@ void Mascota::cargarCadena(char *palabra, int tam) {
     fflush(stdin);
 }
 
-void Mascota::cargar() {
-    cout << "Nombre mascota: ";
-    cargarCadena(_nombreMascota, 20);
 
-    cout << "Fecha nacimiento: \n";
-    _fechaNac.cargar();
+void Mascota::cargar(int dni) {
 
-    cout << "ID raza: ";
-    cin >> _idRaza;
+        _dniClienteDueno = dni;
 
-    cout << "Sexo (M/H): ";
-    cin >> _sexoAnimal;
+        cout << "Nombre mascota: ";
+        cargarCadena(_nombreMascota, 20);
 
-//reemplazo vincular id cliente con vincular con DNI
-/*
-    cout << "ID cliente dueño: ";
-    cin >> _idClienteDueno;*/
+        cout << "Fecha nacimiento: \n";
+               cout << "Fecha de nacimiento (DD MM AAAA): ";
+        int d, m, a;
+        cin >> d >> m >> a;
+        //comprobamos si es correcta la fecha
+        Fecha fecha;
+        while (!fecha.fechaValida(d, m, a)) {
+        cout << "Fecha INVALIDA. Coloque otra fecha respetando el formato.\n";
+        cout << "Ingrese nuevamente (DD MM AAAA): ";
+        cin >> d >> m >> a;
+        }
+        _fechaNac.setDia(d);
+        _fechaNac.setMes(m);
+        _fechaNac.setAnio(a);
 
-    cout << "DNI Cliente dueño: ";
-    cin >> _dniClienteDueno; // VALIDAR QUE EXISTE
+        // Calculo de edad de forma automática
+        int edad = calcularEdad(d, m, a);
+        cout << "Edad: " << edad << endl;
+        _edad = edad;
 
-    _estadoMascota = true;
+
+
+       /*cout << "Tipo (1-Perro, 2-Gato...): ";
+        cin >> Reino;
+
+        cout << "Raza: ";/+
+        cargarCadena(Raza, 30);*/
+
+
+        cout << "ID raza: ";
+        cin >> _idRaza;
+
+        cout << "Sexo (M/H): ";
+        cin >> _sexoAnimal;
+
+        _estadoMascota = true;
 }
 
 void Mascota::mostrar() {

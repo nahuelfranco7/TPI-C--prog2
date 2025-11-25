@@ -19,7 +19,7 @@ void Veterinario::setFechaIngresoVet(Fecha fechaIngreso){
 _fechaIngresoVet=fechaIngreso;
 }
 
-    int Veterinario::getIdUsuarioAsociado() const {
-     return _idUsuarioAsociado;
-     }
-    void Veterinario::setIdUsuarioAsociado(int id) { _idUsuarioAsociado = id; }
+int Veterinario::getIdUsuarioAsociado() const {
+return _idUsuarioAsociado;}
+
+void Veterinario::setIdUsuarioAsociado(int id) { _idUsuarioAsociado = id; }

@@ -181,7 +181,7 @@ void MenuMaestro::modificarMascota() {
 
 void MenuMaestro::bajaMascota() {
     ManagerMascota mgr;
-    mgr.bajaMascota();
+  //  mgr.bajaMascota();
 }
 
 void MenuMaestro::listarMascotas() {

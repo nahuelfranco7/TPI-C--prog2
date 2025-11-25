@@ -10,6 +10,7 @@ void ManagerUsuario::altaUsuario() {
 
     cout << "=== ALTA DE USUARIO ===\n";
 
+
     int nuevoID = arch.contarRegistros() + 1;
     reg.setIdUsuario(nuevoID);
 
@@ -65,11 +66,11 @@ void ManagerUsuario::modificarUsuario() {
 
 void ManagerUsuario::bajaUsuario() {
     UsuarioArchivo arch;
-    int id;
-    cout << "ID de usuario a dar de baja: ";
-    cin >> id;
+    int dni;
+    cout << "DNI de usuario a dar de baja: ";
+    cin >> dni;
 
-    if (arch.eliminar(id))
+    if (arch.eliminar(dni))
         cout << "Usuario inactivado.\n";
     else
         cout << "ERROR al dar de baja.\n";
@@ -79,11 +80,11 @@ void ManagerUsuario::bajaUsuario() {
 
 void ManagerUsuario::reactivarUsuario() {
     UsuarioArchivo arch;
-    int id;
-    cout << "ID de usuario a reactivar: ";
-    cin >> id;
+    int dni;
+    cout << "DNI de usuario a reactivar: ";
+    cin >> dni;
 
-    int pos = arch.buscarPorId(id);
+    int pos = arch.buscarporDNI(dni);
     if (pos < 0) {
         cout << "Usuario no encontrado.\n";
         system("pause");

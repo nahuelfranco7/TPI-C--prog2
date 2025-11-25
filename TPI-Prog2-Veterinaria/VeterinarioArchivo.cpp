@@ -39,6 +39,21 @@ bool VeterinarioArchivo::cargarVet(const Veterinario &reg) {
     fclose(p);
     return ok;
 }
+int VeterinarioArchivo::buscarMatriculaVet(int matVet){
+    Veterinario reg;
+    int pos = 0;
+    FILE *p = fopen (_nombreArchivo,"rb");
+    if (p==nullptr) return -1;
+    while (fread(&reg, sizeof(Veterinario),1,p)){
+        if (reg.getMatriculaVet()==matVet){
+            fclose(p);
+            return pos;
+        }
+    pos++;
+    }
+return -1;
+}
+
 
 int VeterinarioArchivo::buscarporDNI(int DNI){
     Veterinario reg;

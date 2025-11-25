@@ -315,9 +315,26 @@ void MascotaArchivo::listarTodos() {
 
     system("pause");
 }
+/*------------------------------------------------------------------*/
+void MascotaArchivo::listarMascotaporDueno(int dniDueno){
+    MascotaArchivo reg;
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) cout << "NO PUDO ABRIR EL ARCHIVO MASCOTAS\n";
+    Mascota r;
+    while(fread(&r,sizeof(Mascota),1,p)==1){
+        if(r.getDniClienteDueno()==dniDueno){
+        cout << "Nombre Mascota: " <<r.getNombreMascota()<<endl;
+        cout << "Fecha nacimiento Mascota: " <<r.getFechaNac().getDia() << "/" << r.getFechaNac().getMes() << "/" <<r.getFechaNac().getAnio() <<endl;
+        cout << "Sexo: " << r.getSexoAnimal()<<endl;
+        cout << "ID mascota: " << r.getIdMascota()<<endl;
+        cout << "ID raza: " << r.getIdRaza()<<endl;
+        cout << "--------------------------" << endl;
+        }
+    }
+}
+
 
 /*------------------------------------------------------------------*/
-
 bool MascotaArchivo::eliminar(int pos) {
     Mascota reg;
 

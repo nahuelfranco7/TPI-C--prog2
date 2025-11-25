@@ -8,6 +8,20 @@ const char* ClientesArchivo::getNombreArchivo(){
 return _nombreArchivo;
 }
 
+bool ClientesArchivo::estadoCliente(){
+    Clientes reg;
+    bool estado = false;
+    FILE *p = fopen(_nombreArchivo,"rb");
+    if (p==nullptr) return -1;
+    while (fread(&reg,sizeof(Clientes),1,p)){
+        if (reg.getEstado()==true){
+            fclose(p);
+            estado = true;
+        }
+        return estado;
+    }
+}
+
 int ClientesArchivo::buscarporId(int id){
     Clientes reg;
     int pos = 0;

@@ -19,6 +19,8 @@ public:
     bool cargarVet();
     bool cargarVet(const Veterinario &reg);
     int buscarporDNI(int DNI);
+    int buscarMatriculaVet(int matVet);
+
 
     bool leerVet(int pos, Veterinario &reg);
     void mostrarVeterinario(int pos, const Veterinario &reg);

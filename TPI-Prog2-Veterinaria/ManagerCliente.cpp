@@ -8,11 +8,17 @@ void ManagerCliente::altaCliente() {
     Clientes reg;
 
     cout << "=== ALTA DE CLIENTE ===\n";
+
+
+    cout << "INGRESE DNI: " << endl;
+    int dni;
+    cin >> dni;
+
     bool valido = true;
-   valido = buscarClientePorDNI();
+    valido = buscarClientePorDNI(dni);
 
    if(valido){
-    reg.cargar();
+    reg.cargar(dni);
     reg.setEstado(true);
     reg.setIdCliente( arch.contarRegistros() + 1 );
 
@@ -36,6 +42,7 @@ void ManagerCliente::modificarCliente() {
     int pos = arch.buscarporDNI(dni);
     if (pos < 0) {
         cout << "Cliente no encontrado.\n";
+        system ("pause");
         return;
     }
 
@@ -46,7 +53,7 @@ void ManagerCliente::modificarCliente() {
     arch.mostrarClientes(pos, reg);
 
     cout << "Ingrese nuevos datos:\n";
-    reg.cargar();
+    reg.cargar(dni);
 
     if (arch.modificarClientes(pos, reg))
         cout << "Modificado correctamente.\n";
@@ -67,9 +74,10 @@ void ManagerCliente::bajaCliente() {
     cin >> dni;
 
     int pos = arch.buscarporDNI(dni);
-    cout << "Posicion cliente: " <<pos;
+    cout << "Posicion cliente: " <<pos <<endl;
     if (pos < 0) {
         cout << "Cliente no encontrado.\n";
+        system ("pause");
         return;
     }
 
@@ -90,6 +98,7 @@ void ManagerCliente::reactivarCliente() {
     int pos = arch.buscarporDNI(DNI);
     if (pos < 0) {
         cout << "Cliente no encontrado.\n";
+        system ("pause");
         return;
     }
 
@@ -111,11 +120,7 @@ void ManagerCliente::listarClientes() {
     system("pause");
 }
 
-bool ManagerCliente::buscarClientePorDNI() {
-    int dni;
-    cout << "Ingrese DNI del cliente: ";
-    cin >> dni;
-
+bool ManagerCliente::buscarClientePorDNI(int dni) {
     ClientesArchivo arch;
     Clientes c;
     bool encontro = false;

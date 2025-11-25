@@ -34,13 +34,25 @@ void ManagerVeterinario::cargar() {
     UsuarioArchivo archU;
     Usuario u;
 
+    cout << "=== ALTA DE VETERINARIO ===\n";
+
+    bool valido = true;
+    int DNI;
+    while(valido){
+    cout << "DNI del Veterinario: ";
+    cin >> DNI;
+
+    if(archU.buscarporDNI(DNI)==-1){
+    u.setDNI(DNI);
+    valido = false;}
+    else{ cout << "EL DNI YA EXISTE. INGRESE UN DNI VALIDO." << endl;}
+}
     int nuevoIdUsuario = archU.contarRegistros() + 1;
     u.setIdUsuario(nuevoIdUsuario);
 
-    cout << "=== ALTA DE VETERINARIO ===\n";
-
     char aux[40];
-    int dni;
+
+    u.setDNI(DNI);
 
     cout << "Nombre: ";
     cargarCadena(aux, 30);
@@ -49,10 +61,6 @@ void ManagerVeterinario::cargar() {
     cout << "Apellido: ";
     cargarCadena(aux, 30);
     u.setApellido(aux);
-
-    cout << "DNI: ";
-    cin >> dni;
-    u.setDNI(dni);
 
     cout << "Email: ";
     cargarCadena(aux, 40);
@@ -83,6 +91,17 @@ void ManagerVeterinario::cargar() {
     VeterinarioArchivo archV;
     Veterinario v;
 
+    bool valido1 = true;
+    int mat;
+    while(valido1){
+    cout << "Matricula del Veterinario: ";
+    cin >> mat;
+
+    if(archV.buscarMatriculaVet(mat) == -1){
+    v.setMatriculaVet(mat);
+    valido1 = false;} else {cout << "LA MATRICULA YA EXISTE. INGRESE UNA MATRICULA VALIDA." << endl;}
+}
+
     int nuevoIdVet = archV.contarRegistros() + 1;
     v.setId(nuevoIdVet);
 
@@ -96,11 +115,21 @@ void ManagerVeterinario::cargar() {
     v.setEstado(u.getEstado());
 
     /// Datos específicos del veterinario
-    cout << "Matricula profesional: ";
-    int mat;
-    cin >> mat;
-    v.setMatriculaVet(mat);
 
+   /* bool valido1 = true;
+    int mat;
+    while(valido1){
+    cout << "Matricula del Veterinario: ";
+    cin >> mat;
+
+    if(archV.buscarMatriculaVet(mat)==-1){
+    v.setMatriculaVet(mat);
+    valido1 = false;
+    return;}
+    else{ cout << "YA EXISTE USUARIO CON ESA MATRICULA. INGRESE UNA MATRICULA VALIDA." << endl;
+    system ("pause");
+    }
+} */
     Fecha f;
     cout << "Fecha de ingreso:\n";
     f.cargar();
@@ -114,15 +143,14 @@ void ManagerVeterinario::cargar() {
 
     cout << "Alta de veterinario completada correctamente.\n";
     system("pause");
-}
-
+        }
 void ManagerVeterinario::modificar() {
     UsuarioArchivo arch;
-    int id;
-    cout << "ID de veterinario a modificar: ";
-    cin >> id;
+    int dni;
+    cout << "Ingrese Dni del veterinario a modificar: "<<endl;
+    cin >> dni;
 
-    int pos = arch.buscarPorId(id);
+    int pos = arch.buscarporDNI(dni);
     if (pos < 0) {
         cout << "Veterinario no encontrado.\n";
         system("pause");
@@ -137,7 +165,7 @@ void ManagerVeterinario::modificar() {
     }
 
     if (u.getNivelSeguridad() != 2) {
-        cout << "El ID ingresado no corresponde a un veterinario.\n";
+        cout << "El Dni ingresado no corresponde a un veterinario.\n";
         system("pause");
         return;
     }
@@ -155,10 +183,6 @@ void ManagerVeterinario::modificar() {
     cout << "Ingrese nuevo apellido (ENTER para mantener): ";
     cargarCadena(buf, 30);
     if (strlen(buf) > 0) u.setApellido(buf);
-
-    cout << "Ingrese nuevo DNI (ENTER para mantener): ";
-    int dni;
-    if (dni > 0) u.setDNI(dni);
 
     cout << "Ingrese nuevo email (ENTER para mantener): ";
     cargarCadena(buf, 40);
@@ -183,11 +207,11 @@ void ManagerVeterinario::modificar() {
 
 void ManagerVeterinario::eliminar() {
     UsuarioArchivo arch;
-    int id;
-    cout << "ID de veterinario a dar de baja: ";
-    cin >> id;
+    int dni;
+    cout << "Dni de veterinario a dar de baja: ";
+    cin >> dni;
 
-    int pos = arch.buscarPorId(id);
+    int pos = arch.buscarporDNI(dni);
     if (pos < 0) {
         cout << "Veterinario no encontrado.\n";
         system("pause");
@@ -202,7 +226,7 @@ void ManagerVeterinario::eliminar() {
         return;
     }
 
-    if (arch.eliminar(id))
+    if (arch.eliminar(dni))
         cout << "Veterinario dado de baja (inactivo).\n";
     else
         cout << "ERROR al dar de baja.\n";
@@ -234,11 +258,11 @@ void ManagerVeterinario::listar() {
 
 void ManagerVeterinario::reactivar() {
     UsuarioArchivo arch;
-    int id;
-    cout << "ID de veterinario a reactivar: ";
-    cin >> id;
+    int dni;
+    cout << "Dni de veterinario a reactivar: ";
+    cin >> dni;
 
-    int pos = arch.buscarPorId(id);
+    int pos = arch.buscarporDNI(dni);
     if (pos < 0) {
         cout << "Veterinario no encontrado.\n";
         system("pause");

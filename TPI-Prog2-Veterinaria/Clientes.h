@@ -12,7 +12,7 @@ public:
     int getIdCliente();
     void setIdCliente(int id);
 
-    void cargar();
+    void cargar(int dni);
     void mostrar();
 
     void cargarCadena(char* palabra, int tam);

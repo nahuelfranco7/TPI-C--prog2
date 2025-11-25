@@ -30,6 +30,7 @@ class MascotaArchivo{
     void listarTodos();
     bool eliminar(int pos);
     void mostrarMascota(int pos, const Mascota &reg);
+    void listarMascotaporDueno(int dniDueno);
 
     bool modificar(int pos);
     bool cargarMascota(const Mascota &reg);

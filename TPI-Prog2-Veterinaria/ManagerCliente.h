@@ -11,7 +11,7 @@ public:
     void bajaCliente();
     void reactivarCliente();
     void listarClientes();
-    bool buscarClientePorDNI();
+    bool buscarClientePorDNI(int dni);
     void cargarCadena(char *palabra, int tam);
     int cargarEntero(const char *mensaje, int tamMax);
 };

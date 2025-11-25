@@ -15,4 +15,8 @@ public:
     void setAnio(int anio);
     void cargar();
     void mostrar() const;
+    bool esBisiesto(int anio);
+
+    bool fechaValida(int dia, int mes, int anio);
+
 };

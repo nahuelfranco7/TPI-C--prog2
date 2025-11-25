@@ -14,15 +14,15 @@ void Menu::mostrar() {
     bool usuarioOk = false;
 
     do {
-        cout << "Ingrese ID: ";
-        int id;
-        cin>>id;
+        cout << "Ingrese DNI: ";
+        int dni;
+        cin>>dni;
 
         cout << "Ingrese contrasena: ";
         char contrasena[20];
         cin >> contrasena;
 
-        int pos = archivo.buscarPorId(id);//devuelve una posicion
+        int pos = archivo.buscarporDNI(dni);//devuelve una posicion
 
         if (pos >= 0 && archivo.validarContrasenaPorPos(pos, contrasena)) {
 
@@ -60,17 +60,17 @@ void Menu::mostrar() {
 
         case 2: {
             MenuVeterinario menu;
-            //menu.mostrar(usuario);
+            menu.mostrar(usuario);
         } break;
 
         case 3: {
             MenuAdministrativo menu;
-          //  menu.mostrar();
+            menu.mostrar();
         } break;
 
         case 4: {
             MenuMaestro menu;
-         //   menu.mostrar(usuario);
+            menu.mostrar(usuario);
         } break;
 
         default:
@@ -87,6 +87,19 @@ void Menu::cargarUsuariosIniciales() {
 
     cout << "=== CARGA RAPIDA DE USUARIOS ===\n";
 
+    bool valido = true;
+    while(valido){
+    cout << "DNI: ";
+    int DNI;
+    cin >> DNI;
+    if(arch.buscarporDNI(DNI)==-1){
+    u.setDNI(DNI);
+    valido = false;
+    }else{
+            cout << "EL DNI YA EXISTE. INGRESE UN DNI VALIDO." << endl;
+        }
+
+}
     int nuevoId = arch.contarRegistros() + 1;
     u.setIdUsuario(nuevoId);
 
@@ -99,11 +112,6 @@ void Menu::cargarUsuariosIniciales() {
     cout << "Apellido: ";
     cargarCadena(aux,20);
     u.setApellido(aux);
-
-    cout << "DNI: ";
-    int DNI;
-    cin >> DNI;
-    u.setDNI(DNI);
 
     cout << "Email: ";
     cargarCadena(aux,40);

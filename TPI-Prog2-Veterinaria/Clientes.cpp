@@ -34,10 +34,9 @@ void Clientes::setIdCliente(int id) {
 
 //       CARGAR
 
-void Clientes::cargar() {
+void Clientes::cargar(int dni) {
 
-    cout << "DNI: ";
-    cin >> _DNI;
+    _DNI = dni;
 
     cout << "Nombre: ";
     cargarCadena(_nombre, 30);

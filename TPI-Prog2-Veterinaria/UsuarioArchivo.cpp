@@ -72,6 +72,9 @@ void UsuarioArchivo::mostrarUsuario(int pos) {
     Usuario reg;
     if (leerUsuario(pos, reg)) {
         cout<<"ID: "<<reg.getIdUsuario()<<endl;
+        cout<<"DNI Usuario: "<<reg.getDNI()<<endl;
+        cout<<"Nombre Usuario: "<<reg.getNombre()<<endl;
+        cout<<"Apellido Usuario: "<<reg.getApellido()<<endl;
         cout<<"Clave: "<<reg.getClave()<<endl;
         cout<<"Nivel de seguridad: "<<reg.getNivelSeguridad()<<endl;
         cout<<"Estado: "<<(reg.getEstado() ? "Activo" : "Inactivo")<<endl;//operador ternario selecciona uno u otro dependiendo de getEstado
@@ -95,6 +98,22 @@ int UsuarioArchivo::buscarPorId(int id) {
     return -1;//Si sale por acá no lo encontró
 }
 
+int UsuarioArchivo::buscarporDNI(int DNI){
+    Usuario reg;
+    int pos = 0;
+    FILE *p = fopen (_nombreArchivo,"rb");
+    if (p==nullptr) return -1;
+    while (fread(&reg, sizeof(Usuario),1,p)){
+        if (reg.getDNI()==DNI){
+            fclose(p);
+            return pos;
+        }
+    pos++;
+    }
+return -1;
+}
+
+
 int UsuarioArchivo::contarRegistros(){
     FILE* p=fopen(_nombreArchivo,"rb");
     if (p==nullptr) return -1;
@@ -113,8 +132,8 @@ void UsuarioArchivo::listarTodos() {
     }
 }
 
-bool UsuarioArchivo::eliminar(int id) {
-    int pos=buscarPorId(id);
+bool UsuarioArchivo::eliminar(int dni) {
+    int pos=buscarporDNI(dni);
     if (pos==-1) return false;
 
     Usuario reg;
