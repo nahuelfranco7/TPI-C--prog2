@@ -1,36 +1,90 @@
 # include<iostream>
 # include<cstdlib>
 # include<cstring>
+#include "ClientesArchivo.h"
 #include "ManagerTurno.h"
+
 using namespace std;
 
 void ManagerTurno::altaTurno() {
-    TurnoArchivo arch;
+    TurnoArchivo archT;
+    MascotaArchivo archM;
+    ClientesArchivo archC;
+    VeterinarioArchivo archVet;
     Turno reg;
 
-    reg.setIdTurno( arch.contarRegistros() + 1 );
+    reg.setIdTurno( archT.contarRegistros() + 1 );
 
-    cout << "ID Mascota: ";
-    int idM; cin >> idM;
-    reg.setIdMascota(idM);
+    /// --- INGRESAR DNI DEL CLIENTE DUEÑO ---
+    int dni;
+    cout << "Ingrese DNI del cliente dueño de la mascota (0 para salir): ";
+    cin >> dni;
 
-    cout << "ID Veterinario: ";
-    int idV; cin >> idV;
-    reg.setIdVet(idV);
+    if (dni == 0) return;
 
+    while (archC.buscarporDNI(dni) == -1 || !archC.estadoCliente(dni)) {
+        cout << "Cliente no encontrado o INACTIVO.\n";
+        cout << "Ingrese DNI válido o 0 para salir: ";
+        cin >> dni;
+        if (dni == 0) return;
+    }
+
+    /// --- LISTAR MASCOTAS DEL DUENO ---
+    cout << "\n--- MASCOTAS DEL CLIENTE ---\n";
+    archM.listarMascotaporDueno(dni);
+
+    /// --- INGRESAR ID DE LA MASCOTA ---
+    int idMascota;
+    cout << "\nIngrese ID de la mascota para el turno (0 para salir): ";
+    cin >> idMascota;
+    if (idMascota == 0) return;
+
+    int posMascota = archM.buscarPorId(idMascota);
+    while (posMascota == -1) {
+        cout << "ID inexistente. Ingrese otro o 0 para salir: ";
+        cin >> idMascota;
+        if (idMascota == 0) return;
+        posMascota = archM.buscarPorId(idMascota);
+    }
+
+    reg.setIdMascota(idMascota);
+
+    /// --- MATRICULA DEL VETERINARIO ---
+    int matricula;
+    cout << "\nIngrese matrícula del veterinario (0 para salir): ";
+    cin >> matricula;
+
+    if (matricula == 0) return;
+
+    int posVet = archVet.buscarPorMatricula(matricula);
+
+    while (posVet == -1) {
+        cout << "Matrícula inexistente. Ingrese otra o 0 para salir: ";
+        cin >> matricula;
+
+        if (matricula == 0) return;
+
+        posVet = archVet.buscarPorMatricula(matricula);
+    }
+
+    reg.setMatriculaVet(matricula);
+
+    /// --- FECHA ---
     cout << "Fecha del turno:\n";
-    Fecha f; f.cargar();
+    Fecha f;
+    f.cargar();
     reg.setFechaTurno(f);
 
     reg.setEstadoTurno(true);
 
-    if (arch.cargarTurno(reg))
-        cout << "Turno registrado.\n";
+    if (archT.cargarTurno(reg))
+        cout << "Turno registrado con éxito.\n";
     else
-        cout << "ERROR.\n";
+        cout << "ERROR al guardar el turno.\n";
 
     system("pause");
 }
+
 
 void ManagerTurno::modificarTurno() {
     TurnoArchivo arch;

@@ -89,7 +89,7 @@ void ManagerRecepcionista::modificarTurno() {
     do {
         cout << "\n--- MENU DE MODIFICACION ---\n";
         cout << "1) Cambiar ID Mascota\n";
-        cout << "2) Cambiar ID Veterinario\n";
+        cout << "2) Cambiar Matricula Veterinario\n";
         cout << "3) Cambiar Fecha\n";
         cout << "4) Cambiar Estado (1 activo / 0 inactivo)\n";
         cout << "0) Guardar y salir\n";
@@ -106,10 +106,10 @@ void ManagerRecepcionista::modificarTurno() {
                     turno.setIdMascota(idM);
             } break;
             case 2: {
-                int idV;
+                int mV;
                 cout << "Nuevo ID de veterinario: ";
-                cin >> idV;
-                    turno.setIdVet(idV);
+                cin >> mV;
+                    turno.setMatriculaVet(mV);
             } break;
             case 3: {
                 Fecha f;
@@ -196,17 +196,17 @@ void ManagerRecepcionista::cargarTurno() {
 
     // 3) Ingresar ID Veterinario
 
-    int idVet;
+    int mVet;
     valido = false;
 
     do {
-        cout << "ID Veterinario: ";
-        cin >> idVet;
- if (idVet <= 0) {
+        cout << "Matricula Veterinario: ";
+        cin >> mVet;
+ if (mVet <= 0) {
             cout << "Error: El ID debe ser positivo.\n";
         }
         else {
-            int pos = archV.buscarPorId(idVet);
+            int pos = archV.buscarPorId(mVet);
             if (pos < 0) {
                 cout << "No existe un veterinario con ese ID.\n";
             } else {
@@ -216,7 +216,7 @@ void ManagerRecepcionista::cargarTurno() {
 
     } while (!valido);
 
-    turno.setIdVet(idVet);
+    turno.setMatriculaVet(mVet);
 
 
 
@@ -462,7 +462,7 @@ void ManagerRecepcionista::consultaPorFecha() {
         if (!archT.leerTurno(i,t)) continue;
         Fecha f = t.getFechaTurno();
         if (f.getDia() == fecha.getDia() && f.getMes() == fecha.getMes() && f.getAnio() == fecha.getAnio()) {
-            cout << "ID Turno: " << t.getIdTurno() << " | Mascota: " << t.getIdMascota() << " | Vet: " << t.getIdVet() << " | Estado: " << (t.getEstadoTurno() ? "ACTIVO" : "INACTIVO") << "\n";
+            cout << "ID Turno: " << t.getIdTurno() << " | Mascota: " << t.getIdMascota() << " | Vet: " << t.getMactriculaVet() << " | Estado: " << (t.getEstadoTurno() ? "ACTIVO" : "INACTIVO") << "\n";
             encontro = true;
         }
     }
@@ -484,7 +484,7 @@ void ManagerRecepcionista::consultaPorEstado() {
     for (int i=0;i<total;i++){
         if (!archT.leerTurno(i,t)) continue;
         if (t.getEstadoTurno() == estado) {
-            cout << "ID Turno: " << t.getIdTurno() << " | Mascota: " << t.getIdMascota() << " | Vet: " << t.getIdVet() << " | Fecha: ";
+            cout << "ID Turno: " << t.getIdTurno() << " | Mascota: " << t.getIdMascota() << " | Vet: " << t.getMactriculaVet() << " | Fecha: ";
             t.getFechaTurno().mostrar(); cout << " | Estado: " << (t.getEstadoTurno() ? "ACTIVO" : "INACTIVO") << "\n";
             encontro = true;
         }

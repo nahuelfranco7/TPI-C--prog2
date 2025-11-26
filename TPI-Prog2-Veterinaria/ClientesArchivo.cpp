@@ -8,19 +8,22 @@ const char* ClientesArchivo::getNombreArchivo(){
 return _nombreArchivo;
 }
 
-bool ClientesArchivo::estadoCliente(){
+bool ClientesArchivo::estadoCliente(int dniBuscado) {
     Clientes reg;
-    bool estado = false;
-    FILE *p = fopen(_nombreArchivo,"rb");
-    if (p==nullptr) return -1;
-    while (fread(&reg,sizeof(Clientes),1,p)){
-        if (reg.getEstado()==true){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return false;
+
+    while (fread(&reg, sizeof(Clientes), 1, p)) {
+        if (reg.getDNI() == dniBuscado) {
             fclose(p);
-            estado = true;
+            return reg.getEstado();   //devuelve el estado real del cliente
         }
-        return estado;
     }
+
+    fclose(p);
+    return false;  //no se encontró el cliente
 }
+
 
 int ClientesArchivo::buscarporId(int id){
     Clientes reg;

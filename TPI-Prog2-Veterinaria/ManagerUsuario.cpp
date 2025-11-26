@@ -28,7 +28,7 @@ void ManagerUsuario::altaUsuario() {
 
     cout << "Ingrese clave: ";
     char clave[20];
-    arch.cargarCadena(clave, 19);
+    arch.cargarCadena(clave, 6);
     reg.setClave(clave);
 
     int nivel;

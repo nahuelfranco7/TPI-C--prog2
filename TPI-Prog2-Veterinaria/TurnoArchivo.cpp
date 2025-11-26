@@ -64,7 +64,8 @@ bool TurnoArchivo::cargarTurno(){
     Turno reg;
     int idTurno;
     int idMascota;
-    int idVet;
+
+    int matricula;
     Fecha fechaTurno;
 
     idTurno=generarNuevoId();
@@ -74,9 +75,9 @@ bool TurnoArchivo::cargarTurno(){
     cin>> idMascota;
     reg.setIdMascota(idMascota);
 
-    cout<<"Ingrese id Veterinario: "<<endl;
-    cin>> idVet;
-    reg.setIdVet(idVet);
+    cout<<"Ingrese Matricula de Veterinario: "<<endl;
+    cin>> matricula;
+    reg.setMatriculaVet(matricula);
 
     cout<<"Ingrese la fecha del turno: "<<endl;
     fechaTurno.cargar();
@@ -110,7 +111,7 @@ void TurnoArchivo::listarTodos(){
             cout << "REGISTRO N°: " << i + 1 << endl;
             cout << "ID TURNO: " << reg.getIdTurno() << endl;
             cout << "ID MASCOTA: " << reg.getIdMascota() << endl;
-            cout << "ID VETERINARIO: " << reg.getIdVet() << endl;
+            cout << "ID VETERINARIO: " << reg.getMactriculaVet() << endl;
             Fecha fe = reg.getFechaTurno();
             cout << "FECHA DEL TURNO: " << fe.getDia() << "/" << fe.getMes() << "/"  << fe.getAnio() << endl;
         } //aca tambien, faltan datos que tenemos que vincular
@@ -156,7 +157,7 @@ void TurnoArchivo::mostrarTurno(int pos,const Turno &reg){
     cout<<"---------------------------------"<<endl;
     cout<<"POSICION EN EL ARCHIVO: "<<pos;
     cout<<"ID TURNO: "<<reg.getIdTurno();
-    cout<<"VETERINARIO: "<<reg.getIdVet();
+    cout<<"VETERINARIO: "<<reg.getMactriculaVet();
     cout<<"ID MASCOTA: "<<reg.getIdMascota();
     Fecha fe = reg.getFechaTurno();
     cout<<"FECHA DEL TURNO: " << fe.getDia() << "/" << fe.getMes() << "/" << fe.getAnio() << endl;
@@ -165,7 +166,7 @@ void TurnoArchivo::mostrarTurno(const Turno &reg) {
     cout << "---------------------------------\n";
     cout << "ID TURNO: " << reg.getIdTurno() << endl;
     cout << "ID MASCOTA: " << reg.getIdMascota() << endl;
-    cout << "ID VETERINARIO: " << reg.getIdVet() << endl;
+    cout << "ID VETERINARIO: " << reg.getMactriculaVet() << endl;
 
     Fecha fe = reg.getFechaTurno();
     cout << "FECHA DEL TURNO: ";

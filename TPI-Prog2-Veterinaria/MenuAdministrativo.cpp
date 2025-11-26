@@ -77,7 +77,7 @@ void MenuAdministrativo::mostrar() {
                 switch (op) {
                 case 1: mm.altaMascota(); break;
                 case 2: mm.modificarMascota(); break;
-                case 3: //mm.bajaMascota(); break;
+                case 3: mm.bajaMascota(); break;
                 case 4: mm.reactivarMascota(); break;
                 case 5: mm.listarMascotas(); break;
                 }

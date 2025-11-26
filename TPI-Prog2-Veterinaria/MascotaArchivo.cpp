@@ -316,22 +316,42 @@ void MascotaArchivo::listarTodos() {
     system("pause");
 }
 /*------------------------------------------------------------------*/
-void MascotaArchivo::listarMascotaporDueno(int dniDueno){
-    MascotaArchivo reg;
+void MascotaArchivo::listarMascotaporDueno(int dniDueno) {
     FILE *p = fopen(_nombreArchivo, "rb");
-    if (p == nullptr) cout << "NO PUDO ABRIR EL ARCHIVO MASCOTAS\n";
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO MASCOTAS\n";
+        return;
+    }
+
     Mascota r;
-    while(fread(&r,sizeof(Mascota),1,p)==1){
-        if(r.getDniClienteDueno()==dniDueno){
-        cout << "Nombre Mascota: " <<r.getNombreMascota()<<endl;
-        cout << "Fecha nacimiento Mascota: " <<r.getFechaNac().getDia() << "/" << r.getFechaNac().getMes() << "/" <<r.getFechaNac().getAnio() <<endl;
-        cout << "Sexo: " << r.getSexoAnimal()<<endl;
-        cout << "ID mascota: " << r.getIdMascota()<<endl;
-        cout << "ID raza: " << r.getIdRaza()<<endl;
-        cout << "--------------------------" << endl;
+    bool encontrado = false;
+
+    while (fread(&r, sizeof(Mascota), 1, p) == 1) {
+
+        if (r.getDniClienteDueno() == dniDueno && r.getEstadoMascota()) {
+
+            cout << "Nombre Mascota: " << r.getNombreMascota() << endl;
+            cout << "Fecha nacimiento: "
+                 << r.getFechaNac().getDia() << "/"
+                 << r.getFechaNac().getMes() << "/"
+                 << r.getFechaNac().getAnio() << endl;
+
+            cout << "Sexo: " << r.getSexoAnimal() << endl;
+            cout << "ID Mascota: " << r.getIdMascota() << endl;
+            cout << "ID Raza: " << r.getIdRaza() << endl;
+            cout << "--------------------------" << endl;
+
+            encontrado = true;
         }
     }
+
+    fclose(p);
+
+    if (!encontrado) {
+        cout << "El cliente no tiene mascotas registradas o activas.\n";
+    }
 }
+
 
 
 /*------------------------------------------------------------------*/

@@ -70,6 +70,25 @@ int VeterinarioArchivo::buscarporDNI(int DNI){
 return -1;
 }
 
+int VeterinarioArchivo::buscarPorMatricula(int matricula){
+    Veterinario reg;
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if(p == NULL) return -1;
+
+    int pos = 0;
+    while(fread(&reg, sizeof reg, 1, p)){
+        if(reg.getMatriculaVet() == matricula){
+            fclose(p);
+            return pos;
+        }
+        pos++;
+    }
+
+    fclose(p);
+    return -1;
+}
+
+
 bool VeterinarioArchivo::cargarVet() {
     Veterinario reg;
     char nombre[30],apellido[30],telefono[20],email[40];

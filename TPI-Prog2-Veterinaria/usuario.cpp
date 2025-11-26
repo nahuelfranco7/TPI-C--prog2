@@ -12,7 +12,7 @@ _estado=true;
 
 Usuario::Usuario(int id, const char* clave, int nivel,bool estado){
     _idUsuario= id;
-    strncpy(_clave,clave,5);
+    strncpy(_clave,clave,6);
     _nivelSeguridad=nivel;
     _estado=estado;
 

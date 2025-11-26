@@ -24,6 +24,7 @@ public:
 
     bool leerVet(int pos, Veterinario &reg);
     void mostrarVeterinario(int pos, const Veterinario &reg);
+    int buscarPorMatricula(int matricula);
 
     void listarTodos();
 

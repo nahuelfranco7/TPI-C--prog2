@@ -118,7 +118,7 @@ void Menu::cargarUsuariosIniciales() {
     u.setEmail(aux);
 
     cout << "Clave (max 5): ";
-    cargarCadena(aux,5);
+    cargarCadena(aux,6);
     u.setClave(aux);
 
     cout << "Nivel de seguridad (1=Recep - 2=Vet - 3=Admin - 4=Maestro): ";
@@ -156,7 +156,7 @@ void Menu::cargarCadena(char *palabra, int tam){
         fflush(stdin);
         i=0;
 
-        cout<<"Ingrese (máximo "<<tam-1<<" caracteres): ";
+        cout<<"Ingrese (máximo "<<tam-2<<" caracteres): ";
 
         for(i=0;i<tam-1;i++){
             palabra[i]=cin.get();
@@ -167,7 +167,7 @@ void Menu::cargarCadena(char *palabra, int tam){
 
         //Si el usuario paso el límite sin presionar enter
         if(i==tam-1 && palabra[i-1]!='\n'){
-            cout<<"Error: no puede superar los "<<tam-1<<" caracteres.\n";
+            cout<<"Error: no puede superar los "<<tam-2<<" caracteres.\n";
 
             //Limpiamos el resto de la cadena y descartamos lo que sobra en el buffer(almacenamiento)
             char basura;

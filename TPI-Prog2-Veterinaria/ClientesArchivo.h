@@ -34,7 +34,7 @@ class ClientesArchivo{
     bool eliminar(int pos);//ok
     void mostrarClientes(int pos, Clientes &reg);//ok
     int buscarporDNI(int DNI);
-    bool estadoCliente();
+    bool estadoCliente(int dniBuscado);
 
     bool modificar(int pos);//ok
     bool cargarClientes(const Clientes &reg);
