@@ -578,7 +578,125 @@ void ManagerMascota::reactivarMascota() {
         return;
     }
 }
+/* LISTADO DE MASCOTAS ============================================================================ */
 
+void ManagerMascota::menuListadoMascotas(){
+
+    MascotaArchivo arch;
+    int opc;
+    do {
+        system ("cls");
+        cout << "----LISTADOS DE MASCOTAS----"<<endl;
+        cout << "1. Listar mascotas por ID" << endl;
+        cout << "2. Listar mascotas por fecha de nacimiento" << endl;
+        cout << "3. Listar mascotas por ID de raza" << endl;
+        cout << "4. Listar mascotas por sexo" << endl;
+        cout << "5. Listar mascotas por DNI cliente" << endl;
+        cout << "6. Listar mascotas por estado" << endl;
+        cout << "0. Volver" << endl;
+        cout << "Opcion: " << endl;
+        cin >> opc;
+
+        switch (opc) {
+            case 1:
+                int idMascota;
+                cout << "LISTAR MASCOTAS POR ID" << endl;
+                cout << "Ingrese ID mascota: " << endl;
+                cin >>idMascota;
+                arch.listarMascotasporID(idMascota);
+                break;
+            case 2:
+                Fecha fechaMascota;
+                int dia, mes, anio;
+
+                cout << "LISTAR MASCOTA POR FECHA DE NACIMIENTO" <<endl;
+                cout << "Ingrese Fecha " << endl;
+                cout << "Ingrese Dia:" << endl;
+                cin >> dia;
+                fechaMascota.setDia(dia);
+                cout << "Ingrese Mes:" << endl;
+                cin >> mes;
+                fechaMascota.setMes(mes);
+                cout << "Ingrese Anio:" << endl;
+                cin >> anio;
+                fechaMascota.setAnio(anio);
+                arch.listarMascotasporFechaNac(fechaMascota);
+                break;
+            case 3:
+                int idRaza;
+                cout << "LISTAR MASCOTAS POR ID RAZA" << endl;
+                cout << "Ingrese Id raza: " << endl;
+                cin >>idRaza;
+                arch.listarMascotasporIDraza(idRaza);
+                break;
+            case 4:
+                char sexo;
+                cout << "LISTAR MASCOTAS POR SEXO" << endl;
+                cout << "Ingrese sexo (M/H): " << endl;
+                cin >> sexo;
+                if(sexo == 'M' || sexo == 'H' || sexo == 'm' || sexo == 'h'){
+                char aux;
+                if(sexo == 'm'){
+                    sexo = 'M';
+                }
+                if(sexo == 'h'){
+                    sexo = 'H';
+                }
+                arch.listarMascotasporSexo(sexo);}
+                else {
+                    cout << "Sexo incorrecto. Intente nuevamente" << endl;
+                    system("pause");
+                }
+                break;
+            case 5:
+                int dni;
+                cout << "LISTAR MASCOTAS POR DNI DUENO" << endl;
+                cout << "Ingrese DNI del dueño: " << endl;
+                cin >> dni;
+                arch.listarMascotaporDueno(dni);
+                break;
+
+            case 6:
+                bool estado;
+                int aux;
+                cout << "LISTAR MASCOTAS POR ESTADO" << endl;
+                cout << "Ingrese estado: " << endl;
+                cout << "1. Estado Inactivo" << endl;
+                cout << "2. Estado Activo" << endl;
+                cin >> aux;
+                if(aux == 1 || aux == 2){
+                estado = aux - 1 ;
+                arch.listarMascotasporEstado(estado);}
+                else {
+                cout << "Estado incorrecto. Ingrese nuevamente" << endl;
+                }
+                break;
+        }
+    } while(opc != 0);
+
+    system ("pause");
+}
+
+void ManagerMascota::listarMascotasporID(int idmascota){
+    MascotaArchivo arch;
+    arch.listarMascotasporID(idmascota);
+}
+void ManagerMascota::listarMascotasporFechaNac(Fecha fechaMascota){
+    MascotaArchivo arch;
+    arch.listarMascotasporFechaNac(fechaMascota);
+}
+void ManagerMascota::listarMascotasporIDraza(int idraza){
+    MascotaArchivo arch;
+    arch.listarMascotasporIDraza(idraza);
+}
+void ManagerMascota::listarMascotasporSexo(char sexo){
+    MascotaArchivo arch;
+    arch.listarMascotasporSexo(sexo);
+}
+void ManagerMascota::listarMascotasporEstado(bool estado){
+    MascotaArchivo arch;
+    arch.listarMascotasporEstado(estado);
+}
 
 void ManagerMascota::listarMascotas() {
     MascotaArchivo arch;
@@ -586,7 +704,7 @@ void ManagerMascota::listarMascotas() {
     system("pause");
 }
 
-void listarMascotasporDni(int dniDueno){
+void ManagerMascota::listarMascotasporDni(int dniDueno){
     MascotaArchivo arch;
     arch.listarMascotaporDueno(dniDueno);
     system("pause");
@@ -631,7 +749,7 @@ void ManagerMascota::bajaMascota() {
         int idmascota;
         cin >> idmascota;
 
-        if (idmascota == 0) return;
+        if (idmascota == -1) return;
 
         // Buscar mascota por ID
         int posMascota = arch.buscarPorId(idmascota);

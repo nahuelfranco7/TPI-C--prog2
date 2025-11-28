@@ -27,6 +27,11 @@ public:
     int buscarPorMatricula(int matricula);
 
     void listarTodos();
+    void listarVetporID(int idVet);
+    void listarVetporMat(int MatVet);
+    void listarVetporDNI(int dniVet);
+    void listarVetporEstado(bool estadoVet);
+    void listarVetporFechaIng(Fecha fechaIngresoVet);
 
     bool modificar(int pos);
     bool modificarVet(int pos, const Veterinario &reg);

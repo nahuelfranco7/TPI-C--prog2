@@ -18,6 +18,11 @@ class MascotaArchivo{
     bool eliminar(int pos);
     void mostrarMascota(int pos, const Mascota &reg);
     void listarMascotaporDueno(int dniDueno);
+    void listarMascotasporID(int idMascota);
+    void listarMascotasporIDraza(int idRaza);
+    void listarMascotasporFechaNac(Fecha fechaMascota);
+    void listarMascotasporSexo(char sexo);
+    void listarMascotasporEstado(bool estado);
 
     bool modificar(int pos);
     bool guardarMascota(const Mascota &reg);

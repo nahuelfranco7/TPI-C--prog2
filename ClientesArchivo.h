@@ -41,4 +41,10 @@ class ClientesArchivo{
     bool modificarClientes(int pos, const Clientes &reg);//ok
     bool leerClientes(int pos, Clientes &reg);//ok
 
+    //LISTADOS
+    void listarClientesporID(int idCliente);
+    void listarClientesporDNI(int dniCliente);
+    void listarClientesporApellido(char* apellido);
+    void listarClientesporEstado(bool estado);
+
 };

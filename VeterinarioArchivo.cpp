@@ -378,5 +378,217 @@ bool VeterinarioArchivo::modificar(int pos) {
     return modificarVet(pos,reg);
 }
 
+void VeterinarioArchivo::listarVetporDNI(int dniVet){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO VETERINARIOS\n";
+        return;
+}
+    Veterinario r;
+    bool encontrado = false;
+
+    system ("cls");
+    while (fread(&r, sizeof(Veterinario), 1, p) == 1){
+        if (r.getDNI()==dniVet){
+           cout << "Estado Veterinario: " << (r.getEstado() ? "Activo" : "Inactivo")  << endl;
+           cout << "Nombre Veterinario: " << r.getNombre() << endl;
+           cout << "Apellido Veterinario: " << r.getApellido() << endl;
+           cout << "DNI Veterinario: " << r.getDNI() << endl;
+           cout << "Matricula veterinario: " << r.getMatriculaVet() << endl;
+           cout << "ID Veterinario: " << r.getID() << endl;
+           cout << "Telefono Veterinario: " << r.getTelefono() << endl;
+           cout << "Email: " << r.getEmail() << endl;
+           cout << "Fecha de ingreso: " << r.getFechaIngreso().getDia() << "/" << r.getFechaIngreso().getMes() << "/" << r.getFechaIngreso().getAnio() << endl;
+           // Direccion
+           Direccion dir = r.getDireccion();
+           cout << "Direccion Veterinario: " << endl;
+           cout << "Ciudad: " << dir.getCiudad() << endl;
+           cout << "Calle: " << dir.getCalle() << "Altura: " << dir.getAltura() << endl;
+           cout << "Cod. Postal: " << dir.getCodPostal() << endl;
 
 
+            encontrado = true;
+        }
+    }
+
+    fclose(p);
+    if(!encontrado){
+        cout << "No se encontro veterinario con ese dni" << endl;
+        system ("pause");
+        return;
+    }
+    system ("pause");
+}
+
+
+void VeterinarioArchivo::listarVetporID(int idVet){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO VETERINARIOS\n";
+        return;
+}
+    Veterinario r;
+    bool encontrado = false;
+
+    system ("cls");
+    while (fread(&r, sizeof(Veterinario), 1, p) == 1){
+        if (r.getID()==idVet){
+           cout << "Estado Veterinario: " << (r.getEstado() ? "Activo" : "Inactivo")  << endl;
+           cout << "Nombre Veterinario: " << r.getNombre() << endl;
+           cout << "Apellido Veterinario: " << r.getApellido() << endl;
+           cout << "DNI Veterinario: " << r.getDNI() << endl;
+           cout << "Matricula veterinario: " << r.getMatriculaVet() << endl;
+           cout << "ID Veterinario: " << r.getID() << endl;
+           cout << "Telefono Veterinario: " << r.getTelefono() << endl;
+           cout << "Email: " << r.getEmail() << endl;
+           cout << "Fecha de ingreso: " << r.getFechaIngreso().getDia() << "/" << r.getFechaIngreso().getMes() << "/" << r.getFechaIngreso().getAnio() << endl;
+           // Direccion
+           Direccion dir = r.getDireccion();
+           cout << "Direccion Veterinario: " << endl;
+           cout << "Ciudad: " << dir.getCiudad() << endl;
+           cout << "Calle: " << dir.getCalle() << "Altura: " << dir.getAltura() << endl;
+           cout << "Cod. Postal: " << dir.getCodPostal() << endl;
+
+
+            encontrado = true;
+        }
+    }
+
+    fclose(p);
+    if(!encontrado){
+        cout << "No se encontro veterinario con ese ID" << endl;
+        system ("pause");
+        return;
+    }
+    system ("pause");
+}
+
+void VeterinarioArchivo::listarVetporMat(int MatVet){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO VETERINARIOS\n";
+        return;
+}
+    Veterinario r;
+    bool encontrado = false;
+
+    system ("cls");
+    while (fread(&r, sizeof(Veterinario), 1, p) == 1){
+        if (r.getMatriculaVet()==MatVet){
+           cout << "Estado Veterinario: " << (r.getEstado() ? "Activo" : "Inactivo")  << endl;
+           cout << "Nombre Veterinario: " << r.getNombre() << endl;
+           cout << "Apellido Veterinario: " << r.getApellido() << endl;
+           cout << "DNI Veterinario: " << r.getDNI() << endl;
+           cout << "Matricula veterinario: " << r.getMatriculaVet() << endl;
+           cout << "ID Veterinario: " << r.getID() << endl;
+           cout << "Telefono Veterinario: " << r.getTelefono() << endl;
+           cout << "Email: " << r.getEmail() << endl;
+           cout << "Fecha de ingreso: " << r.getFechaIngreso().getDia() << "/" << r.getFechaIngreso().getMes() << "/" << r.getFechaIngreso().getAnio() << endl;
+           // Direccion
+           Direccion dir = r.getDireccion();
+           cout << "Direccion Veterinario: " << endl;
+           cout << "Ciudad: " << dir.getCiudad() << endl;
+           cout << "Calle: " << dir.getCalle() << "Altura: " << dir.getAltura() << endl;
+           cout << "Cod. Postal: " << dir.getCodPostal() << endl;
+
+
+            encontrado = true;
+        }
+    }
+
+    fclose(p);
+    if(!encontrado){
+        cout << "No se encontro veterinario con esa matricula" << endl;
+        system ("pause");
+        return;
+    }
+    system ("pause");
+}
+
+void VeterinarioArchivo::listarVetporEstado(bool estadoVet){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO VETERINARIOS\n";
+        return;
+}
+    Veterinario r;
+    bool encontrado = false;
+
+    system ("cls");
+    while (fread(&r, sizeof(Veterinario), 1, p) == 1){
+        if (r.getEstado()==estadoVet){
+           cout << "Estado Veterinario: " << (r.getEstado() ? "Activo" : "Inactivo") << endl;
+           cout << "Nombre Veterinario: " << r.getNombre() << endl;
+           cout << "Apellido Veterinario: " << r.getApellido() << endl;
+           cout << "DNI Veterinario: " << r.getDNI() << endl;
+           cout << "Matricula veterinario: " << r.getMatriculaVet() << endl;
+           cout << "ID Veterinario: " << r.getID() << endl;
+           cout << "Telefono Veterinario: " << r.getTelefono() << endl;
+           cout << "Email: " << r.getEmail() << endl;
+           cout << "Fecha de ingreso: " << r.getFechaIngreso().getDia() << "/" << r.getFechaIngreso().getMes() << "/" << r.getFechaIngreso().getAnio() << endl;
+           // Direccion
+           Direccion dir = r.getDireccion();
+           cout << "Direccion Veterinario: " << endl;
+           cout << "Ciudad: " << dir.getCiudad() << endl;
+           cout << "Calle: " << dir.getCalle() << "Altura: " << dir.getAltura() << endl;
+           cout << "Cod. Postal: " << dir.getCodPostal() << endl;
+           cout << "====================================" << endl;
+
+
+            encontrado = true;
+        }
+    }
+
+    fclose(p);
+    if(!encontrado){
+        cout << "No se encontro veterinario con ese estado" << endl;
+        system ("pause");
+        return;
+    }
+    system ("pause");
+}
+
+void VeterinarioArchivo::listarVetporFechaIng(Fecha fechaIngresoVet){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO VETERINARIOS\n";
+        return;
+}
+    Veterinario r;
+    bool encontrado = false;
+
+    system ("cls");
+    while (fread(&r, sizeof(Veterinario), 1, p) == 1){
+        if (r.getFechaIngreso().getDia() == fechaIngresoVet.getDia() &&
+            r.getFechaIngreso().getMes() == fechaIngresoVet.getMes() &&
+            r.getFechaIngreso().getAnio() == fechaIngresoVet.getAnio()
+            ){
+           cout << "Estado Veterinario: " << (r.getEstado() ? "Activo" : "Inactivo")  << endl;
+           cout << "Nombre Veterinario: " << r.getNombre() << endl;
+           cout << "Apellido Veterinario: " << r.getApellido() << endl;
+           cout << "DNI Veterinario: " << r.getDNI() << endl;
+           cout << "Matricula veterinario: " << r.getMatriculaVet() << endl;
+           cout << "ID Veterinario: " << r.getID() << endl;
+           cout << "Telefono Veterinario: " << r.getTelefono() << endl;
+           cout << "Email: " << r.getEmail() << endl;
+           cout << "Fecha de ingreso: " << r.getFechaIngreso().getDia() << "/" << r.getFechaIngreso().getMes() << "/" << r.getFechaIngreso().getAnio() << endl;
+           // Direccion
+           Direccion dir = r.getDireccion();
+           cout << "Direccion Veterinario: " << endl;
+           cout << "Ciudad: " << dir.getCiudad() << endl;
+           cout << "Calle: " << dir.getCalle() << "Altura: " << dir.getAltura() << endl;
+           cout << "Cod. Postal: " << dir.getCodPostal() << endl;
+
+
+            encontrado = true;
+        }
+    }
+
+    fclose(p);
+    if(!encontrado){
+        cout << "No se encontró veterinario con esa fecha de ingreso" << endl;
+        system ("pause");
+        return;
+    }
+    system ("pause");
+}

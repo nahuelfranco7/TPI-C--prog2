@@ -113,6 +113,60 @@ void ManagerCliente::reactivarCliente() {
 
     system("pause");
 }
+/*-----------LISTADOS DE CLIENTES-------------------------------------------------------------------*/
+
+void ManagerCliente::menuListadoClientes(){
+    ClientesArchivo arch;
+    int opc;
+    do {
+        system("cls");
+        cout << "----LISTADOS DE CLIENTES----" <<endl;
+        cout << "1. Listar clientes por ID" << endl;
+        cout << "2. Listar clientes por DNI" << endl;
+        cout << "3. Listar clientes por Apellido" <<endl;
+        cout << "4. Listar clientes por Estado" <<endl;
+        cout << "0. Volver" << endl;
+        cout << "Opcion: " << endl;
+        cin >> opc;
+
+        switch (opc){
+            case 1:
+                int idcliente;
+                cout << "Ingrese ID de Cliente: " << endl;
+                cin >> idcliente;
+                arch.listarClientesporID(idcliente);
+                break;
+            case 2:
+                int dnicliente;
+                cout << "Ingrese DNI de cliente: " << endl;
+                cin >> dnicliente;
+                arch.listarClientesporDNI(dnicliente);
+                break;
+            case 3:
+                char apellido [30];
+                cout << "Ingrese apellido del cliente: " <<endl;
+                cargarCadena(apellido,29);
+                arch.listarClientesporApellido(apellido);
+                break;
+            case 4:
+                bool estado;
+                int aux;
+                cout << "Ingrese estado" << endl;
+                cout << "1. Estado Inactivo " << endl;
+                cout << "2. Estado Activo " << endl;
+                cin >> aux;
+                if (aux == 1 || aux == 2){
+                estado = aux - 1;
+                arch.listarClientesporEstado(estado);
+                }else{
+                cout << "Estado incorrecto. Intente nuevamente" << endl;
+                }
+                break;
+        }
+    }
+    while (opc != 0);
+    system ("pause");
+}
 
 void ManagerCliente::listarClientes() {
     ClientesArchivo arch;

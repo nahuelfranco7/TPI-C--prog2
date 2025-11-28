@@ -25,4 +25,13 @@ public:
 
     // Utilidad
     int buscarPorID(int id); // devuelve posición en Usuarios.dat si es veterinario, -1 si no
+
+    // Listados
+    void menuListadoVeterinarios();
+    void listarVetporID(int idVet);
+    void listarVetporMat(int MatVet);
+    void listarVetporDNI(int dniVet);
+    void listarVetporEstado(bool estadoVet);
+    void listarVetporFechaIng(Fecha fechaIngresoVet);
+
 };

@@ -14,4 +14,8 @@ public:
     bool buscarClientePorDNI(int dni);
     void cargarCadena(char *palabra, int tam);
     int cargarEntero(const char *mensaje, int tamMax);
+
+    //LISTADOS
+    void menuListadoClientes();
+
 };

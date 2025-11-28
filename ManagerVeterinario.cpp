@@ -45,14 +45,13 @@ void ManagerVeterinario::cargar() {
     if(archU.buscarporDNI(DNI)==-1){
     u.setDNI(DNI);
     valido = false;}
-    else{ cout << "EL DNI YA EXISTE. INGRESE UN DNI VALIDO." << endl;}
+    else{ cout << "EL DNI YA EXISTE. INGRESE UN DNI VALIDO." << endl;
+        return;}
 }
     int nuevoIdUsuario = archU.contarRegistros() + 1;
     u.setIdUsuario(nuevoIdUsuario);
 
     char aux[40];
-
-    u.setDNI(DNI);
 
     cout << "Nombre: ";
     cargarCadena(aux, 30);
@@ -99,7 +98,8 @@ void ManagerVeterinario::cargar() {
 
     if(archV.buscarMatriculaVet(mat) == -1){
     v.setMatriculaVet(mat);
-    valido1 = false;} else {cout << "LA MATRICULA YA EXISTE. INGRESE UNA MATRICULA VALIDA." << endl;}
+    valido1 = false;} else {cout << "LA MATRICULA YA EXISTE. INGRESE UNA MATRICULA VALIDA." << endl;
+    return;}
 }
 
     int nuevoIdVet = archV.contarRegistros() + 1;
@@ -115,21 +115,6 @@ void ManagerVeterinario::cargar() {
     v.setEstado(u.getEstado());
 
     /// Datos específicos del veterinario
-
-   /* bool valido1 = true;
-    int mat;
-    while(valido1){
-    cout << "Matricula del Veterinario: ";
-    cin >> mat;
-
-    if(archV.buscarMatriculaVet(mat)==-1){
-    v.setMatriculaVet(mat);
-    valido1 = false;
-    return;}
-    else{ cout << "YA EXISTE USUARIO CON ESA MATRICULA. INGRESE UNA MATRICULA VALIDA." << endl;
-    system ("pause");
-    }
-} */
     Fecha f;
     cout << "Fecha de ingreso:\n";
     f.cargar();
@@ -233,6 +218,93 @@ void ManagerVeterinario::eliminar() {
 
     system("pause");
 }
+//-----------LISTADOS VETERINARIOS-----------------------------------------------------------------
+
+void ManagerVeterinario::menuListadoVeterinarios(){
+    VeterinarioArchivo arch;
+    int opc;
+    do {
+        system("cls");
+        cout << "----LISTADOS DE VETERINARIOS----" << endl;
+        cout << "1. Listar veterinarios por ID" << endl;
+        cout << "2. Listar veterinarios por matricula" << endl;
+        cout << "3. Listar veterinarios por DNI" << endl;
+        cout << "4. Listar veterinarios por estado" << endl;
+        cout << "5. Listar veterinarios por fecha de ingreso" <<endl;
+        cout << "0. Volver" << endl;
+        cout << "Opcion: " << endl;
+        cin >>opc;
+
+        switch (opc){
+            case 1:
+                int idVet;
+                cout << "Ingrese ID veterinario: " << endl;
+                cin >> idVet;
+                arch.listarVetporID(idVet);
+                break;
+            case 2:
+                int matVet;
+                cout << "Ingrese matricula del veterinario: " << endl;
+                cin >> matVet;
+                arch.listarVetporMat(matVet);
+                break;
+            case 3:
+                int dniVet;
+                cout << "Ingrese Dni veterinario: " << endl;
+                cin >> dniVet;
+                arch.listarVetporDNI(dniVet);
+                break;
+            case 4:
+                bool estadoVet;
+                int aux;
+                cout << "Ingrese estado veterinario: " << endl;
+                cout << "1. Estado Inactivo" << endl;
+                cout << "2. Estado Activo" << endl;
+                cin >> aux;
+                if(aux == 1 || aux == 2){
+                estadoVet = aux - 1;
+                arch.listarVetporEstado(estadoVet);
+                }
+                break;
+            case 5:
+                Fecha fechaIngVet;
+                int dia, mes, anio;
+                cout << "Ingrese fecha de ingreso veterinario: " << endl;
+                cout << "Ingrese dia: " << endl;
+                cin >> dia;
+                fechaIngVet.setDia(dia);
+                cout << "Ingrese mes: " << endl;
+                cin >> mes;
+                fechaIngVet.setMes(mes);
+                cout << "Ingrese anio: " << endl;
+                cin >> anio;
+                fechaIngVet.setAnio(anio);
+                arch.listarVetporFechaIng(fechaIngVet);
+                break;
+        }
+    } while (opc != 0);
+}
+void listarVetporID(int idVet){
+    VeterinarioArchivo arch;
+    arch.listarVetporID(idVet);
+}
+void listarVetporMat(int MatVet){
+    VeterinarioArchivo arch;
+    arch.listarVetporMat(MatVet);
+}
+void listarVetporDNI(int dniVet){
+    VeterinarioArchivo arch;
+    arch.listarVetporDNI(dniVet);
+}
+void listarVetporEstado(bool estadoVet){
+    VeterinarioArchivo arch;
+    arch.listarVetporEstado(estadoVet);
+}
+void listarVetporFechaIng(Fecha fechaIngresoVet){
+    VeterinarioArchivo arch;
+    arch.listarVetporFechaIng(fechaIngresoVet);
+}
+
 
 void ManagerVeterinario::listar() {
     UsuarioArchivo arch;

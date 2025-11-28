@@ -191,7 +191,7 @@ void MenuMaestro::listarMascotas() {
 
 void MenuMaestro::reactivarMascota() {
     ManagerMascota mgr;
-    mgr.altaMascota();
+    mgr.reactivarMascota();
 }
 
 /* VETERINARIOS============================================================================================ */
@@ -321,12 +321,60 @@ void MenuMaestro::listarFacturas() {
     mgr.listarFacturas();
 }
 
-/* LISTADOS EN GENERAL============================================================================================ */
+/* LISTADOS EN GENERAL Y ESPECIFICOS================================================================================== */
 void MenuMaestro::menuListados() {
     system("cls");
-    cout << "=== LISTADOS GENERALES ===\n";
-    cout << "Aquí podrías agregar listados combinados, resúmenes, etc.\n";
+    int opc;
+    do {
+        system("cls");
+        cout << "=== LISTADOS GENERALES ===\n";
+        cout << "1) Listado de Clientes\n";
+        cout << "2) Listado de mascotas\n";
+        cout << "3) Listado de veterinarios\n";
+        cout << "4) Listado de facturas\n";
+        cout << "5) Listado de turnos\n";
+        cout << "0) Volver\n";
+        cout << "Opción: \n";
+        cin >> opc;
+
+
+        switch(opc) {
+            case 1: menuListadoClientes(); break;
+            case 2: menuListadoMascotas(); break;
+            case 3: menuListadoVeterinarios(); break;
+            case 4: menuListadoFacturas(); break;
+            case 5: menuListadoTurnos(); break;
+
+
+        }
+
+    } while(opc != 0);
     system("pause");
+}
+
+void MenuMaestro::menuListadoClientes(){
+    ManagerCliente mgr;
+    mgr.menuListadoClientes();
+}
+
+void MenuMaestro::menuListadoMascotas(){
+    ManagerMascota mgr;
+    mgr.menuListadoMascotas();
+}
+
+void MenuMaestro::menuListadoVeterinarios(){
+    ManagerVeterinario mgr;
+    mgr.menuListadoVeterinarios();
+}
+
+ void MenuMaestro::menuListadoFacturas(){
+    ManagerFactura mgr;
+// NO HICE
+}
+
+void MenuMaestro::menuListadoTurnos(){
+    ManagerTurno mgr;
+// NO HICE
 }
 
 /* REACTIVACIONES============================================================================================ */

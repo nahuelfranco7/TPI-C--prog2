@@ -13,4 +13,11 @@ public:
     void listarMascotas();
     void listarMascotasporDni(int dniDueno);
     int calcularEdad(int dia, int mes, int anio);
+    // LISTADOS
+    void menuListadoMascotas();
+    void listarMascotasporID(int idMascota);
+    void listarMascotasporIDraza(int idRaza);
+    void listarMascotasporFechaNac(Fecha fechaMascota);
+    void listarMascotasporSexo(char sexo);
+    void listarMascotasporEstado(bool estado);
 };

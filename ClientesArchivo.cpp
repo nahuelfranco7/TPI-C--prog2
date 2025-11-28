@@ -175,6 +175,161 @@ while(valido){cout<<"DNI: ";
         return false;
     }
 }
+/*-------------LISTADOS-------------------------------------------------------------------------------------*/
+void ClientesArchivo::listarClientesporID(int idCliente){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO CLIENTES\n";
+        return;
+}
+    Clientes reg;
+    bool encontro = false;
+
+    while (fread(&reg, sizeof(Clientes), 1, p) == 1) {
+        if (reg.getIdCliente() == idCliente) {
+            cout << "-----------------------------" << endl;
+            cout << "ID CLIENTE: " << reg.getIdCliente() << endl;
+            cout << "NOMBRE: " << reg.getNombre() << endl;
+            cout << "APELLIDO: " << reg.getApellido() << endl;
+            cout << "DNI: " << reg.getDNI() << endl;
+
+            // mostrar dirección
+            Direccion dir = reg.getDireccion();
+            cout << "PAIS: " << dir.getPais() << endl;
+            cout << "PROVINCIA: " << dir.getProvincia() << endl;
+            cout << "CIUDAD: " << dir.getCiudad() << endl;
+            cout << "CALLE: " << dir.getCalle() << " " << dir.getAltura() << endl;
+            cout << "COD. POSTAL: " << dir.getCodPostal() << endl;
+
+            cout << "TELEFONO: " << reg.getTelefono() << endl;
+            cout << "EMAIL: " << reg.getEmail() << endl;
+
+            encontro = true;
+        }
+    }
+    if (!encontro){
+        cout << "No existe un cliente con ese ID" << endl;
+    }
+
+    fclose(p);
+    system("pause");
+}
+void ClientesArchivo::listarClientesporDNI(int dniCliente){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO CLIENTES\n";
+        return;
+}
+    Clientes reg;
+    bool encontro = false;
+
+    while (fread(&reg, sizeof(Clientes), 1, p) == 1) {
+        if (reg.getDNI() == dniCliente) {
+            cout << "-----------------------------" << endl;
+            cout << "ID CLIENTE: " << reg.getIdCliente() << endl;
+            cout << "NOMBRE: " << reg.getNombre() << endl;
+            cout << "APELLIDO: " << reg.getApellido() << endl;
+            cout << "DNI: " << reg.getDNI() << endl;
+
+            // mostrar dirección
+            Direccion dir = reg.getDireccion();
+            cout << "PAIS: " << dir.getPais() << endl;
+            cout << "PROVINCIA: " << dir.getProvincia() << endl;
+            cout << "CIUDAD: " << dir.getCiudad() << endl;
+            cout << "CALLE: " << dir.getCalle() << " " << dir.getAltura() << endl;
+            cout << "COD. POSTAL: " << dir.getCodPostal() << endl;
+
+            cout << "TELEFONO: " << reg.getTelefono() << endl;
+            cout << "EMAIL: " << reg.getEmail() << endl;
+
+            encontro = true;
+        }
+    }
+    if (!encontro){
+        cout << "No existe un cliente con ese DNI" << endl;
+    }
+
+    fclose(p);
+    system("pause");
+}
+void ClientesArchivo::listarClientesporApellido(char* apellido){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO CLIENTES\n";
+        return;
+}
+    Clientes reg;
+    bool encontro = false;
+    while (fread(&reg, sizeof(Clientes), 1, p) == 1) {
+
+        int apellidosIguales = strcmp(reg.getApellido(),apellido);
+        if (apellidosIguales == 0) {
+            cout << "-----------------------------" << endl;
+            cout << "ID CLIENTE: " << reg.getIdCliente() << endl;
+            cout << "NOMBRE: " << reg.getNombre() << endl;
+            cout << "APELLIDO: " << reg.getApellido() << endl;
+            cout << "DNI: " << reg.getDNI() << endl;
+
+            // mostrar dirección
+            Direccion dir = reg.getDireccion();
+            cout << "PAIS: " << dir.getPais() << endl;
+            cout << "PROVINCIA: " << dir.getProvincia() << endl;
+            cout << "CIUDAD: " << dir.getCiudad() << endl;
+            cout << "CALLE: " << dir.getCalle() << " " << dir.getAltura() << endl;
+            cout << "COD. POSTAL: " << dir.getCodPostal() << endl;
+
+            cout << "TELEFONO: " << reg.getTelefono() << endl;
+            cout << "EMAIL: " << reg.getEmail() << endl;
+
+            encontro = true;
+        }
+    }
+    if (!encontro){
+        cout << "No existe un cliente con ese apellido" << endl;
+    }
+
+    fclose(p);
+    system("pause");
+}
+
+void ClientesArchivo::listarClientesporEstado(bool estado){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO CLIENTES\n";
+        return;
+}
+    Clientes reg;
+    bool encontro = false;
+
+    while (fread(&reg, sizeof(Clientes), 1, p) == 1) {
+        if (reg.getEstado() == estado) {
+            cout << "-----------------------------" << endl;
+            cout << "ID CLIENTE: " << reg.getIdCliente() << endl;
+            cout << "NOMBRE: " << reg.getNombre() << endl;
+            cout << "APELLIDO: " << reg.getApellido() << endl;
+            cout << "DNI: " << reg.getDNI() << endl;
+
+            // mostrar dirección
+            Direccion dir = reg.getDireccion();
+            cout << "PAIS: " << dir.getPais() << endl;
+            cout << "PROVINCIA: " << dir.getProvincia() << endl;
+            cout << "CIUDAD: " << dir.getCiudad() << endl;
+            cout << "CALLE: " << dir.getCalle() << " " << dir.getAltura() << endl;
+            cout << "COD. POSTAL: " << dir.getCodPostal() << endl;
+
+            cout << "TELEFONO: " << reg.getTelefono() << endl;
+            cout << "EMAIL: " << reg.getEmail() << endl;
+
+            encontro = true;
+        }
+    }
+    if (!encontro){
+        cout << "No existen clientes con ese estado" << endl;
+    }
+
+    fclose(p);
+    system("pause");
+}
 
 void ClientesArchivo::listarTodos(){
     FILE *p = fopen(_nombreArchivo, "rb");
@@ -196,6 +351,7 @@ void ClientesArchivo::listarTodos(){
             cout << "NOMBRE: " << reg.getNombre() << endl;
             cout << "APELLIDO: " << reg.getApellido() << endl;
             cout << "DNI: " << reg.getDNI() << endl;
+            cout << "ESTADO: " << reg.getEstado() << endl;
 
             // mostrar dirección
             Direccion dir = reg.getDireccion();

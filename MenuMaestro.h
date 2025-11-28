@@ -54,4 +54,12 @@ private:
     // --- Facturas ---
     void altaFactura();
     void listarFacturas();
+
+    // --- Listados ---
+    void menuListadoClientes();
+    void menuListadoMascotas();
+    void menuListadoVeterinarios();
+    void menuListadoFacturas();
+    void menuListadoTurnos();
+
 };
