@@ -66,5 +66,6 @@ private:
     // --- Informes ---
     void recaudacionPorDia();
     void recaudacionPorVet();
+    void recaudacionPorMes();
 
 };

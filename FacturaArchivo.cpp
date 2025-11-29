@@ -140,6 +140,37 @@ int FacturaArchivo::generarNuevoID() {
 }
 //                        INFORMES
 
+void FacturaArchivo::recaudacionPorMes(Fecha fechaMesRec){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO FACTURAS\n";
+        return;
+}
+    Factura reg;
+    bool encontro = false;
+    float recaudacionMes = 0;
+
+    while (fread(&reg, sizeof(Factura), 1, p) == 1) {
+        if (reg.getFechaFactura().getMes() == fechaMesRec.getMes() &&
+            reg.getFechaFactura().getAnio() == fechaMesRec.getAnio()) {
+            recaudacionMes+=reg.getImporteTotalFactura();
+            encontro = true;
+        }
+    }
+    if (encontro){
+        cout << "La recaudacion total del mes " << fechaMesRec.getMes() << " del anio: " << fechaMesRec.getAnio() <<" es: " << endl;
+        cout << "---------------------------" << endl;
+        cout << "$" << recaudacionMes << endl;
+    }
+    if (!encontro){
+        cout << "No hubo recaudacion ese mes." << endl;
+    }
+
+    fclose(p);
+    system("pause");
+}
+
+
 void FacturaArchivo::recaudacionPorVet(int idvet){
     FILE *p = fopen(_nombreArchivo, "rb");
     if (p == nullptr) {

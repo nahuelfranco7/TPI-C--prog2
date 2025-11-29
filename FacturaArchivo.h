@@ -47,4 +47,5 @@ public:
 
     void recaudacionPorVet(int idvet);
     void recaudacionPorDia(Fecha fechaRec);
+    void recaudacionPorMes(Fecha fechaMesRec);
 };

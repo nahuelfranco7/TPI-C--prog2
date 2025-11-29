@@ -398,6 +398,8 @@ void MenuMaestro::menuInformes(){
         switch(opc) {
             case 1:
             case 2:
+                recaudacionPorMes();
+                break;
             case 3:
                 recaudacionPorVet();
                 break;
@@ -418,6 +420,11 @@ void MenuMaestro::recaudacionPorVet(){
 void MenuMaestro::recaudacionPorDia(){
     ManagerFactura mgr;
     mgr.recaudacionPorDia();
+}
+
+void MenuMaestro::recaudacionPorMes(){
+    ManagerFactura mgr;
+    mgr.recaudacionPorMes();
 }
 
 /* REACTIVACIONES============================================================================================ */

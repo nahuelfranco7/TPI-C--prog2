@@ -2217,13 +2217,13 @@
 	<cstring>
 	"Fecha.h"
 
-1764436315 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\facturaarchivo.cpp
+1764438431 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\facturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"FacturaArchivo.h"
 
-1764436315 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\facturaarchivo.h
+1764437829 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\facturaarchivo.h
 	<cstring>
 	"Factura.h"
 	"Fecha.h"
@@ -2260,14 +2260,14 @@
 	<cstring>
 	"Mascota.h"
 
-1764436315 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\managerfactura.cpp
+1764437829 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\managerfactura.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
 	"ClientesArchivo.h"
 	"ManagerFactura.h"
 
-1764436315 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\managerfactura.h
+1764437908 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\managerfactura.h
 	"Factura.h"
 	"FacturaArchivo.h"
 
@@ -2400,7 +2400,7 @@
 
 1764432577 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\menuadministrativo.h
 
-1764436452 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\menumaestro.h
+1764437997 c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\menumaestro.h
 	"Usuario.h"
 
 1764432577 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\menuadministrativo.cpp
@@ -2411,7 +2411,7 @@
 	"ManagerTurno.h"
 	"ManagerFactura.h"
 
-1764436405 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\menumaestro.cpp
+1764437963 source:c:\users\ramiro\1er año tup\programacion ii\tp integrador grupal\29.11\tpi-c--prog2\menumaestro.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>

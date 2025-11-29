@@ -10,6 +10,7 @@ public:
     //INFORMES
     void recaudacionPorVet();
     void recaudacionPorDia();
+    void recaudacionPorMes();
 
     // void modificarFactura();
     // void anularFactura();

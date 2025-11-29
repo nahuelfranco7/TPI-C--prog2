@@ -20,10 +20,27 @@ void ManagerFactura::altaFactura() {
     system("pause");
 }
 
+void ManagerFactura::recaudacionPorMes(){
+    FacturaArchivo arch;
+
+    Fecha fechaMesRec;
+    int mes, anio;
+    cout << "Recaudacion del mes" << endl;
+    cout << "Ingrese mes" << endl;
+    cin >> mes;
+    if(mes >= 1 && mes <= 12){
+    fechaMesRec.setMes(mes);} else {
+    cout << "Ingrese un mes valido..." << endl;
+    system ("pause");
+    return;}
+    cout << "Ingrese anio" << endl;
+    cin >> anio;
+    fechaMesRec.setAnio(anio);
+    arch.recaudacionPorMes(fechaMesRec);
+}
+
 void ManagerFactura::recaudacionPorVet(){
     FacturaArchivo arch;
-    Factura fact;
-
     int idvet;
     cout << "Ingrese id del veterinario: " << endl;
     cin >> idvet;
