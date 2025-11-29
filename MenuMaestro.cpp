@@ -369,12 +369,12 @@ void MenuMaestro::menuListadoVeterinarios(){
 
  void MenuMaestro::menuListadoFacturas(){
     ManagerFactura mgr;
-// NO HICE
+    mgr.menuListadoFacturas();
 }
 
 void MenuMaestro::menuListadoTurnos(){
     ManagerTurno mgr;
-// NO HICE
+    mgr.menuListadoTurnos();
 }
 
 /* REACTIVACIONES============================================================================================ */

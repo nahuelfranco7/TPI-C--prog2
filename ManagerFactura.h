@@ -5,6 +5,7 @@ class ManagerFactura {
 public:
     void altaFactura();
     void listarFacturas();
+    void menuListadoFacturas();
     // void modificarFactura();
     // void anularFactura();
     // void listarPorID();

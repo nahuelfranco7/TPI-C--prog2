@@ -10,4 +10,6 @@ public:
     void modificarTurno();
     void bajaTurno();
     void listarTurnos();
+    void menuListadoTurnos();
+    void listarTurnosPorDNICliente(int dni);
 };

@@ -245,3 +245,158 @@ bool TurnoArchivo::leerTurno(int pos, Turno &reg){
     return ok;
 
 }
+
+/*---------------FUNCIONES PARA LISTADOS-------*/
+
+void TurnoArchivo::listarTurnosPorID(int id) {
+    Turno reg;
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return;
+
+    while (fread(&reg, sizeof(Turno), 1, p)) {
+        if (reg.getIdTurno() == id) reg.mostrar();
+    }
+    fclose(p);
+}
+
+void TurnoArchivo::listarTurnosPorIDMascota(int idMascota) {
+    Turno reg;
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return;
+
+    while (fread(&reg, sizeof(Turno), 1, p)) {
+        if (reg.getIdMascota() == idMascota) reg.mostrar();
+    }
+    fclose(p);
+}
+
+void TurnoArchivo::listarTurnosPorMatVeterinario(int idVet) {
+    Turno reg;
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return;
+
+    while (fread(&reg, sizeof(Turno), 1, p)) {
+        if (reg.getMactriculaVet() == idVet) reg.mostrar();
+    }
+    fclose(p);
+}
+
+void TurnoArchivo::listarTurnosPorFecha(Fecha fecha) {
+    Turno reg;
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return;
+
+    while (fread(&reg, sizeof(Turno), 1, p)) {
+        Fecha f = reg.getFechaTurno();
+
+        if (f.getDia() == fecha.getDia() &&
+            f.getMes() == fecha.getMes() &&
+            f.getAnio() == fecha.getAnio())
+        {
+            reg.mostrar();
+        }
+    }
+    fclose(p);
+}
+
+
+void TurnoArchivo::listarTurnosPorEstado(bool estado) {
+    Turno reg;
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return;
+
+    while (fread(&reg, sizeof(Turno), 1, p)) {
+        if (reg.getEstadoTurno() == estado) reg.mostrar();
+    }
+    fclose(p);
+}
+
+void TurnoArchivo::listarTurnosPorIDCliente(int idCliente) {
+    Turno reg;
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) return;
+
+    while (fread(&reg, sizeof(Turno), 1, p)) {
+        if (reg.getIdMascota() == idCliente) reg.mostrar();
+    }
+    fclose(p);
+}
+
+int TurnoArchivo::contarMascotasCliente(int dniCliente) {
+    FILE *p = fopen("mascotas.dat", "rb");
+    if (p == nullptr) return 0;
+
+    Mascota m;
+    int cant = 0;
+
+    while (fread(&m, sizeof(Mascota), 1, p)) {
+        if (m.getDniClienteDueno() == dniCliente && m.getEstadoMascota()) {
+            cant++;
+        }
+    }
+
+    fclose(p);
+    return cant;
+}
+
+void TurnoArchivo::listarTurnosPorDNICliente(int dniCliente) {
+
+    // 1) Contamos primero cuántas mascotas tiene este cliente
+    int cant = contarMascotasCliente(dniCliente);
+
+    if (cant == 0) {
+        cout << "El cliente NO tiene mascotas registradas.\n";
+        return;
+    }
+
+    //2)memoria dimamica (pido de acuerdo a la cantidad de mascotas
+    int *ids = new int[cant];
+    int pos = 0;
+
+    // 3) Cargamos los IDs de mascotas que tiene
+    FILE *pm = fopen("mascotas.dat", "rb");
+    if (pm == nullptr) {
+        delete[] ids;//si no lo lee lo borramos y volvemos nada mas
+        return;
+    }
+
+    Mascota m;//reg auxiliar de mascota
+
+    while (fread(&m, sizeof(Mascota), 1, pm)) {
+        if (m.getDniClienteDueno() == dniCliente && m.getEstadoMascota()) {
+            ids[pos] = m.getIdMascota();//aca voy cargando los id de las mascotas si van cumpiendo con estado y dni
+            pos++;
+        }
+    }
+
+    fclose(pm);
+
+    // 4)Buscamos turnos que coincidan con alguno de esos IDs para encontrar la posicion de esos turnos
+    FILE *turnos = fopen(_nombreArchivo, "rb");
+    if (turnos == nullptr) {
+        delete[] ids;
+        return;
+    }
+
+    Turno reg;
+    bool hayTurnos = false;
+
+    while (fread(&reg, sizeof(Turno), 1, turnos)) {
+
+        for (int i = 0; i < cant; i++) {
+
+            if (reg.getIdMascota() == ids[i]) {//comparo los id de las mascotas que guarde y si coinciden los muestro
+                reg.mostrar();
+                hayTurnos = true;
+            }
+        }
+    }
+
+    fclose(turnos);
+    delete[] ids;
+
+    if (!hayTurnos) {
+        cout << "El cliente no tiene turnos registrados.\n";
+    }
+}
+

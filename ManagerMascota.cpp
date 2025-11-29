@@ -630,24 +630,34 @@ void ManagerMascota::menuListadoMascotas(){
                 arch.listarMascotasporIDraza(idRaza);
                 break;
             case 4:
+                {
+
                 char sexo;
+                bool valido = false;
+
                 cout << "LISTAR MASCOTAS POR SEXO" << endl;
-                cout << "Ingrese sexo (M/H): " << endl;
+
+                do {
+                cout << "Ingrese sexo (M/H): ";
                 cin >> sexo;
-                if(sexo == 'M' || sexo == 'H' || sexo == 'm' || sexo == 'h'){
-                char aux;
-                if(sexo == 'm'){
-                    sexo = 'M';
+
+                if (sexo == 'm') sexo = 'M';
+                if (sexo == 'h') sexo = 'H';
+
+
+                if (sexo == 'M' || sexo == 'H') {
+                valido = true;
                 }
-                if(sexo == 'h'){
-                    sexo = 'H';
-                }
-                arch.listarMascotasporSexo(sexo);}
                 else {
-                    cout << "Sexo incorrecto. Intente nuevamente" << endl;
-                    system("pause");
+                cout << "Sexo incorrecto. Intente nuevamente." << endl;
+                system("pause");
                 }
+
+                } while (!valido);
+                arch.listarMascotasporSexo(sexo);
                 break;
+                }
+
             case 5:
                 int dni;
                 cout << "LISTAR MASCOTAS POR DNI DUENO" << endl;

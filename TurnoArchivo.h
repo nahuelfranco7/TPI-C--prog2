@@ -25,6 +25,18 @@ private:
     bool modificarTurno(int pos, const Turno &reg);
     bool leerTurno(int pos, Turno &reg);
 
+    //funciones nuevas para listados
+    void listarTurnosPorID(int id);
+    void listarTurnosPorIDMascota(int idMascota);
+    void listarTurnosPorMatVeterinario(int idVet);
+    void listarTurnosPorFecha(Fecha fecha);
+    void listarTurnosPorEstado(bool estado);
+    void listarTurnosPorIDCliente(int idCliente);
+    int contarMascotasCliente(int dniCliente);
+    void listarTurnosPorDNICliente(int dniCliente);
+
+
+
 
 
 };

@@ -134,3 +134,107 @@ void ManagerTurno::listarTurnos() {
     arch.listarTodos();
     system("pause");
 }
+
+void ManagerTurno::menuListadoTurnos() {
+
+    TurnoArchivo arch;
+    int opc;
+
+    do {
+        system("cls");
+        cout << "----LISTADOS DE TURNOS----" << endl;
+        cout << "1. Listar turnos por ID" << endl;
+        cout << "2. Listar turnos por ID Mascota" << endl;
+        cout << "3. Listar turnos por ID Veterinario" << endl;
+        cout << "4. Listar turnos por Fecha" << endl;
+        cout << "5. Listar turnos por Estado" << endl;
+        cout << "6. Listar turnos por DNI Cliente" << endl;
+        cout << "0. Volver" << endl;
+        cout << "Opcion: ";
+        cin >> opc;
+
+        switch (opc) {
+
+        case 1: {
+            int id;
+            cout << "Ingrese ID turno: ";
+            cin >> id;
+            arch.listarTurnosPorID(id);
+            system("pause");
+            break;
+        }
+
+        case 2: {
+            int idMascota;
+            cout << "Ingrese ID mascota: ";
+            cin >> idMascota;
+            arch.listarTurnosPorIDMascota(idMascota);
+            system("pause");
+            break;
+        }
+
+        case 3: {
+            int idVet;
+            cout << "Ingrese Matricula veterinario: ";
+            cin >> idVet;
+            arch.listarTurnosPorMatVeterinario(idVet);
+            system("pause");
+            break;
+        }
+
+        case 4: {
+            Fecha fecha;
+            int d, m, a;
+            cout << "Ingrese fecha (DD MM AAAA): ";
+            cin >> d >> m >> a;
+            fecha.setDia(d);
+            fecha.setMes(m);
+            fecha.setAnio(a);
+
+            arch.listarTurnosPorFecha(fecha);
+            system("pause");
+            break;
+        }
+
+        case 5: {
+            int aux;
+            bool estado;
+
+            cout << "Estado:\n";
+            cout << "1. Inactivo\n";
+            cout << "2. Activo\n";
+            cout << "Opción: ";
+            cin >> aux;
+
+            if (aux==1 || aux==2) {
+                estado = aux - 1;
+                arch.listarTurnosPorEstado(estado);
+            } else {
+                cout << "Estado incorrecto.\n";
+            }
+            system("pause");
+            break;
+        }
+
+        case 6: {
+            int dni;
+            cout << "Ingrese DNI del cliente: ";
+            cin >> dni;
+
+            listarTurnosPorDNICliente(dni);
+            system("pause");
+            break;
+        }
+
+        }
+
+    } while (opc != 0);
+}
+
+void ManagerTurno::listarTurnosPorDNICliente(int dni) {
+    TurnoArchivo arch;
+    arch.listarTurnosPorDNICliente(dni);
+    system("pause");
+}
+
+
