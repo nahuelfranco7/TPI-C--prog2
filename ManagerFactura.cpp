@@ -24,19 +24,22 @@ void ManagerFactura::recaudacionPorMes(){
     FacturaArchivo arch;
 
     Fecha fechaMesRec;
-    int mes, anio;
+    int dia = 1, mes, anio;
+
     cout << "Recaudacion del mes" << endl;
     cout << "Ingrese mes" << endl;
     cin >> mes;
-    if(mes >= 1 && mes <= 12){
-    fechaMesRec.setMes(mes);} else {
-    cout << "Ingrese un mes valido..." << endl;
-    system ("pause");
-    return;}
+    fechaMesRec.setMes(mes);
     cout << "Ingrese anio" << endl;
     cin >> anio;
     fechaMesRec.setAnio(anio);
-    arch.recaudacionPorMes(fechaMesRec);
+    if(fechaMesRec.fechaValida(dia,mes,anio)){
+    arch.recaudacionPorMes(fechaMesRec);}
+    else {
+        cout << "Ingrese una fecha valida.." << endl;
+        system("pause");
+        return;
+    }
 }
 
 void ManagerFactura::recaudacionPorVet(){
@@ -62,7 +65,13 @@ void ManagerFactura::recaudacionPorDia(){
     cout << "Ingrese anio: " << endl;
     cin >> anio;
     fechaRec.setAnio(anio);
-    arch.recaudacionPorDia(fechaRec);
+    if(fechaRec.fechaValida(dia,mes,anio)){
+    arch.recaudacionPorDia(fechaRec);}
+    else {
+    cout << "Ingrese una fecha valida.. " << endl;
+    system("pause");
+    return;
+    }
 }
 
 void ManagerFactura::listarFacturas() {
