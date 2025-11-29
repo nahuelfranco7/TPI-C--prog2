@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-
+# include<cstdlib>
+# include<cstring>
 #include "MenuMaestro.h"
 #include "ManagerCliente.h"
 #include "ManagerMascota.h"
@@ -8,6 +9,7 @@ using namespace std;
 #include "ManagerFactura.h"
 #include "ManagerVeterinario.h"
 #include "ManagerUsuario.h"
+#include "Fecha.h"
 
 void MenuMaestro::mostrar(const Usuario &user) {
     int opc;
@@ -22,7 +24,8 @@ void MenuMaestro::mostrar(const Usuario &user) {
         cout << "5) Gestion de Turnos\n";
         cout << "6) Gestion de Facturas\n";
         cout << "7) Listados Generales\n";
-        cout << "8) Reactivaciones\n";
+        cout << "8) Informes\n";
+        cout << "9) Reactivaciones\n";
         cout << "0) Salir\n";
         cout << "------------------------------\n";
         cout << "Opción: ";
@@ -36,7 +39,8 @@ void MenuMaestro::mostrar(const Usuario &user) {
             case 5: menuTurnos(); break;
             case 6: menuFacturas(); break;
             case 7: menuListados(); break;
-            case 8: menuReactivaciones(); break;
+            case 8: menuInformes(); break;
+            case 9: menuReactivaciones(); break;
             case 0: break;
             default: cout << "Opción inválida.\n"; system("pause");
         }
@@ -375,6 +379,45 @@ void MenuMaestro::menuListadoVeterinarios(){
 void MenuMaestro::menuListadoTurnos(){
     ManagerTurno mgr;
     mgr.menuListadoTurnos();
+}
+/* INFORMES============================================================================================ */
+
+void MenuMaestro::menuInformes(){
+
+    int opc;
+    do {
+        system("cls");
+        cout << "=== INFORMES ===\n";
+        cout << "1) Cantidad de turnos en el mes elegido\n";
+        cout << "2) Recaudacion del mes\n";
+        cout << "3) Recaudacion por veterinario\n";
+        cout << "4) Recaudacion por dia\n";
+        cout << "0) Volver\n";
+        cin >> opc;
+
+        switch(opc) {
+            case 1:
+            case 2:
+            case 3:
+                recaudacionPorVet();
+                break;
+            case 4:
+                recaudacionPorDia();
+                break;
+
+
+        }
+    } while(opc != 0);
+}
+
+void MenuMaestro::recaudacionPorVet(){
+    ManagerFactura mgr;
+    mgr.recaudacionPorVet();
+}
+
+void MenuMaestro::recaudacionPorDia(){
+    ManagerFactura mgr;
+    mgr.recaudacionPorDia();
 }
 
 /* REACTIVACIONES============================================================================================ */

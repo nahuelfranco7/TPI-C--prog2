@@ -20,6 +20,34 @@ void ManagerFactura::altaFactura() {
     system("pause");
 }
 
+void ManagerFactura::recaudacionPorVet(){
+    FacturaArchivo arch;
+    Factura fact;
+
+    int idvet;
+    cout << "Ingrese id del veterinario: " << endl;
+    cin >> idvet;
+    arch.recaudacionPorVet(idvet);
+}
+
+void ManagerFactura::recaudacionPorDia(){
+    FacturaArchivo arch;
+    Fecha fechaRec;
+
+    int dia, mes, anio;
+    cout << "Ingrese fecha de recaudacion" << endl;
+    cout << "Ingrese dia: " << endl;
+    cin >> dia;
+    fechaRec.setDia(dia);
+    cout << "Ingrese mes: " << endl;
+    cin >> mes;
+    fechaRec.setMes(mes);
+    cout << "Ingrese anio: " << endl;
+    cin >> anio;
+    fechaRec.setAnio(anio);
+    arch.recaudacionPorDia(fechaRec);
+}
+
 void ManagerFactura::listarFacturas() {
     FacturaArchivo arch;
     arch.listarTodos();

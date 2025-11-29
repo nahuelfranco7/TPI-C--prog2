@@ -6,6 +6,11 @@ public:
     void altaFactura();
     void listarFacturas();
     void menuListadoFacturas();
+
+    //INFORMES
+    void recaudacionPorVet();
+    void recaudacionPorDia();
+
     // void modificarFactura();
     // void anularFactura();
     // void listarPorID();
