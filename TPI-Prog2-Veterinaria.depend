@@ -1804,7 +1804,7 @@
 	<cstring>
 	<cstring>
 
-1764422254 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\clientesarchivo.cpp
+1764635968 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\clientesarchivo.cpp
 	<iostream>
 	<cstring>
 	"ClientesArchivo.h"
@@ -1858,7 +1858,7 @@
 	<cstring>
 	"Fecha.h"
 
-1764422254 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\facturaarchivo.cpp
+1764636017 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\facturaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -1886,7 +1886,7 @@
 	<cstring>
 	"Persona.h"
 
-1764422254 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\managercliente.cpp
+1764633506 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\managercliente.cpp
 	<iostream>
 	<cstdlib>
 	"ManagerCliente.h"
@@ -1897,7 +1897,7 @@
 	"Clientes.h"
 	"Mascota.h"
 
-1764422254 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\mascotaarchivo.h
+1764632819 c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\mascotaarchivo.h
 	<cstring>
 	"Mascota.h"
 
@@ -1912,7 +1912,7 @@
 	"Factura.h"
 	"FacturaArchivo.h"
 
-1764423478 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\managermascota.cpp
+1764632709 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\managermascota.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -1964,7 +1964,7 @@
 	<cstring>
 	"Fecha.h"
 
-1764425878 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\managerturno.cpp
+1764427936 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\managerturno.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>
@@ -2014,7 +2014,7 @@
 	"Mascota.h"
 	"UsuarioArchivo.h"
 
-1764422254 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\mascotaarchivo.cpp
+1764632802 source:c:\users\nahuel\desktop\tecnicatura universitaria en programación\2025\proyecto prog 2\tpi-c--prog2\mascotaarchivo.cpp
 	<iostream>
 	<cstdlib>
 	<cstring>

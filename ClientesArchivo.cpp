@@ -192,6 +192,7 @@ void ClientesArchivo::listarClientesporID(int idCliente){
             cout << "NOMBRE: " << reg.getNombre() << endl;
             cout << "APELLIDO: " << reg.getApellido() << endl;
             cout << "DNI: " << reg.getDNI() << endl;
+            cout << "Estado: " <<reg.getEstado();
 
             // mostrar dirección
             Direccion dir = reg.getDireccion();
@@ -200,6 +201,7 @@ void ClientesArchivo::listarClientesporID(int idCliente){
             cout << "CIUDAD: " << dir.getCiudad() << endl;
             cout << "CALLE: " << dir.getCalle() << " " << dir.getAltura() << endl;
             cout << "COD. POSTAL: " << dir.getCodPostal() << endl;
+
 
             cout << "TELEFONO: " << reg.getTelefono() << endl;
             cout << "EMAIL: " << reg.getEmail() << endl;
@@ -230,6 +232,7 @@ void ClientesArchivo::listarClientesporDNI(int dniCliente){
             cout << "NOMBRE: " << reg.getNombre() << endl;
             cout << "APELLIDO: " << reg.getApellido() << endl;
             cout << "DNI: " << reg.getDNI() << endl;
+            cout << "ESTADO: "<< reg.getEstado() << endl;
 
             // mostrar dirección
             Direccion dir = reg.getDireccion();
@@ -269,6 +272,7 @@ void ClientesArchivo::listarClientesporApellido(char* apellido){
             cout << "NOMBRE: " << reg.getNombre() << endl;
             cout << "APELLIDO: " << reg.getApellido() << endl;
             cout << "DNI: " << reg.getDNI() << endl;
+            cout << "ESTADO: "<< reg.getEstado() << endl;
 
             // mostrar dirección
             Direccion dir = reg.getDireccion();
@@ -308,6 +312,7 @@ void ClientesArchivo::listarClientesporEstado(bool estado){
             cout << "NOMBRE: " << reg.getNombre() << endl;
             cout << "APELLIDO: " << reg.getApellido() << endl;
             cout << "DNI: " << reg.getDNI() << endl;
+            cout <<"ESTADO: " <<reg.getEstado()<<endl;
 
             // mostrar dirección
             Direccion dir = reg.getDireccion();
@@ -404,6 +409,7 @@ void ClientesArchivo::mostrarClientes(int pos, Clientes &reg){
     cout << "NOMBRE: " << reg.getNombre() << endl;
     cout << "APELLIDO: "<< reg.getApellido() <<endl;
     cout << "DNI: " << reg.getDNI() << endl;
+    cout << "ESTADO: " <<reg.getEstado() << endl;
 
     Direccion dir = reg.getDireccion();
     cout << "PAIS: " << dir.getPais() << endl;

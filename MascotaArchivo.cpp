@@ -461,6 +461,7 @@ void MascotaArchivo::listarMascotasporID(int idMascota){
             cout << "Sexo: " << r.getSexoAnimal() << endl;
             cout << "ID Mascota: " << r.getIdMascota() << endl;
             cout << "ID Raza: " << r.getIdRaza() << endl;
+            cout << "Estado Mascota " << r.getEstadoMascota() << endl;
             cout << "--------------------------" << endl;
 
             encontrado = true;
@@ -498,6 +499,7 @@ void MascotaArchivo::listarMascotasporIDraza(int idRaza){
             cout << "Sexo: " << r.getSexoAnimal() << endl;
             cout << "ID Mascota: " << r.getIdMascota() << endl;
             cout << "ID Raza: " << r.getIdRaza() << endl;
+            cout << "Estado Mascota: " << r.getEstadoMascota() << endl;
             cout << "--------------------------" << endl;
 
             encontrado = true;
@@ -538,6 +540,7 @@ void MascotaArchivo::listarMascotasporFechaNac(Fecha fechaMascota){
             cout << "Sexo: " << r.getSexoAnimal() << endl;
             cout << "ID Mascota: " << r.getIdMascota() << endl;
             cout << "ID Raza: " << r.getIdRaza() << endl;
+            cout << "Estado Mascota: " << r.getEstadoMascota() << endl;
             cout << "--------------------------" << endl;
 
             encontrado = true;
@@ -573,6 +576,7 @@ void MascotaArchivo::listarMascotasporSexo(char sexo){
             cout << "Sexo: " << r.getSexoAnimal() << endl;
             cout << "ID Mascota: " << r.getIdMascota() << endl;
             cout << "ID Raza: " << r.getIdRaza() << endl;
+            cout << "Estado Mascota: " <<r.getEstadoMascota() << endl;
             cout << "--------------------------" << endl;
 
             encontrado = true;
@@ -609,6 +613,7 @@ void MascotaArchivo::listarMascotasporEstado(bool estado){
             cout << "Sexo: " << r.getSexoAnimal() << endl;
             cout << "ID Mascota: " << r.getIdMascota() << endl;
             cout << "ID Raza: " << r.getIdRaza() << endl;
+            cout << "Estado: " << r.getEstadoMascota() << endl;
             cout << "--------------------------" << endl;
 
             encontrado = true;
@@ -647,6 +652,7 @@ void MascotaArchivo::listarMascotaporDueno(int dniDueno) {
             cout << "Sexo: " << r.getSexoAnimal() << endl;
             cout << "ID Mascota: " << r.getIdMascota() << endl;
             cout << "ID Raza: " << r.getIdRaza() << endl;
+            cout << "Estado: " <<r.getEstadoMascota() << endl;
             cout << "--------------------------" << endl;
 
             encontrado = true;
@@ -665,7 +671,7 @@ void MascotaArchivo::listarMascotaporDueno(int dniDueno) {
 
 
 
-/*------------------------------------------------------------------*/
+
 bool MascotaArchivo::eliminar(int pos) {
     Mascota reg;
 

@@ -65,9 +65,6 @@ void ManagerCliente::modificarCliente() {
 
 void ManagerCliente::bajaCliente() {
     ClientesArchivo arch;
-   /* int id;
-    cout << "ID de cliente a dar de baja: ";
-    cin >> id;*/
 
     int dni;
     cout << "DNI de cliente a dar de baja: " <<endl;

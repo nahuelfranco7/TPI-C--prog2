@@ -242,9 +242,8 @@ void ManagerMascota::altaMascota() {
     int dni;
     int posCliente = -1;
 
-    /// ============================
-    /// VALIDACIÓN DE DNI DEL CLIENTE
-    /// ============================
+  // VALIDACIÓN DE DNI DEL CLIENTE
+  // ============================
 
     bool seguir = true;
 
@@ -281,17 +280,15 @@ void ManagerMascota::altaMascota() {
         }
     }
 
-    /// ============================
-    /// CARGA DE DATOS DE LA MASCOTA
-    /// ============================
+  // CARGA DE DATOS DE LA MASCOTA
+  // ============================
 
     reg.setDniClienteDueno(dni);
 
     /// --- Nombre ---
     char nombre[20];
     cout << "Nombre mascota: ";
-    cin.ignore();
-    cin.getline(nombre, 20);
+    reg.cargarCadena(nombre,20);
     reg.setNombreMascota(nombre);
 
     /// --- Fecha de nacimiento ---
@@ -457,7 +454,7 @@ void ManagerMascota::modificarMascota() {
 
         // Listar mascotas
         cout << "\n--- MASCOTAS DEL CLIENTE ---\n";
-        arch.listarMascotaporDueno(dnicliente);
+        arch.listarMascotaporDueno(dnicliente);//no devuelve las inactivas
 
         cout << "\nIngrese ID de la mascota a modificar (0 para salir): ";
         int idmascota;
@@ -521,9 +518,11 @@ void ManagerMascota::reactivarMascota() {
             continue;
         }
 
-        //Listamos todas las mascotas del cliente
+        //Listamos todas las mascotas inactivas del cliente
         cout << "\n--- MASCOTAS DEL CLIENTE ---\n";
-        arch.listarMascotaporDueno(dnicliente);
+        bool estado=false;
+        arch.listarMascotasporEstado(estado);
+
 
         cout << "\nIngrese ID de la mascota a reactivar (0 para salir): ";
         int idMascota;
