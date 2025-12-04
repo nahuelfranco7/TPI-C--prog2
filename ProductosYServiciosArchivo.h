@@ -8,7 +8,7 @@ private:
 public:
     const char* getNombrearchivo();
 
-    int buscarporID(int id);
+    int buscarPorID(int id);
     int contarRegistros();
     int generarNuevoID();
     void cargarCadena(char *palabra, int tam);
@@ -18,6 +18,9 @@ public:
     bool modificarProducto(int pos, const ProductosYservicios &reg);
     bool modificarProducto(int pos);
     bool leerProducto (int pos, ProductosYservicios &reg);
-    int precio (int valor);
+
+    float precioProducto(int id);
     int modificarPrecio(int valor);
+
+    void listarProductos();
 };

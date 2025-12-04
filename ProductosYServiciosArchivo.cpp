@@ -8,7 +8,7 @@ const char* ProductosYServiciosArchivo::getNombrearchivo(){
 return _nombreArchivo;
 }
 
-int ProductosYServiciosArchivo::buscarporID(int id){
+int ProductosYServiciosArchivo::buscarPorID(int id){
     ProductosYservicios reg;
     int pos=0;
     FILE* p=fopen(_nombreArchivo,"rb");
@@ -64,10 +64,9 @@ bool ProductosYServiciosArchivo::cargarProducto(){
     char descripcionProd[50];
     float costo;
 
-
-    cout <<"INGRESE ID DE PRODUCTO: "<< endl;
-    cin >> id;
+    id=generarNuevoID();
     reg.setIdProducto(id);
+    cout <<"ID DEL PRODUCTO: "<<id<< endl;
 
     cout <<"INGRESE DESCRIPCION DEL PRODUCTO: "<< endl;
     cargarCadena(descripcionProd,50);
@@ -175,4 +174,37 @@ bool ProductosYServiciosArchivo::leerProducto(int pos, ProductosYservicios &reg)
     fclose(p);
 
     return ok;
+}
+
+void ProductosYServiciosArchivo::listarProductos(){
+    ProductosYservicios reg;
+    int pos = 0;
+
+    while (leerProducto(pos, reg)) {
+
+        if (reg.getEstadoProducto()) {   //Solo los activos
+            cout << "ID: " << reg.getIdProducto() << endl;
+            cout << "Descripcion: " << reg.getDescripcion() << endl;
+            cout << "Costo: $" << reg.getCostoProdServ() << endl;
+            cout << "-----------------------------" << endl;
+            cout << "-----------------------------" << endl;
+        }
+
+        pos++;
+    }
+
+}
+
+float ProductosYServiciosArchivo::precioProducto(int id){
+    ProductosYservicios reg;
+
+    int pos = buscarPorID(id);
+
+    if(pos==-1){return -1;}
+
+    bool leyo = leerProducto(pos,reg);
+
+    if (leyo==false){return -1;}
+
+    return reg.getCostoProdServ();
 }

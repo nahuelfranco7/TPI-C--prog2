@@ -2,6 +2,7 @@
 # include<cstdlib>
 # include<cstring>
 # include "DetalleFacturaArchivo.h"
+# include "ProductosYserviciosArchivo.h"
 
 using namespace std;
 
@@ -70,32 +71,43 @@ bool DetalleFacturaArchivo::cargarDetalle(const DetalleFactura &reg){
     return ok;
 }
 /*----------------------------------------------------------*/
-bool DetalleFacturaArchivo::cargarDetalle(){
+float DetalleFacturaArchivo::cargarDetalle(int idFactura){
      DetalleFactura reg;
+     ProductosYServiciosArchivo archivoProductos;
 
-    int idDetalle = generarNuevoID();
-    int idProducto, idFactura, cantidad;
+
+    int idProducto, cantidad;
     float precioUnitario;
 
     cout << "=== CARGA DE DETALLE DE FACTURA ===" << endl;
+    int idDetalle = generarNuevoID();
     reg.setIdDetalle(idDetalle);
     cout << "ID DETALLE ASIGNADO AUTOMATICAMENTE: " << idDetalle << endl;
 
-    cout << "INGRESE ID DEL PRODUCTO: ";
+    cout << "ID DE FACTURA: "<< idFactura<< endl;
+    reg.setIdFactura(idFactura);
+
+    cout << "CARGA DE PRODUCTOS: "<< endl;
+    archivoProductos.listarProductos();
+
+    cout<< "SELECCIONE EL ID" << endl;
     cin >> idProducto;
     reg.setIdProducto(idProducto);
 
-    cout << "INGRESE ID DE FACTURA: ";
-    cin >> idFactura;
-    reg.setIdFactura(idFactura);
+
+    precioUnitario=archivoProductos.precioProducto(idProducto);
+    cout << "PRECIO UNITARIO: "<<precioUnitario<<endl;
+    reg.setPrecioUnitario(precioUnitario);
 
     cout << "INGRESE CANTIDAD: ";
     cin >> cantidad;
     reg.setCantidad(cantidad);
 
-    cout << "INGRESE PRECIO UNITARIO: ";
+    cout << "PRECIO UNITARIO: ";
     cin >> precioUnitario;
     reg.setPrecioUnitario(precioUnitario);
+    cout << "SUBTOTAL: "<<precioUnitario*cantidad<<endl;
+    reg.setEstado(true);
 
     if (cargarDetalle(reg)) {
         cout << "DETALLE GUARDADO EXITOSAMENTE." << endl;

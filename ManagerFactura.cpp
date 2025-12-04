@@ -3,6 +3,7 @@
 # include<cstring>
 #include "ClientesArchivo.h"
 #include "ManagerFactura.h"
+
 using namespace std;
 
 void ManagerFactura::altaFactura() {
@@ -10,7 +11,7 @@ void ManagerFactura::altaFactura() {
     Factura reg;
 
     reg.setIdFactura( arch.contarRegistros() + 1 );
-    reg.cargar();
+    reg.cargar();//aca voy a llamar a la nueva función
 
     if (arch.cargarFactura(reg))
         cout << "Factura guardada.\n";
@@ -167,5 +168,60 @@ void ManagerFactura::menuListadoFacturas() {
         }
 
     } while(opc != 0);
+
+}
+
+void ManagerFactura::cargarFacturaMGR(){//función nueva
+    Factura factura;
+    FacturaArchivo archivoFactura;
+    DetalleFacturaArchivo detalle;
+    Fecha fecha;
+    int idCliente, idUsuario,idFactura;
+    float importe;
+
+    //id automático del registro factura
+    idFactura=archivoFactura.generarNuevoID();
+    factura.setIdFactura(idFactura);
+
+    cout<<"INGRESE ID CLIENTE: ";
+    //pido dni y seteo id cliente
+    cin>>idCliente;
+    factura.setIdCliente(idCliente);
+
+    cout<<"INGRESE ID USUARIO: ";
+    //pido dni y seteo id usuario
+    cin>>idUsuario;
+    factura.setIdUsuario(idUsuario);
+
+    cout<<"FECHA DE LA FACTURA:"<<endl;
+    fecha.cargar();
+    factura.setFechaFactura(fecha);
+
+    cout << "DETALLES DE FACTURA" << endl;
+    int opcion;
+    do {
+    importe += detalle.cargarDetalle(idFactura);//acumulamos
+
+    cout << "Desea cargar más detalles? (1=SI / 0=NO): ";
+    cin >> opcion;
+
+    while(opcion != '0' && opcion != '1'){
+        cout << "Opcion invalida. Ingresar 1 o 0: ";
+        cin >> opcion;
+    }
+
+    } while(opcion == '1');
+
+    cout << "IMPORTE TOTAL: $" << importe << endl;
+factura.setImporteTotalFactura(importe);
+
+    factura.setEstadoFactura(true);
+
+    if (archivoFactura.cargarFactura(factura)){
+        cout<<"FACTURA GUARDADA.\n";
+
+    }
+    cout<<"ERROR AL GUARDAR FACTURA.\n";
+
 
 }

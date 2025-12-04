@@ -17,7 +17,7 @@ public:
     int contarRegistros();
     int generarNuevoID();
 
-    bool cargarDetalle();
+    float cargarDetalle(int idFactura);
     bool cargarDetalle(const DetalleFactura &reg);
     bool modificarDetalleArchivo(int pos,const DetalleFactura &reg);
     bool leerDetalle(int pos, DetalleFactura &reg);

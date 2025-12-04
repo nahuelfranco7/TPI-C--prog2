@@ -14,7 +14,9 @@ int DetalleFactura::getIdFactura(){return _idFactura;}
 int DetalleFactura::getCantidad(){return _cantidad;}
 float DetalleFactura::getPrecioUnitario(){return _precioUnitario;}
 bool DetalleFactura::getEstado(){return _estado;}
+
 //setters
+
 void DetalleFactura::setIdDetalle(int id){
 _idDetalle=id;
 }

@@ -52,6 +52,8 @@ bool FacturaArchivo::cargarFactura() {
     fecha.cargar();
     reg.setFechaFactura(fecha);
 
+    cout<<"DESDEA CARGAR LOS DETALLES DE FACTURA?";
+
     cout<<"IMPORTE TOTAL: ";
     cin>>importe;
     reg.setImporteTotalFactura(importe);
