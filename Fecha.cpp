@@ -38,6 +38,23 @@ void Fecha::cargar() {
     setAnio(a);
 }
 
+void Fecha::cargarPreCarga(int dia,int mes,int anio) {
+    int d, m, a;
+
+    d = dia;
+    m = mes;
+    a = anio;
+
+   //validaciones corregir luego
+    if (d < 1 || d > 31) d = -1;
+    if (m < 1 || m > 12) m = -1;
+    if (a < 1999 || a >= 2026) a = -1;
+
+    setDia(d);
+    setMes(m);
+    setAnio(a);
+}
+
 void Fecha::mostrar() const {
     cout << _dia << "/" << _mes << "/" << _anio;
 }

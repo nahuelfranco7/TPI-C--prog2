@@ -14,6 +14,7 @@ public:
     void setMes(int mes);
     void setAnio(int anio);
     void cargar();
+    void cargarPreCarga(int d,int m,int a);
     void mostrar() const;
     bool esBisiesto(int anio);
 

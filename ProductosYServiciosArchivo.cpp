@@ -49,6 +49,46 @@ void ProductosYServiciosArchivo::cargarCadena(char *palabra, int tam){
     fflush(stdin);
 }
 /*----------------------------------------------------*/
+void ProductosYServiciosArchivo::menuProductosyServicios(){
+    ProductosYServiciosArchivo arch;
+    ProductosYservicios p;
+
+    int opc;
+
+    do{
+    system ("cls");
+    cout << "MENU PRODUCTOS Y SERVICIOS \n";
+    cout << "1. Cargar productos \n";
+    cout << "2. Modificar productos \n";
+    cout << "3. Listar productos \n";
+    cout << "4. Modificar precio \n";
+    cout << "0. Volver \n";
+    cout << "Opcion: \n";
+    cin >> opc;
+
+    switch (opc) {
+    case 1:
+        cargarProducto();
+        break;
+    case 2:
+        int idproducto;
+        cout << "Ingrese id producto: \n";
+        cin >> idproducto;
+        modificarProducto(idproducto);
+        break;
+    case 3:
+        listarProductos();
+        break;
+    case 4:
+        int idproductom;
+        cout << "Ingrese id de producto a modificar: \n";
+        cin >> idproductom;
+        modificarProducto(idproductom);
+        break;
+    }
+        } while (opc != 0);
+
+}
 
 bool ProductosYServiciosArchivo::cargarProducto(const ProductosYservicios &reg) {
     FILE *p = fopen(_nombreArchivo, "ab");
@@ -80,9 +120,11 @@ bool ProductosYServiciosArchivo::cargarProducto(){
 
     if (cargarProducto(reg)){
         cout <<"PRODUCTO CARGADO CORRECTAMENTE. "<<endl;
+        system ("pause");
         return true;
         } else
         cout <<"ERROR AL CARGAR EL PRODUCTO. "<<endl;
+        system("pause");
         return false;
 
     cout<<"------------------------------------------"<<endl;
@@ -193,6 +235,7 @@ void ProductosYServiciosArchivo::listarProductos(){
         pos++;
     }
 
+    system ("pause");
 }
 
 float ProductosYServiciosArchivo::precioProducto(int id){

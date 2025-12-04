@@ -3,23 +3,80 @@
 # include<cstring>
 #include "ClientesArchivo.h"
 #include "ManagerFactura.h"
+#include "UsuarioArchivo.h"
 
 using namespace std;
 
 void ManagerFactura::altaFactura() {
     FacturaArchivo arch;
     Factura reg;
+    ManagerFactura mgr;
 
     reg.setIdFactura( arch.contarRegistros() + 1 );
-    reg.cargar();//aca voy a llamar a la nueva función
+    // reg.cargar() //aca voy a llamar a la nueva función
+    mgr.cargarFacturaMGR();
 
-    if (arch.cargarFactura(reg))
+    /*if (arch.cargarFactura(mgr))
         cout << "Factura guardada.\n";
     else
-        cout << "ERROR al guardar.\n";
+        cout << "ERROR al guardar.\n"; */
 
     system("pause");
 }
+void ManagerFactura::recaudacionPorMes(){
+    FacturaArchivo arch;
+
+    Fecha fechaMesRec;
+    int dia = 1, mes, anio;
+
+    cout << "Recaudacion del mes" << endl;
+    cout << "Ingrese mes" << endl;
+    cin >> mes;
+    fechaMesRec.setMes(mes);
+    cout << "Ingrese anio" << endl;
+    cin >> anio;
+    fechaMesRec.setAnio(anio);
+    if(fechaMesRec.fechaValida(dia,mes,anio)){
+    arch.recaudacionPorMes(fechaMesRec);}
+    else {
+        cout << "Ingrese una fecha valida.." << endl;
+        system("pause");
+        return;
+    }
+}
+
+void ManagerFactura::recaudacionPorVet(){
+    FacturaArchivo arch;
+    int idvet;
+    cout << "Ingrese id del veterinario: " << endl;
+    cin >> idvet;
+    arch.recaudacionPorVet(idvet);
+}
+
+void ManagerFactura::recaudacionPorDia(){
+    FacturaArchivo arch;
+    Fecha fechaRec;
+
+    int dia, mes, anio;
+    cout << "Ingrese fecha de recaudacion" << endl;
+    cout << "Ingrese dia: " << endl;
+    cin >> dia;
+    fechaRec.setDia(dia);
+    cout << "Ingrese mes: " << endl;
+    cin >> mes;
+    fechaRec.setMes(mes);
+    cout << "Ingrese anio: " << endl;
+    cin >> anio;
+    fechaRec.setAnio(anio);
+    if(fechaRec.fechaValida(dia,mes,anio)){
+    arch.recaudacionPorDia(fechaRec);}
+    else {
+    cout << "Ingrese una fecha valida.. " << endl;
+    system("pause");
+    return;
+    }
+}
+
 
 void ManagerFactura::listarFacturas() {
     FacturaArchivo arch;
@@ -175,45 +232,74 @@ void ManagerFactura::cargarFacturaMGR(){//función nueva
     Factura factura;
     FacturaArchivo archivoFactura;
     DetalleFacturaArchivo detalle;
+    UsuarioArchivo u;
+    ClientesArchivo c;
+
     Fecha fecha;
-    int idCliente, idUsuario,idFactura;
+    int idCliente, idUsuario,idFactura, dniCliente, dniUsuario;
     float importe;
 
     //id automático del registro factura
     idFactura=archivoFactura.generarNuevoID();
     factura.setIdFactura(idFactura);
 
-    cout<<"INGRESE ID CLIENTE: ";
+    cout<<"INGRESE DNI CLIENTE: ";
     //pido dni y seteo id cliente
-    cin>>idCliente;
-    factura.setIdCliente(idCliente);
+    cin>>dniCliente;
+    if(c.buscarporDNI(dniCliente) >= 0 ){
+    factura.setIdCliente(idCliente);}
+    else {
+        cout << "EL CLIENTE NO EXISTE .. \n";
+        system("pause");
+        return;
+    }
 
-    cout<<"INGRESE ID USUARIO: ";
+    cout<<"INGRESE DNI USUARIO: ";
     //pido dni y seteo id usuario
-    cin>>idUsuario;
-    factura.setIdUsuario(idUsuario);
+    cin>>dniUsuario;
+    if (u.buscarporDNI(dniUsuario) >= 0 ){
+    factura.setIdUsuario(idUsuario);}
+    else {
+        cout << "EL USUARIO NO EXISTE \n";
+        system("pause");
+        return;
+    }
 
+    int d,m,a;
     cout<<"FECHA DE LA FACTURA:"<<endl;
-    fecha.cargar();
-    factura.setFechaFactura(fecha);
+    cout << "DIA: \n";
+    cin >> d;
+    cout << "MES: \n";
+    cin >> m;
+    cout << "ANIO: \n";
+    cin >> a;
+    if (fecha.fechaValida(d,m,a)){
+    fecha.cargarPreCarga(d,m,a);
+    factura.setFechaFactura(fecha);}
+    else {
+        cout << "INGRESE UNA FECHA VALIDA \n";
+        system("pause");
+        return;
+    }
+
 
     cout << "DETALLES DE FACTURA" << endl;
     int opcion;
     do {
     importe += detalle.cargarDetalle(idFactura);//acumulamos
 
-    cout << "Desea cargar más detalles? (1=SI / 0=NO): ";
+    cout << "Desea cargar mas detalles? (1=SI / 0=NO): ";
     cin >> opcion;
 
-    while(opcion != '0' && opcion != '1'){
+    while(opcion != 0 && opcion != 1){
         cout << "Opcion invalida. Ingresar 1 o 0: ";
         cin >> opcion;
     }
 
-    } while(opcion == '1');
+    } while(opcion == 1);
 
     cout << "IMPORTE TOTAL: $" << importe << endl;
-factura.setImporteTotalFactura(importe);
+    factura.setImporteTotalFactura(importe);
 
     factura.setEstadoFactura(true);
 

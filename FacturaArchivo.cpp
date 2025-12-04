@@ -140,6 +140,99 @@ int FacturaArchivo::contarRegistros(){
 int FacturaArchivo::generarNuevoID() {
     return contarRegistros()+1;
 }
+//                        INFORMES
+
+void FacturaArchivo::recaudacionPorMes(Fecha fechaMesRec){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO FACTURAS\n";
+        return;
+}
+    Factura reg;
+    bool encontro = false;
+    float recaudacionMes = 0;
+
+    while (fread(&reg, sizeof(Factura), 1, p) == 1) {
+        if (reg.getFechaFactura().getMes() == fechaMesRec.getMes() &&
+            reg.getFechaFactura().getAnio() == fechaMesRec.getAnio()) {
+            recaudacionMes+=reg.getImporteTotalFactura();
+            encontro = true;
+        }
+    }
+    if (encontro){
+        cout << "La recaudacion total del mes " << fechaMesRec.getMes() << " del anio: " << fechaMesRec.getAnio() <<" es: " << endl;
+        cout << "---------------------------" << endl;
+        cout << "$" << recaudacionMes << endl;
+    }
+    if (!encontro){
+        cout << "No hubo recaudacion ese mes." << endl;
+    }
+
+    fclose(p);
+    system("pause");
+}
+
+
+void FacturaArchivo::recaudacionPorVet(int idvet){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO FACTURAS\n";
+        return;
+}
+    Factura reg;
+    bool encontro = false;
+    float recaudacionVet = 0;
+
+    while (fread(&reg, sizeof(Factura), 1, p) == 1) {
+        if (reg.getIdUsuario() == idvet) {
+            recaudacionVet+=reg.getImporteTotalFactura();
+            encontro = true;
+        }
+    }
+    if (encontro){
+        cout << "La recaudacion total del veterinario es: " << endl;
+        cout << "-----------------------------------" << endl;
+        cout << "$" << recaudacionVet << endl;
+    }
+    if (!encontro){
+        cout << "No existe recaudacion con ese veterinario o no existe el veterinario" << endl;
+    }
+
+    fclose(p);
+    system("pause");
+}
+
+void FacturaArchivo::recaudacionPorDia(Fecha fechaRec){
+    FILE *p = fopen(_nombreArchivo, "rb");
+    if (p == nullptr) {
+        cout << "NO PUDO ABRIR EL ARCHIVO FACTURAS\n";
+        return;
+}
+    Factura reg;
+    bool encontro = false;
+    float recaudacionDia = 0;
+
+    while (fread(&reg, sizeof(Factura), 1, p) == 1) {
+        if (reg.getFechaFactura().getDia() == fechaRec.getDia() &&
+            reg.getFechaFactura().getMes() == fechaRec.getMes() &&
+            reg.getFechaFactura().getAnio() == fechaRec.getAnio()
+            ) {
+            recaudacionDia+=reg.getImporteTotalFactura();
+            encontro = true;
+        }
+    }
+    if (encontro){
+        cout << "La recaudacion total del dia " << fechaRec.getDia() << "/" << fechaRec.getMes() << "/" << fechaRec.getAnio() << " es: " << endl;
+        cout << "---------------------------" << endl;
+        cout << "$" << recaudacionDia << endl;
+    }
+    if (!encontro){
+        cout << "No hubo recaudacion ese dia" << endl;
+    }
+
+    fclose(p);
+    system("pause");
+}
 
 //                        LISTAR TODAS
 

@@ -12,4 +12,5 @@ public:
     void listarTurnos();
     void menuListadoTurnos();
     void listarTurnosPorDNICliente(int dni);
+    void cantidadTurnosMes();
 };

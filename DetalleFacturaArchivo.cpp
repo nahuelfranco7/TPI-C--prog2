@@ -103,9 +103,10 @@ float DetalleFacturaArchivo::cargarDetalle(int idFactura){
     cin >> cantidad;
     reg.setCantidad(cantidad);
 
-    cout << "PRECIO UNITARIO: ";
+/*   cout << "PRECIO UNITARIO: ";
     cin >> precioUnitario;
     reg.setPrecioUnitario(precioUnitario);
+*/
     cout << "SUBTOTAL: "<<precioUnitario*cantidad<<endl;
     reg.setEstado(true);
 

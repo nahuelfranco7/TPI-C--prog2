@@ -13,7 +13,9 @@ private:
     void menuVeterinarios();
     void menuTurnos();
     void menuFacturas();
+    void menuProductosyServicios();
     void menuListados();
+    void menuInformes();
     void menuReactivaciones();
 
     // --- Gestión de Usuarios ---
@@ -61,5 +63,11 @@ private:
     void menuListadoVeterinarios();
     void menuListadoFacturas();
     void menuListadoTurnos();
+
+    // --- Informes ---
+    void recaudacionPorDia();
+    void recaudacionPorVet();
+    void recaudacionPorMes();
+    void cantidadTurnosMes();
 
 };

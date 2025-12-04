@@ -23,4 +23,6 @@ public:
     int modificarPrecio(int valor);
 
     void listarProductos();
+
+    void menuProductosyServicios();
 };

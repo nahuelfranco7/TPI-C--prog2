@@ -237,4 +237,26 @@ void ManagerTurno::listarTurnosPorDNICliente(int dni) {
     system("pause");
 }
 
+// INFORME
+
+void ManagerTurno::cantidadTurnosMes(){
+    cout << "Informe: Cantidad de turnos en el mes elegido\n";
+    int mes, anio;
+    cout << "Mes (1-12): ";
+    cin >> mes;
+    cout << "Anio (YYYY): ";
+    cin >> anio;
+
+    TurnoArchivo archT; Turno t;
+    int total = archT.contarRegistros();
+    int contador = 0;
+    for (int i=0;i<total;i++) {
+        if (!archT.leerTurno(i,t)) continue;
+        Fecha f = t.getFechaTurno();
+        if (f.getMes() == mes && f.getAnio() == anio) contador++;
+    }
+
+    cout << "Total de turnos en " << mes << "/" << anio << ": " << contador << "\n";
+    system("pause");
+}
 

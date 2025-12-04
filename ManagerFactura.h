@@ -9,6 +9,12 @@ public:
     void listarFacturas();
     void menuListadoFacturas();
     void cargarFacturaMGR();
+
+        //INFORMES
+    void recaudacionPorVet();
+    void recaudacionPorDia();
+    void recaudacionPorMes();
+
     // void modificarFactura();
     // void anularFactura();
     // void listarPorID();

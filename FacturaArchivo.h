@@ -42,4 +42,10 @@ public:
     bool fechaEsMayorIgual(Fecha a, Fecha b);
     bool fechaEsMenorIgual(Fecha a, Fecha b);
     Fecha sumarDias(Fecha f, int dias);
+
+    //informes
+
+    void recaudacionPorVet(int idvet);
+    void recaudacionPorDia(Fecha fechaRec);
+    void recaudacionPorMes(Fecha fechaMesRec);
 };
